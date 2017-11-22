@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mount : MonoBehaviour
+public class Station : MonoBehaviour
 {
     public bool occupied = false;
     public Controllable controllable { get { return controllable_; } }

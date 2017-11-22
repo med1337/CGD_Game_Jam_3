@@ -10,6 +10,7 @@ public class BoatControl : Controllable
     [SerializeField] float deceleration;
     [SerializeField] float steer_speed;
     [SerializeField] float max_steer_speed;
+    [SerializeField] List<Station> stations = new List<Station>();
 
     private float acc;
 
@@ -20,7 +21,13 @@ public class BoatControl : Controllable
     }
 
 
-    public override void OnInteract()
+    public override void OnControlStart(PlayerControl _player)
+    {
+        
+    }
+
+
+    public override void OnControlEnd()
     {
 
     }
@@ -61,6 +68,8 @@ public class BoatControl : Controllable
         Vector3 move = transform.forward * acc * Time.deltaTime;
         move = Vector3.ClampMagnitude(move, max_speed);
         transform.position += move;
+
+        move_dir = Vector3.zero;
     }
 
 }

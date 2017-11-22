@@ -29,10 +29,6 @@ public class WaterControl : MonoBehaviour
         {
             return WaveTypes.SinXWave(position, speed, scale, waveDistance, noiseStrength, noiseWalk, timeSinceStart);
         }
-        else
-        {
-            return 0.0f;
-        }
 
         return 0.0f;
     }
