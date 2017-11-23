@@ -16,4 +16,22 @@ public class Pickup : MonoBehaviour
     {
         return in_use;
     }
+
+
+    void OnTriggerStay(Collider _other)
+    {
+        if (_other.CompareTag("Deck"))
+        {
+            transform.SetParent(_other.transform);
+        }
+    }
+
+
+    void OnTriggerExit(Collider _other)
+    {
+        if (_other.CompareTag("Deck"))
+        {
+            transform.SetParent(null);
+        }
+    }
 }

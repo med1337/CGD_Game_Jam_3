@@ -26,6 +26,9 @@ public class PlayerControl : Controllable
     private Pickup current_pickup;
     private Pickup nearest_pickup;
 
+    public Transform carry_position;
+    public Transform drop_position;
+
 
     public bool IsUsingStation()
     {
@@ -168,10 +171,43 @@ public class PlayerControl : Controllable
         else if(!IsLifting() && nearest_pickup != null)
         {
             // Carry thing.
+            nearest_pickup.transform.position = carry_position.position;
+            nearest_pickup.transform.rotation = carry_position.rotation;
+
+            // Disable Components.
+            nearest_pickup.GetComponent<Rigidbody>().isKinematic = true;
+            nearest_pickup.GetComponent<Collider>().enabled = false;
+
+            // Set player as parent of Pickup.
+            nearest_pickup.gameObject.GetComponent<Transform>().parent = (this.transform);
+            current_pickup = nearest_pickup;
+            nearest_pickup = null;
         }
         else if (IsLifting())
         {
             // Throw/drop.
+            current_pickup.transform.position = drop_position.position;
+            current_pickup.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+            // Enable disabled components.
+            current_pickup.GetComponent<Rigidbody>().isKinematic = false;
+            current_pickup.GetComponent<Collider>().enabled = true;
+
+            
+            // If the player is currently parented to a boat ect
+            if (GetComponentInParent<Transform>().parent != null)
+            {
+                // Set pickup's parent to that of the player...
+                current_pickup.gameObject.GetComponent<Transform>().parent
+                    = GetComponentInParent<Transform>().parent;
+            }
+            else
+            {
+                // else remove the parentof the pickup
+                current_pickup.gameObject.GetComponent<Transform>().parent = null;
+            }
+
+            current_pickup = null;
         }
     }
 
