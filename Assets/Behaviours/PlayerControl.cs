@@ -146,8 +146,6 @@ public class PlayerControl : Controllable
         
     void Interact()
     {
-        Debug.Log("Interact");
-
         if (!IsUsingStation() && nearest_station != null)
         {
             // Occupy station.

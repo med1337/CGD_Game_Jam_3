@@ -13,6 +13,9 @@ public class TurretControl : Controllable
     [SerializeField] float shot_spread;
     [SerializeField] GameObject shot_prefab;
 
+    [Space]
+    [SerializeField] GameObject particle_prefab;
+
     [Header("References")]
     [SerializeField] GameObject turret;
     [SerializeField] GameObject reticle;
@@ -43,7 +46,28 @@ public class TurretControl : Controllable
 
     public override void Activate()
     {
-        Debug.Log("Turret Activate");
+        if (Time.time >= last_shot_timestamp + shot_delay)
+        {
+            last_shot_timestamp = Time.time;
+            Shoot();
+        }
+    }
+
+
+    void Shoot()
+    {
+        Vector3 shot_forward = shoot_point.forward;
+        Vector3 variance = new Vector3(
+            Random.Range(-shot_spread, shot_spread),
+            Random.Range(-shot_spread, shot_spread),
+            Random.Range(-shot_spread, shot_spread));
+        shot_forward += variance;
+
+        GameObject shot_clone = Instantiate(shot_prefab, shoot_point.position,
+            Quaternion.LookRotation(shot_forward));
+
+        GameObject particle_clone = Instantiate(particle_prefab, shoot_point.position,
+            Quaternion.LookRotation(shot_forward));
     }
 
 
