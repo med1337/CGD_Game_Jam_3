@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerControl : Controllable
 {
+    public Player input;
+
     [Header("Parameters")]
     [SerializeField] float move_speed;
     [SerializeField] Vector3 mount_scan_offset;
     [SerializeField] float mount_scan_radius;
     [SerializeField] float mount_scan_delay;
 
-    [SerializeField] LayerMask mount_layer;
+    [SerializeField] LayerMask station_layer;
     [SerializeField] LayerMask pickup_layer;
 
     [Header("References")]
@@ -30,7 +33,7 @@ public class PlayerControl : Controllable
     }
 
 
-    public bool isLifting()
+    public bool IsLifting()
     {
         return current_pickup != null;
     }
@@ -48,39 +51,6 @@ public class PlayerControl : Controllable
         }
     }
 
-    
-    public void UseStation()
-    {
-        if (!IsUsingStation() && nearest_station != null)
-        {
-            // Occupy station.
-            current_station = nearest_station;
-            current_station.controllable.OnControlStart(this);
-
-            transform.position = current_station.transform.position;
-            rigid_body.isKinematic = true;
-
-            current_station.occupied = true;
-            nearest_station = null;
-        }
-        else if (IsUsingStation())
-        {
-            // Leave station.
-            current_station.controllable.OnControlEnd();
-            current_station.occupied = false;
-            current_station = null;
-            rigid_body.isKinematic = false;
-        }
-        else if(!isLifting() && nearest_pickup != null)
-        {
-            // Carry thing.
-        }
-        else if (isLifting())
-        {
-            // Throw/drop.
-        }
-    }
-
 
     void Start()
     {
@@ -90,15 +60,36 @@ public class PlayerControl : Controllable
 
     void Update()
     {
-        if (!IsUsingStation() && Time.time >= last_scan_timestamp + mount_scan_delay)
-        {
-            last_scan_timestamp = Time.time;
+        float horizontal = input.GetAxis("Horizontal");
+        float vertical = input.GetAxis("Vertical");
 
-            if (!isLifting())
+        if (input.GetButtonDown("Interact"))
+            Interact();
+
+        if (!IsUsingStation())
+        {
+            Move(new Vector3(horizontal, 0, vertical));
+
+            if (input.GetButtonDown("Attack"))
+                Attack();
+
+            if (Time.time >= last_scan_timestamp + mount_scan_delay)
             {
-                MountScan();
-                PickUpScan();
+                last_scan_timestamp = Time.time;
+
+                if (!IsLifting())
+                {
+                    MountScan();
+                    PickUpScan();
+                }
             }
+        }
+        else // Stuff to do with controlling a station ..
+        {
+            current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
+
+            if (input.GetButton("Attack"))
+                current_station.controllable.Activate();
         }
     }
 
@@ -117,7 +108,7 @@ public class PlayerControl : Controllable
 
     void MountScan()
     {
-        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius, mount_layer);
+        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius, station_layer);
         foreach (var collider in colliders)
         {
             var mount = collider.GetComponent<Station>();
@@ -147,6 +138,47 @@ public class PlayerControl : Controllable
         }
 
         nearest_pickup = null;
+    }
+
+        
+    void Interact()
+    {
+        Debug.Log("Interact");
+
+        if (!IsUsingStation() && nearest_station != null)
+        {
+            // Occupy station.
+            current_station = nearest_station;
+            current_station.controllable.OnControlStart(this);
+
+            transform.position = current_station.transform.position;
+            rigid_body.isKinematic = true;
+
+            current_station.occupied = true;
+            nearest_station = null;
+        }
+        else if (IsUsingStation())
+        {
+            // Leave station.
+            current_station.controllable.OnControlEnd();
+            current_station.occupied = false;
+            current_station = null;
+            rigid_body.isKinematic = false;
+        }
+        else if(!IsLifting() && nearest_pickup != null)
+        {
+            // Carry thing.
+        }
+        else if (IsLifting())
+        {
+            // Throw/drop.
+        }
+    }
+
+
+    void Attack()
+    {
+        // Player's personal attack.
     }
 
 

@@ -19,16 +19,10 @@ public class ConnectedPlayer
     public PlayerControl character;
     public Color color;
 
-    private float horizontal;
-    private float vertical;
-
 
     public void Update()
     {
         HandleDropIn();
-
-        if (character != null)
-            ControlCharacter();
     }
 
 
@@ -45,24 +39,6 @@ public class ConnectedPlayer
                 state = PlayerState.LEAVING;
             }
         }
-    }
-
-
-    void ControlCharacter()
-    {
-        horizontal = input.GetAxis("Horizontal");
-        vertical = input.GetAxis("Vertical");
-
-        character.Move(new Vector3(horizontal, 0, vertical));
-
-        CharacterControl();
-    }
-
-
-    void CharacterControl()
-    {
-        if (input.GetButtonDown("Interact"))
-            character.UseStation();
     }
 
 }
