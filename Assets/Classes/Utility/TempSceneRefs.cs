@@ -4,19 +4,19 @@ using UnityEngine;
 
 public struct TempSceneRefs
 {
-    /* Uncomment this and replace names / types when there's actually something to store ..
-    public CameraManager camera_manager
+    public RespawnManager respawn_manager
     {
         get
         {
-            if (camera_manager_ == null)
-                camera_manager_ = GameObject.FindObjectOfType<CameraManager>();
+            if (respawn_manager_ == null)
+                respawn_manager_ = GameObject.FindObjectOfType<RespawnManager>();
 
-            return camera_manager_;
+            return respawn_manager_;
         }
     }
 
 
-    private CameraManager camera_manager_;
-    */
+    private RespawnManager respawn_manager_;
+
+
 }

@@ -78,9 +78,9 @@ Material:
     - _ShoreDistance: 0.5
     - _ShoreIntensity: 1
     - _Specular: 44
-    - _Speed: 0.5
-    - _Speed_: 1
-    - _Steepness: 0.2
+    - _Speed: 0.23
+    - _Speed_: 0.46
+    - _Steepness: 0.012
     - _Stretch: 10
     - _TexSize_: 128
     - _Time_: 323.62787
@@ -90,7 +90,7 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 1, b: 0.751724, a: 1}
     - _DeepColor: {r: 0.13802983, g: 0.6758701, b: 0.8161765, a: 1}
-    - _Direction_: {r: -1, g: -0.00000008742278, b: -1.2, a: -0.000000104907336}
+    - _Direction_: {r: -1, g: -0.00000008742278, b: -0.072, a: -0.0000000062944396}
     - _FresColor: {r: 0.525519, g: 0.72743106, b: 0.7941176, a: 1}
     - _ShoreColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.5955882, g: 0.57104737, b: 0.35472533, a: 1}
