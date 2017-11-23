@@ -46,7 +46,7 @@ public class PlayerControl : Controllable
             current_station.controllable.OnControlStart(this);
 
             transform.position = current_station.transform.position;
-            rigid_body.isKinematic = true;
+            //rigid_body.isKinematic = true;
 
             current_station.occupied = true;
             nearest_station = null;
@@ -63,7 +63,7 @@ public class PlayerControl : Controllable
 
     void Start()
     {
-
+        transform.position = new Vector3(0, 1);
     }
 
 

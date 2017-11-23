@@ -124,7 +124,6 @@ public class PlayerManager : MonoBehaviour
     {
         ConnectedPlayer connected_player = player_dictionary[_player_id];
         connected_player.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-
         connected_player.state = PlayerState.PLAYING;
         ++active_player_count;
     }
