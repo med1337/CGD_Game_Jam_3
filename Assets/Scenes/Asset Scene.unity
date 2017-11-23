@@ -109,6 +109,61 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: 2666652b29b66e448852ed653017a3ce, type: 2}
+--- !u!1001 &16652670
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 27.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -198.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &23061057
 Prefab:
   m_ObjectHideFlags: 0
@@ -146,10 +201,389 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4189867963024022, guid: 1252fccf7159f8e46915a5d7a0e851e4, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1252fccf7159f8e46915a5d7a0e851e4, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &57297472 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1543916530}
+--- !u!114 &57297473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57297472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 57297475}
+  nav_mesh_agent: {fileID: 57297474}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &57297474
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57297472}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &57297475 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1543916530}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &122529571
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -100.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &137529987
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -56.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &152261913 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 172497011}
+--- !u!114 &152261914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152261913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 152261916}
+  nav_mesh_agent: {fileID: 152261915}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &152261915
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152261913}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &152261916 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 172497011}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &172497011
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 36.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &225987415
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -125.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -225.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &234983965
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &254489307
 GameObject:
@@ -209,7 +643,7 @@ MeshCollider:
   m_GameObject: {fileID: 254489307}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
@@ -233,53 +667,276 @@ Transform:
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &349982662
+--- !u!1 &257570085 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 861277108}
+--- !u!114 &257570086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257570085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 257570088}
+  nav_mesh_agent: {fileID: 257570087}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &257570087
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257570085}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &257570088 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 861277108}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &300640618
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.0069616744
+      value: -56.3
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.8792861
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.5884242
+      value: 60.6
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4214481278491684, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1086111348332152, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_Name
-      value: AI Captain
+      value: Pirate Boat (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 8e82625b93c6fda43af4aa8495475100, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &305858448 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 328513351}
+--- !u!114 &305858449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 305858448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 305858451}
+  nav_mesh_agent: {fileID: 305858450}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &305858450
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 305858448}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &305858451 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 328513351}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &328513351
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 26.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &368957425
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -70.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -29.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &420479763
 Prefab:
@@ -290,7 +947,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 17.68
+      value: 45.1
       objectReference: {fileID: 0}
     - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalPosition.y
@@ -298,7 +955,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -22.7
       objectReference: {fileID: 0}
     - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_LocalRotation.x
@@ -318,7 +975,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
         type: 2}
@@ -336,6 +993,58 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &454940507 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 661899935}
+--- !u!114 &454940508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454940507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 454940510}
+  nav_mesh_agent: {fileID: 454940509}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &454940509
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454940507}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &454940510 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 661899935}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1 &458480746
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,8 +1108,112 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &460626145 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 647615453}
+--- !u!114 &460626146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460626145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 460626148}
+  nav_mesh_agent: {fileID: 460626147}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &460626147
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 460626145}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &460626148 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 647615453}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &542274647 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 878976668}
+--- !u!114 &542274648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542274647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 542274650}
+  nav_mesh_agent: {fileID: 542274649}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &542274649
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542274647}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &542274650 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 878976668}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1001 &552113772
 Prefab:
   m_ObjectHideFlags: 0
@@ -438,10 +1251,224 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4240498546671812, guid: 5169a3081308bfc46978aba44d544569, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5169a3081308bfc46978aba44d544569, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &562171457 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 16652670}
+--- !u!114 &562171458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562171457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 562171460}
+  nav_mesh_agent: {fileID: 562171459}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &562171459
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 562171457}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &562171460 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 16652670}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &600560971 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1137417263}
+--- !u!114 &600560972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600560971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 600560974}
+  nav_mesh_agent: {fileID: 600560973}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &600560973
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600560971}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &600560974 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1137417263}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &608070820
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 36.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &635997167
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -277.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -148.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &639022674 stripped
 GameObject:
@@ -475,7 +1502,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2.34
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -504,6 +1531,9 @@ MonoBehaviour:
   waypoint_radius: 60
   distance_between_waypoints: 44
   chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
 --- !u!114 &640155964 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
@@ -579,8 +1609,280 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &647615453
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -277.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &661899935
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 33.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -87.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &674278838 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 924787265}
+--- !u!114 &674278839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674278838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 674278841}
+  nav_mesh_agent: {fileID: 674278840}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &674278840
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674278838}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &674278841 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 924787265}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &698300732
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -70.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -29.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &723325371
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 69.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -127.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &778973253
 Prefab:
   m_ObjectHideFlags: 0
@@ -618,7 +1920,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010708501322, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000013230019050, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd,
         type: 2}
@@ -675,6 +1977,58 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &785641228 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 915971054}
+--- !u!114 &785641229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785641228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 785641231}
+  nav_mesh_agent: {fileID: 785641230}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &785641230
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 785641228}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &785641231 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 915971054}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1001 &797636058
 Prefab:
   m_ObjectHideFlags: 0
@@ -712,7 +2066,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
       propertyPath: m_LocalScale.x
@@ -741,24 +2095,752 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
---- !u!1 &999084876 stripped
+--- !u!1001 &808099520
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 21.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -68.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &820494998 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1086111348332152, guid: 8e82625b93c6fda43af4aa8495475100,
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
     type: 2}
-  m_PrefabInternal: {fileID: 349982662}
---- !u!114 &999084877
+  m_PrefabInternal: {fileID: 234983965}
+--- !u!114 &820494999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 999084876}
+  m_GameObject: {fileID: 820494998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aee64687d055b91428971d8bbdb7b40d, type: 3}
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knowledge: {fileID: 0}
-  character: {fileID: 0}
+  captain_faction: 2
+  boat_control: {fileID: 820495001}
+  nav_mesh_agent: {fileID: 820495000}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &820495000
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820494998}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &820495001 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 234983965}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &830575591 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1362065217}
+--- !u!114 &830575592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830575591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 830575594}
+  nav_mesh_agent: {fileID: 830575593}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &830575593
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830575591}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &830575594 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1362065217}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &840804716
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -277.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &861277108
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 21.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &867300199 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 137529987}
+--- !u!114 &867300200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 867300199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 867300202}
+  nav_mesh_agent: {fileID: 867300201}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &867300201
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 867300199}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &867300202 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 137529987}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &878976668
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -125.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -225.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &915971054
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 21.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -68.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &924787265
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -193.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &950959679 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1806411833}
+--- !u!114 &950959680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 950959679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 950959682}
+  nav_mesh_agent: {fileID: 950959681}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &950959681
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 950959679}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &950959682 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1806411833}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &977424766 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1335085253}
+--- !u!114 &977424767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977424766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 977424769}
+  nav_mesh_agent: {fileID: 977424768}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &977424768
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 977424766}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &977424769 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1335085253}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &979912564 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 2042404304}
+--- !u!114 &979912565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979912564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 979912567}
+  nav_mesh_agent: {fileID: 979912566}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &979912566
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 979912564}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &979912567 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 2042404304}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &988377662 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 368957425}
+--- !u!114 &988377663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 988377662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 988377665}
+  nav_mesh_agent: {fileID: 988377664}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &988377664
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 988377662}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &988377665 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 368957425}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1039246301 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1887773376}
+--- !u!114 &1039246302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1039246301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1039246304}
+  nav_mesh_agent: {fileID: 1039246303}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1039246303
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1039246301}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1039246304 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1887773376}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1 &1051446935 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
@@ -821,6 +2903,10 @@ Prefab:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1785534853423446, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
   m_IsPrefabParent: 0
@@ -861,7 +2947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
       propertyPath: m_LocalScale.x
@@ -890,6 +2976,535 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
+--- !u!1001 &1089422418
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 26.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1102772891 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 2008500504}
+--- !u!114 &1102772892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102772891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1102772894}
+  nav_mesh_agent: {fileID: 1102772893}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1102772893
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1102772891}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1102772894 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 2008500504}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1114407015 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 608070820}
+--- !u!114 &1114407016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1114407015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1114407018}
+  nav_mesh_agent: {fileID: 1114407017}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1114407017
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1114407015}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1114407018 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 608070820}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &1137417263
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -100.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1162049528 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1696033555}
+--- !u!114 &1162049529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162049528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1162049531}
+  nav_mesh_agent: {fileID: 1162049530}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1162049530
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1162049528}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1162049531 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1696033555}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &1168803569
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 27.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -198.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1180141181 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592766019}
+--- !u!114 &1180141182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180141181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1180141184}
+  nav_mesh_agent: {fileID: 1180141183}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1180141183
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180141181}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1180141184 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1592766019}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1269169793 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 122529571}
+--- !u!114 &1269169794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269169793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1269169796}
+  nav_mesh_agent: {fileID: 1269169795}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1269169795
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1269169793}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1269169796 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 122529571}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1297536462 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 840804716}
+--- !u!114 &1297536463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297536462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1297536465}
+  nav_mesh_agent: {fileID: 1297536464}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1297536464
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1297536462}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1297536465 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 840804716}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1303514556 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 723325371}
+--- !u!114 &1303514557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1303514556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1303514559}
+  nav_mesh_agent: {fileID: 1303514558}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1303514558
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1303514556}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1303514559 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 723325371}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1001 &1320750077
 Prefab:
   m_ObjectHideFlags: 0
@@ -927,7 +3542,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
       propertyPath: m_LocalScale.x
@@ -944,6 +3559,223 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
+--- !u!1001 &1335085253
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 69.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -127.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1346478114
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 33.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -87.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1362065217
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 45.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -22.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 53
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1367297608 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1472930367}
+--- !u!114 &1367297609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367297608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1367297611}
+  nav_mesh_agent: {fileID: 1367297610}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1367297610
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1367297608}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1367297611 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1472930367}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1001 &1380772465
 Prefab:
   m_ObjectHideFlags: 0
@@ -981,7 +3813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1006,6 +3838,330 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 9500000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
+  m_IsPrefabParent: 0
+--- !u!1001 &1383187805
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -125.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -175.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1389515085
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -56.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 60.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1405384408 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1795517871}
+--- !u!114 &1405384409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405384408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1405384411}
+  nav_mesh_agent: {fileID: 1405384410}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1405384410
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1405384408}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1405384411 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1795517871}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &1405877043
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -277.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1421718754 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 698300732}
+--- !u!114 &1421718755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1421718754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1421718757}
+  nav_mesh_agent: {fileID: 1421718756}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1421718756
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1421718754}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1421718757 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 698300732}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &1472930367
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -43.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -78.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1495482099
 GameObject:
@@ -1070,7 +4226,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1535108047
 GameObject:
@@ -1178,8 +4334,543 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1001 &1543916530
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 26.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1544019959 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 808099520}
+--- !u!114 &1544019960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544019959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1544019962}
+  nav_mesh_agent: {fileID: 1544019961}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1544019961
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1544019959}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1544019962 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 808099520}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &1592766019
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -193.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1679402952 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 635997167}
+--- !u!114 &1679402953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1679402952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1679402955}
+  nav_mesh_agent: {fileID: 1679402954}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1679402954
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1679402952}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1679402955 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 635997167}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &1696033555
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -277.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -148.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1795517871
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 26.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &1806411833
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -277.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1821101904 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1405877043}
+--- !u!114 &1821101905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821101904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1821101907}
+  nav_mesh_agent: {fileID: 1821101906}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1821101906
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1821101904}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1821101907 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1405877043}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1853825097 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1168803569}
+--- !u!114 &1853825098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853825097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1853825100}
+  nav_mesh_agent: {fileID: 1853825099}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1853825099
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853825097}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1853825100 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1168803569}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &1873909858 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1346478114}
+--- !u!114 &1873909859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873909858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1873909861}
+  nav_mesh_agent: {fileID: 1873909860}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1873909860
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1873909858}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1873909861 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1346478114}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!1001 &1883867008
 Prefab:
   m_ObjectHideFlags: 0
@@ -1217,7 +4908,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1247,8 +4938,433 @@ Prefab:
     - {fileID: 9500000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
   m_IsPrefabParent: 0
+--- !u!1001 &1887773376
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -56.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &1906430405 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 300640618}
+--- !u!114 &1906430406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906430405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 1906430408}
+  nav_mesh_agent: {fileID: 1906430407}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &1906430407
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1906430405}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1906430408 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 300640618}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &2008500504
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -125.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -175.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &2017635574 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1383187805}
+--- !u!114 &2017635575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017635574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 2017635577}
+  nav_mesh_agent: {fileID: 2017635576}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &2017635576
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017635574}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2017635577 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1383187805}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1001 &2042404304
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -43.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -78.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 23410264331117802, guid: e951ca7cb11fabe4bb47627d523e3742,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_Name
+      value: Pirate Boat (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e951ca7cb11fabe4bb47627d523e3742, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &2077200196 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 225987415}
+--- !u!114 &2077200197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077200196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 2077200199}
+  nav_mesh_agent: {fileID: 2077200198}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &2077200198
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077200196}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2077200199 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 225987415}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
 --- !u!4 &2093040606 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4413024975451544, guid: e951ca7cb11fabe4bb47627d523e3742,
     type: 2}
   m_PrefabInternal: {fileID: 1057645081}
+--- !u!1 &2112498025 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1089422418}
+--- !u!114 &2112498026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112498025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 2112498028}
+  nav_mesh_agent: {fileID: 2112498027}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &2112498027
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112498025}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2112498028 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1089422418}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}
+--- !u!1 &2146980701 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1613861029104334, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1389515085}
+--- !u!114 &2146980702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2146980701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captain_faction: 2
+  boat_control: {fileID: 2146980704}
+  nav_mesh_agent: {fileID: 2146980703}
+  waypoint_radius: 60
+  distance_between_waypoints: 44
+  chase_radius: 40
+  patrol_speed: 10
+  chase_speed: 11
+  broad_side_distance: 1
+--- !u!195 &2146980703
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2146980701}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.34
+  m_Speed: 10
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2146980704 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114419705392631524, guid: e951ca7cb11fabe4bb47627d523e3742,
+    type: 2}
+  m_PrefabInternal: {fileID: 1389515085}
+  m_Script: {fileID: 11500000, guid: a7fb882a76bede0488bd9739e631adde, type: 3}

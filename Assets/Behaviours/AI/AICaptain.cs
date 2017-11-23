@@ -87,6 +87,9 @@ public class AICaptain : MonoBehaviour
 
         foreach (PlayerControl player in current_players)
         {
+            if (player == null)
+                continue;
+
             float distance = (transform.position - player.transform.position).sqrMagnitude;
 
             if (distance < closest_distance)
@@ -126,6 +129,8 @@ public class AICaptain : MonoBehaviour
 
     void Chase()
     {
+        CheckTransitionToPatrol();
+
         if (captain_faction == Faction.NAVY)
         {
             SetChaseTarget();
@@ -133,13 +138,24 @@ public class AICaptain : MonoBehaviour
         else if (captain_faction == Faction.CIVILIAN)
         {
             SetFleeTarget();
-        }
+        }  
     }
 
 
     void CheckTransitionToPatrol()
     {
-        
+        if (closest_enemy == null)
+        {
+            current_state = CaptainState.PATROL;
+            return;
+        }
+
+        if ((transform.position - closest_enemy.transform.position).sqrMagnitude >
+            chase_radius * chase_radius) //chase when a player is near
+        {
+            nav_mesh_agent.speed = chase_speed;
+            current_state = CaptainState.PATROL;
+        }
     }
 
 
