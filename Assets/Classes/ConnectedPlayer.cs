@@ -62,7 +62,7 @@ public class ConnectedPlayer
     void CharacterControl()
     {
         if (input.GetButtonDown("Interact"))
-            character.OnInteract();
+            character.UseStation();
     }
 
 }

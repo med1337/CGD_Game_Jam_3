@@ -13,22 +13,22 @@ public class PlayerControl : Controllable
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
 
-    private Mount mounted_mount;
-    private Mount nearest_mount;
+    private Station current_station;
+    private Station nearest_station;
     private float last_scan_timestamp;
 
 
-    public bool IsMounted()
+    public bool IsUsingStation()
     {
-        return mounted_mount != null;
+        return current_station != null;
     }
 
 
     public override void Move(Vector3 _dir)
     {
-        if (IsMounted())
+        if (IsUsingStation())
         {
-            mounted_mount.controllable.Move(_dir);
+            current_station.controllable.Move(_dir);
         }
         else
         {
@@ -37,20 +37,26 @@ public class PlayerControl : Controllable
     }
 
     
-    public override void OnInteract()
+    public void UseStation()
     {
-        if (!IsMounted() && nearest_mount != null)
+        if (!IsUsingStation() && nearest_station != null)
         {
-            mounted_mount = nearest_mount;
-            transform.position = mounted_mount.transform.position;
+            // Occupy station.
+            current_station = nearest_station;
+            current_station.controllable.OnControlStart(this);
 
-            mounted_mount.occupied = true;
-            nearest_mount = null;
+            transform.position = current_station.transform.position;
+            rigid_body.isKinematic = true;
+
+            current_station.occupied = true;
+            nearest_station = null;
         }
-        else if (IsMounted())
+        else if (IsUsingStation())
         {
-            mounted_mount.occupied = false;
-            mounted_mount = null;
+            // Leave station.
+            current_station.occupied = false;
+            current_station = null;
+            rigid_body.isKinematic = false;
         }
     }
 
@@ -63,7 +69,7 @@ public class PlayerControl : Controllable
 
     void Update()
     {
-        if (!IsMounted() && Time.time >= last_scan_timestamp + mount_scan_delay)
+        if (!IsUsingStation() && Time.time >= last_scan_timestamp + mount_scan_delay)
         {
             last_scan_timestamp = Time.time;
             MountScan();
@@ -73,7 +79,7 @@ public class PlayerControl : Controllable
 
     void FixedUpdate()
     {
-        if (!IsMounted())
+        if (!IsUsingStation())
         {
             Vector3 move = move_dir * move_speed * Time.deltaTime;
             rigid_body.MovePosition(transform.position + move);
@@ -88,15 +94,15 @@ public class PlayerControl : Controllable
         var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius);
         foreach (var collider in colliders)
         {
-            var mount = collider.GetComponent<Mount>();
+            var mount = collider.GetComponent<Station>();
             if (mount == null || mount.occupied)
                 continue;
 
-            nearest_mount = mount;
+            nearest_station = mount;
             return;
         }
 
-        nearest_mount = null;
+        nearest_station = null;
     }
 
 
@@ -107,18 +113,18 @@ public class PlayerControl : Controllable
     }
 
 
-    void OnCollisionEnter(Collision _other)
+    void OnTriggerStay(Collider _other)
     {
-        if (_other.collider.CompareTag("Deck"))
+        if (_other.CompareTag("Deck"))
         {
-            transform.SetParent(_other.collider.transform);
+            transform.SetParent(_other.transform);
         }
     }
 
 
-    void OnCollisionExit(Collision _other)
+    void OnTriggerExit(Collider _other)
     {
-        if (_other.collider.CompareTag("Deck"))
+        if (_other.CompareTag("Deck"))
         {
             transform.SetParent(null);
         }
