@@ -10,6 +10,9 @@ public class PlayerControl : Controllable
     [SerializeField] float mount_scan_radius;
     [SerializeField] float mount_scan_delay;
 
+    [SerializeField] LayerMask mount_layer;
+    [SerializeField] LayerMask pickup_layer;
+
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
 
@@ -17,10 +20,19 @@ public class PlayerControl : Controllable
     private Station nearest_station;
     private float last_scan_timestamp;
 
+    private Pickup current_pickup;
+    private Pickup nearest_pickup;
+
 
     public bool IsUsingStation()
     {
         return current_station != null;
+    }
+
+
+    public bool isLifting()
+    {
+        return current_pickup != null;
     }
 
 
@@ -54,9 +66,18 @@ public class PlayerControl : Controllable
         else if (IsUsingStation())
         {
             // Leave station.
+            current_station.controllable.OnControlEnd();
             current_station.occupied = false;
             current_station = null;
             rigid_body.isKinematic = false;
+        }
+        else if(!isLifting() && nearest_pickup != null)
+        {
+            // Carry thing.
+        }
+        else if (isLifting())
+        {
+            // Throw/drop.
         }
     }
 
@@ -72,7 +93,12 @@ public class PlayerControl : Controllable
         if (!IsUsingStation() && Time.time >= last_scan_timestamp + mount_scan_delay)
         {
             last_scan_timestamp = Time.time;
-            MountScan();
+
+            if (!isLifting())
+            {
+                MountScan();
+                PickUpScan();
+            }
         }
     }
 
@@ -91,7 +117,7 @@ public class PlayerControl : Controllable
 
     void MountScan()
     {
-        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius);
+        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius, mount_layer);
         foreach (var collider in colliders)
         {
             var mount = collider.GetComponent<Station>();
@@ -103,6 +129,24 @@ public class PlayerControl : Controllable
         }
 
         nearest_station = null;
+    }
+
+
+    void PickUpScan()
+    {
+        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius, pickup_layer);
+        foreach (var collider in colliders)
+        {
+            var pickup = collider.GetComponent<Pickup>();
+
+            if (pickup == null || pickup.GetInUse())
+                continue;
+
+            nearest_pickup = pickup;
+            return;
+        }
+
+        nearest_pickup = null;
     }
 
 
