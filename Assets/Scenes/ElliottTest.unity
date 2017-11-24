@@ -147,6 +147,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 198725940180073464, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198725940180073464, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1496722419
+      objectReference: {fileID: 0}
+    - target: {fileID: 198602911388447206, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: EmissionModule.rateOverDistance.minMaxState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198602911388447206, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1239008150
+      objectReference: {fileID: 0}
+    - target: {fileID: 198602911388447206, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 198602911388447206, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: EmissionModule.rateOverDistance.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198602911388447206, guid: 88d36aab835fa784baccdd6ddccb4c9a,
+        type: 2}
+      propertyPath: EmissionModule.rateOverDistance.maxCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88d36aab835fa784baccdd6ddccb4c9a, type: 2}
   m_IsPrefabParent: 0
