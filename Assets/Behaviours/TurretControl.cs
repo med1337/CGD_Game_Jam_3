@@ -27,7 +27,7 @@ public class TurretControl : Controllable
     private float last_shot_timestamp;
 
 
-    public override void Move(Vector3 _dir)
+    public override void Move(Vector3 _dir, Vector2 accVector2)
     {
         Vector3 move = _dir * reticle_move_speed * Time.deltaTime;
         reticule_offset += move;

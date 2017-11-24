@@ -15,7 +15,7 @@ public class BoatControl : Controllable
     private float acc;
 
 
-    public override void Move(Vector3 _dir)
+    public override void Move(Vector3 _dir, Vector2 accVector2)
     {
         move_dir = _dir;
     }

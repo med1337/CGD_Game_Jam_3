@@ -6,10 +6,9 @@ public class LeoControl : Controllable
 {
 
     [Header("Parameters")]
-    [SerializeField]
-    float max_speed;
-    [SerializeField] float acceleration;
-    [SerializeField] float deceleration;
+    [SerializeField]float motorPower;
+    float acceleration;
+    float deceleration;
     [SerializeField] float steer_speed;
     [SerializeField] float max_steer_speed;
     [SerializeField] List<Station> stations = new List<Station>();
@@ -19,9 +18,11 @@ public class LeoControl : Controllable
 
 
 
-    public override void Move(Vector3 _dir)
+    public override void Move(Vector3 _dir, Vector2 accVector2)
     {
         move_dir = _dir;
+        acceleration = accVector2.x;
+        deceleration = accVector2.y;
     }
 
 
@@ -44,10 +45,6 @@ public class LeoControl : Controllable
         //    colliders[0].transform.parent.gameObject.SetActive(false);
         //    hull.SetActive(true);
         //}
-        if (move_dir.z > 0)
-        {
-       
-        }
 
         for (int i = 0; i < colliders.Count; ++i)
         {
@@ -59,7 +56,8 @@ public class LeoControl : Controllable
             else
             {
                 colliders[i].steerAngle = -move_dir.x * steer_speed;
-                colliders[i].motorTorque = move_dir.z * acceleration;
+                colliders[i].motorTorque = acceleration * motorPower;
+                colliders[i].motorTorque += deceleration * -motorPower;
             }
         }
     }

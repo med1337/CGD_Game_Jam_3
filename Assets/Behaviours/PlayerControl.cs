@@ -42,11 +42,11 @@ public class PlayerControl : Controllable
     }
 
 
-    public override void Move(Vector3 _dir)
+    public override void Move(Vector3 _dir, Vector2 accVector2)
     {
         if (IsUsingStation())
         {
-            current_station.controllable.Move(_dir);
+            current_station.controllable.Move(_dir, accVector2);
         }
         else
         {
@@ -66,12 +66,15 @@ public class PlayerControl : Controllable
         float horizontal = input.GetAxis("Horizontal");
         float vertical = input.GetAxis("Vertical");
 
+        float acceleration = input.GetAxis("Forward");
+        float decceleration = input.GetAxis("Backward");
+
         if (input.GetButtonDown("Interact"))
             Interact();
 
         if (!IsUsingStation())
         {
-            Move(new Vector3(horizontal, 0, vertical));
+            Move(new Vector3(horizontal, 0, vertical), new Vector2(acceleration,decceleration));
 
             if (input.GetButtonDown("Attack"))
                 Attack();
@@ -89,7 +92,7 @@ public class PlayerControl : Controllable
         }
         else // Stuff to do with controlling a station ..
         {
-            current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
+            current_station.controllable.Move(new Vector3(horizontal, 0, vertical), new Vector2(acceleration, decceleration));
 
             if (input.GetButton("Attack"))
                 current_station.controllable.Activate();
