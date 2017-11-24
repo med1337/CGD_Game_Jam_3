@@ -18,6 +18,7 @@ public class PlayerControl : Controllable
 
     [Header("References")]
     public Rigidbody rigid_body;
+    [SerializeField] GameObject smoke_puff_prefab;
 
     private Station current_station;
     private Station nearest_station;
@@ -78,6 +79,9 @@ public class PlayerControl : Controllable
 
             if (input.GetButtonDown("Attack"))
                 Attack();
+
+            if (input.GetButtonDown("Jump"))
+                Jump();
 
             if (Time.time >= last_scan_timestamp + mount_scan_delay)
             {
@@ -260,6 +264,13 @@ public class PlayerControl : Controllable
     void Attack()
     {
         // Player's personal attack.
+    }
+
+
+    void Jump()
+    {
+        rigid_body.AddForce(Vector3.up * 7, ForceMode.Impulse);
+        Instantiate(smoke_puff_prefab, transform.position + new Vector3(0, 0.33f), Quaternion.identity);
     }
 
 

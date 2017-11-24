@@ -207,6 +207,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   rigid_body: {fileID: 54248301143104516}
+  smoke_puff_prefab: {fileID: 1008735952366906, guid: 9519603f1c602594e8421bf14f8ad76c,
+    type: 2}
   carry_position: {fileID: 4348904625205110}
   drop_position: {fileID: 4282075730589436}
 --- !u!136 &136525034707040484

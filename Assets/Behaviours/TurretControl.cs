@@ -76,6 +76,7 @@ public class TurretControl : Controllable
 
         GameObject shot_clone = Instantiate(shot_prefab, shoot_point.position,
             Quaternion.LookRotation(shot_forward));
+        TurretShot shot = shot_clone.GetComponent<TurretShot>();
 
         GameObject particle_clone = Instantiate(particle_prefab, shoot_point.position,
             Quaternion.LookRotation(shot_forward));

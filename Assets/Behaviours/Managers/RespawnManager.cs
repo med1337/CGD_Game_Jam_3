@@ -8,6 +8,8 @@ public class RespawnManager : MonoBehaviour
     public List<PlayerControl> alive_players = new List<PlayerControl>();
 
     [SerializeField] GameObject player_prefab;
+    [SerializeField] Transform respawn_point;
+    [SerializeField] Vector3 respawn_offset;
 
 
     void Start()
@@ -55,7 +57,13 @@ public class RespawnManager : MonoBehaviour
         PlayerControl player = Instantiate(player_prefab).GetComponent<PlayerControl>();
 
         // Position the player.
-        player.transform.position = new Vector3(0, 0, 0);
+        Vector3 respawn_pos = new Vector3();
+        if (respawn_point != null)
+            respawn_pos = respawn_point.position;
+
+        respawn_pos += respawn_offset;
+
+        player.transform.position = respawn_pos;
 
         // Add player to alive list.
         alive_players.Add(player);

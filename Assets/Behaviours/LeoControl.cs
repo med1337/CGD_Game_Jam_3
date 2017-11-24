@@ -29,6 +29,23 @@ public class LeoControl : Controllable
     }
 
 
+    public override void OnControlStart(PlayerControl _player)
+    {
+        base.OnControlStart(_player);
+    }
+
+
+    public override void OnControlEnd()
+    {
+        base.OnControlEnd();
+
+        move_dir = Vector3.zero;
+
+        acceleration = 0;
+        deceleration = 0;
+    }
+
+
     // Use this for initialization
     void Start()
     {

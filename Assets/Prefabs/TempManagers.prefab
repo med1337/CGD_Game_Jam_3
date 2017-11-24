@@ -83,3 +83,5 @@ MonoBehaviour:
   alive_players: []
   player_prefab: {fileID: 1086111348332152, guid: 8e82625b93c6fda43af4aa8495475100,
     type: 2}
+  respawn_point: {fileID: 0}
+  respawn_offset: {x: 0, y: 1, z: 0}
