@@ -18,29 +18,34 @@ public class TurretControl : Controllable
 
     [Header("References")]
     [SerializeField] GameObject turret;
-    [SerializeField] GameObject reticle;
     [SerializeField] Transform shoot_point;
     [SerializeField] Transform ejection_point;
 
+    private Vector3 reticule_pos;
+    private GameObject reticule_vis;
     private float last_shot_timestamp;
 
 
     public override void Move(Vector3 _dir)
     {
         Vector3 move = _dir * reticle_move_speed * Time.deltaTime;
-        reticle.transform.position += move;
+        reticule_pos += move;
     }
 
 
     public override void OnControlStart(PlayerControl _player)
     {
-        reticle.SetActive(true);
+        reticule_vis = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        reticule_vis.transform.position = reticule_pos;
+        reticule_vis.transform.localScale = Vector3.one * 0.25f;
+        reticule_vis.GetComponent<MeshRenderer>().material.color = Color.red;
     }
 
 
     public override void OnControlEnd()
     {
-        reticle.SetActive(false);
+        Destroy(reticule_vis);
+        ResetReticulePos();
     }
 
 
@@ -73,16 +78,33 @@ public class TurretControl : Controllable
 
     void Start()
     {
+        ResetReticulePos();
+    }
 
+    
+    void ResetReticulePos()
+    {
+        reticule_pos = turret.transform.position + turret.transform.forward;
     }
 
 
     void Update()
     {
+        // TODO: constrain aiming angle..
         //float angle = Vector3.Angle(transform.up, reticle.transform.position);
 
-        Vector3 new_forward = (reticle.transform.position - turret.transform.position).normalized;
+        Vector3 new_forward = (reticule_pos - turret.transform.position).normalized;
         turret.transform.forward = Vector3.Slerp(turret.transform.forward, new_forward, steer_speed * Time.deltaTime);
+
+        if (reticule_vis != null)
+            reticule_vis.transform.position = reticule_pos;
+    }
+
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(reticule_pos, 1);
     }
 
 }
