@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33504062732261806}
   - component: {fileID: 65172567178474704}
   - component: {fileID: 23903452063023896}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4282075730589436}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Drop Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4214481278491684}
   - component: {fileID: 54248301143104516}
   - component: {fileID: 114967480869605132}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -72,7 +72,8 @@ GameObject:
   - component: {fileID: 33389056311081230}
   - component: {fileID: 136525034707040484}
   - component: {fileID: 23887778642772738}
-  m_Layer: 0
+  - component: {fileID: 114960977567213922}
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4348904625205110}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lift Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +106,7 @@ GameObject:
   - component: {fileID: 33415015173169372}
   - component: {fileID: 65621041480367240}
   - component: {fileID: 23270032161784004}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,6 +352,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114960977567213922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367368706440482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f7414d1cf8d7044a73d3274c5dfe80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target_rigidbody: {fileID: 54248301143104516}
 --- !u!114 &114967480869605132
 MonoBehaviour:
   m_ObjectHideFlags: 1
