@@ -16,6 +16,8 @@ public class PlayerControl : Controllable
     [SerializeField] LayerMask station_layer;
     [SerializeField] LayerMask pickup_layer;
 
+    [SerializeField] float throw_power;
+
     [Header("References")]
     public Rigidbody rigid_body;
     [SerializeField] GameObject smoke_puff_prefab;
@@ -51,6 +53,9 @@ public class PlayerControl : Controllable
         }
         else
         {
+            if(_dir != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(_dir);
+
             move_dir = _dir;
         }
     }
@@ -114,7 +119,7 @@ public class PlayerControl : Controllable
             Vector3 move = move_dir * move_speed * Time.deltaTime;
             rigid_body.MovePosition(transform.position + move);
 
-            move_dir = Vector3.zero;
+            //move_dir = Vector3.zero;
         }
     }
 
@@ -245,11 +250,26 @@ public class PlayerControl : Controllable
         current_pickup.GetComponent<Rigidbody>().isKinematic = false;
         current_pickup.GetComponent<Collider>().enabled = true;
 
+        // If player isnt moving.... place the object.
+        if(move_dir == Vector3.zero)
+        {
+            current_pickup.GetComponent<Rigidbody>().AddForce(transform.forward + transform.up);
+            Debug.Log("Placing Object");
+        }
+        // if the player is moving throw the object.
+        else
+        {
+            current_pickup.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up) * throw_power);
+            Debug.Log("Throw Object");
+        }
+
+
+
         // If the player is currently parented to a boat ect
-        if (transform.parent.parent != null)
+        if (transform.parent != null)
         {
             // Set pickup's parent to that of the player...
-            current_pickup.transform.parent = transform.parent.parent;
+            current_pickup.transform.parent = transform.parent;
         }
         else
         {
