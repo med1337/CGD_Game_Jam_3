@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4484142632884042}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,13 +148,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4665562219736638}
   - component: {fileID: 136712942568278578}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1391118516717784
 GameObject:
   m_ObjectHideFlags: 1
@@ -196,7 +196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4213382062546954}
   - component: {fileID: 146745580144283670}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: RL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 4129984341562498}
   - component: {fileID: 65808242139453740}
   - component: {fileID: 114184063805246286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CaptainStation
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -427,7 +427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4964141740812448}
   - component: {fileID: 146475243062609302}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4089112040291764}
   - component: {fileID: 146138406771190828}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: RR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4958274908503580}
   - component: {fileID: 146172715569799438}
-  m_Layer: 8
+  m_Layer: 31
   m_Name: FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,7 +816,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1224437368607610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.51, z: 0}
+  m_LocalPosition: {x: 0, y: 1.099, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4958274908503580}
@@ -1019,7 +1019,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.369, g: 0.349, b: 0.341, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1562,7 +1562,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1824662354747230}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &92253183577883394
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1582,9 +1582,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_speed: 0
-  acceleration: 400
+  acceleration: 800
   deceleration: 0
-  steer_speed: 20
+  steer_speed: 15
   max_steer_speed: 0
   stations:
   - {fileID: 114184063805246286}
@@ -1624,7 +1624,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.27024317
-  m_Height: 2.79
+  m_Height: 3.89
   m_Direction: 2
   m_Center: {x: 0.033885002, y: 0.26364183, z: 0}
 --- !u!146 &146138406771190828
@@ -1639,7 +1639,7 @@ WheelCollider:
     spring: 2500
     damper: 50
     targetPosition: 0
-  m_SuspensionDistance: 1
+  m_SuspensionDistance: 0.5
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.35
@@ -1668,7 +1668,7 @@ WheelCollider:
     spring: 2500
     damper: 50
     targetPosition: 0
-  m_SuspensionDistance: 1
+  m_SuspensionDistance: 0.5
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.35
@@ -1697,7 +1697,7 @@ WheelCollider:
     spring: 2500
     damper: 50
     targetPosition: 0
-  m_SuspensionDistance: 1
+  m_SuspensionDistance: 0.5
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.35
@@ -1726,7 +1726,7 @@ WheelCollider:
     spring: 2500
     damper: 50
     targetPosition: 0
-  m_SuspensionDistance: 1
+  m_SuspensionDistance: 0.5
   m_ForceAppPointDistance: 0
   m_Mass: 20
   m_WheelDampingRate: 0.35
