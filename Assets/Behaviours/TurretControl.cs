@@ -5,8 +5,13 @@ using UnityEngine;
 public class TurretControl : Controllable
 {
     [Header("Parameters")]
-    [SerializeField] float reticle_move_speed;
     [SerializeField] float steer_speed;
+    [SerializeField] float max_steer_angle;
+
+    [Space]
+    [SerializeField] float reticule_move_speed;
+    [SerializeField] float reticule_min_distance;
+    [SerializeField] float reticule_max_distance;
 
     [Space]
     [SerializeField] float shot_delay;
@@ -25,12 +30,12 @@ public class TurretControl : Controllable
     private Vector3 reticule_offset;
     private GameObject reticule_vis;
     private float last_shot_timestamp;
+    private Vector3 target_forward;
 
 
     public override void Move(Vector3 _dir)
     {
-        Vector3 move = _dir * reticle_move_speed * Time.deltaTime;
-        reticule_offset += move;
+        move_dir = _dir;
     }
 
 
@@ -51,7 +56,6 @@ public class TurretControl : Controllable
         base.OnControlEnd();
 
         Destroy(reticule_vis);
-        ResetReticulePos();
     }
 
 
@@ -85,31 +89,34 @@ public class TurretControl : Controllable
 
     void Start()
     {
-        ResetReticulePos();
-    }
 
-    
-    void ResetReticulePos()
-    {
-        reticule_offset = turret.transform.forward;
     }
 
 
     void Update()
     {
-        if (!being_controlled)
-            return;
+        if (being_controlled)
+            ControlUpdate();
+    }
 
-        // TODO: constrain aiming angle..
-        //float angle = Vector3.Angle(transform.up, reticle.transform.position);
+
+    void ControlUpdate()
+    {
+        reticule_offset = move_dir * reticule_max_distance;
+        reticule_pos = turret.transform.position + reticule_offset;
+        reticule_pos += turret.transform.forward * reticule_min_distance;
+        reticule_vis.transform.position = reticule_pos;
 
         Vector3 new_forward = (reticule_pos - turret.transform.position).normalized;
-        turret.transform.forward = Vector3.Slerp(turret.transform.forward, new_forward, steer_speed * Time.deltaTime);
+        float angle = Vector3.Angle(transform.forward, new_forward);
 
-        reticule_pos = turret.transform.position + reticule_offset;
+        if (angle <= max_steer_angle)
+        {
+            target_forward = new_forward;
+        }
 
-        if (reticule_vis != null)
-            reticule_vis.transform.position = reticule_pos;
+        Vector3 slerp = Vector3.Slerp(turret.transform.forward, target_forward, steer_speed * Time.deltaTime);
+        turret.transform.forward = slerp;
     }
 
 }
