@@ -22,6 +22,7 @@ public class TurretControl : Controllable
     [SerializeField] Transform ejection_point;
 
     private Vector3 reticule_pos;
+    private Vector3 reticule_offset;
     private GameObject reticule_vis;
     private float last_shot_timestamp;
 
@@ -29,7 +30,7 @@ public class TurretControl : Controllable
     public override void Move(Vector3 _dir)
     {
         Vector3 move = _dir * reticle_move_speed * Time.deltaTime;
-        reticule_pos += move;
+        reticule_offset += move;
     }
 
 
@@ -39,6 +40,7 @@ public class TurretControl : Controllable
         reticule_vis.transform.position = reticule_pos;
         reticule_vis.transform.localScale = Vector3.one * 0.25f;
         reticule_vis.GetComponent<MeshRenderer>().material.color = Color.red;
+        Destroy(reticule_vis.GetComponent<BoxCollider>());
     }
 
 
@@ -84,7 +86,7 @@ public class TurretControl : Controllable
     
     void ResetReticulePos()
     {
-        reticule_pos = turret.transform.position + turret.transform.forward;
+        reticule_offset = turret.transform.forward;
     }
 
 
@@ -95,6 +97,8 @@ public class TurretControl : Controllable
 
         Vector3 new_forward = (reticule_pos - turret.transform.position).normalized;
         turret.transform.forward = Vector3.Slerp(turret.transform.forward, new_forward, steer_speed * Time.deltaTime);
+
+        reticule_pos = turret.transform.position + reticule_offset;
 
         if (reticule_vis != null)
             reticule_vis.transform.position = reticule_pos;
