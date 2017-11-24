@@ -15,7 +15,7 @@ public class BoatControl : Controllable
     private float acc;
 
 
-    public override void Move(Vector3 _dir, Vector2 accVector2)
+    public override void Move(Vector3 _dir)
     {
         move_dir = _dir;
     }
@@ -47,7 +47,6 @@ public class BoatControl : Controllable
                 steer_speed = max_steer_speed;
             }
 
-            
             acc += acceleration * Time.deltaTime;
 
             Quaternion new_rot = Quaternion.LookRotation(direction);

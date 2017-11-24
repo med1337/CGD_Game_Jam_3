@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class LeoControl : Controllable
 {
-
     [Header("Parameters")]
     [SerializeField]float motorPower;
     float acceleration;
@@ -17,12 +16,16 @@ public class LeoControl : Controllable
     public List<WheelCollider> colliders;
 
 
-
-    public override void Move(Vector3 _dir, Vector2 accVector2)
+    public override void Move(Vector3 _dir)
     {
         move_dir = _dir;
-        acceleration = accVector2.x;
-        deceleration = accVector2.y;
+    }
+
+
+    public override void Accelerate(Vector2 _acc)
+    {
+        acceleration = _acc.x;
+        deceleration = _acc.y;
     }
 
 
