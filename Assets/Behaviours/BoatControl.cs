@@ -47,7 +47,6 @@ public class BoatControl : Controllable
                 steer_speed = max_steer_speed;
             }
 
-            
             acc += acceleration * Time.deltaTime;
 
             Quaternion new_rot = Quaternion.LookRotation(direction);

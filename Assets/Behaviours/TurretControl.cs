@@ -36,6 +36,8 @@ public class TurretControl : Controllable
 
     public override void OnControlStart(PlayerControl _player)
     {
+        base.OnControlStart(_player);
+
         reticule_vis = GameObject.CreatePrimitive(PrimitiveType.Cube);
         reticule_vis.transform.position = reticule_pos;
         reticule_vis.transform.localScale = Vector3.one * 0.25f;
@@ -46,6 +48,8 @@ public class TurretControl : Controllable
 
     public override void OnControlEnd()
     {
+        base.OnControlEnd();
+
         Destroy(reticule_vis);
         ResetReticulePos();
     }
@@ -92,6 +96,9 @@ public class TurretControl : Controllable
 
     void Update()
     {
+        if (!being_controlled)
+            return;
+
         // TODO: constrain aiming angle..
         //float angle = Vector3.Angle(transform.up, reticle.transform.position);
 
@@ -102,13 +109,6 @@ public class TurretControl : Controllable
 
         if (reticule_vis != null)
             reticule_vis.transform.position = reticule_pos;
-    }
-
-
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(reticule_pos, 1);
     }
 
 }

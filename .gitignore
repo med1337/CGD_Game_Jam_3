@@ -28,3 +28,9 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/.vs/slnx.sqlite
+/.vs/ProjectSettings.json
+/.vs/CGD_Game_Jam_3/v15/Browse.VC.opendb
+/.vs/CGD_Game_Jam_3/v15/Browse.VC.db
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json

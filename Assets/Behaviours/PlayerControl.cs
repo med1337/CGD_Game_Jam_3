@@ -17,7 +17,7 @@ public class PlayerControl : Controllable
     [SerializeField] LayerMask pickup_layer;
 
     [Header("References")]
-    [SerializeField] Rigidbody rigid_body;
+    public Rigidbody rigid_body;
 
     private Station current_station;
     private Station nearest_station;
@@ -66,6 +66,9 @@ public class PlayerControl : Controllable
         float horizontal = input.GetAxis("Horizontal");
         float vertical = input.GetAxis("Vertical");
 
+        float acceleration = input.GetAxis("Forward");
+        float decceleration = input.GetAxis("Backward");
+
         if (input.GetButtonDown("Interact"))
             Interact();
 
@@ -89,7 +92,10 @@ public class PlayerControl : Controllable
         }
         else // Stuff to do with controlling a station ..
         {
+            transform.position = current_station.transform.position;
+
             current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
+            current_station.controllable.Accelerate(new Vector2(acceleration, decceleration));
 
             if (input.GetButton("Attack"))
                 current_station.controllable.Activate();
@@ -148,65 +154,106 @@ public class PlayerControl : Controllable
     {
         if (!IsUsingStation() && nearest_station != null)
         {
-            // Occupy station.
-            current_station = nearest_station;
-            current_station.controllable.OnControlStart(this);
-
-            transform.position = current_station.transform.position;
-            rigid_body.isKinematic = true;
-
-            current_station.occupied = true;
-            nearest_station = null;
+            OccupyStation();
         }
         else if (IsUsingStation())
         {
-            // Leave station.
-            current_station.controllable.OnControlEnd();
-            current_station.occupied = false;
-            current_station = null;
-            rigid_body.isKinematic = false;
+            LeaveStation();
         }
         else if(!IsLifting() && nearest_pickup != null)
         {
-            // Carry thing.
-            nearest_pickup.transform.position = carry_position.position;
-            nearest_pickup.transform.rotation = carry_position.rotation;
-
-            // Disable Components.
-            nearest_pickup.GetComponent<Rigidbody>().isKinematic = true;
-            nearest_pickup.GetComponent<Collider>().enabled = false;
-
-            // Set player as parent of Pickup.
-            nearest_pickup.gameObject.GetComponent<Transform>().parent = (this.transform);
-            current_pickup = nearest_pickup;
-            nearest_pickup = null;
+            CarryItem();
         }
         else if (IsLifting())
         {
-            // Throw/drop.
-            current_pickup.transform.position = drop_position.position;
-            current_pickup.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
-
-            // Enable disabled components.
-            current_pickup.GetComponent<Rigidbody>().isKinematic = false;
-            current_pickup.GetComponent<Collider>().enabled = true;
-
-            
-            // If the player is currently parented to a boat ect
-            if (GetComponentInParent<Transform>().parent != null)
-            {
-                // Set pickup's parent to that of the player...
-                current_pickup.gameObject.GetComponent<Transform>().parent
-                    = GetComponentInParent<Transform>().parent;
-            }
-            else
-            {
-                // else remove the parentof the pickup
-                current_pickup.gameObject.GetComponent<Transform>().parent = null;
-            }
-
-            current_pickup = null;
+            ThrowItem();
         }
+    }
+
+
+    void OccupyStation()
+    {
+        if (IsUsingStation() || IsLifting() ||
+            nearest_station == null)
+        {
+            return;
+        }
+
+        current_station = nearest_station;
+        current_station.controllable.OnControlStart(this);
+
+        transform.position = current_station.transform.position;
+
+        current_station.occupied = true;
+        nearest_station = null;
+    }
+
+
+    void LeaveStation()
+    {
+        if (!IsUsingStation() || IsLifting())
+        {
+            return;
+        }
+
+        // Leave station.
+        current_station.controllable.OnControlEnd();
+        current_station.occupied = false;
+        current_station = null;
+    }
+
+
+    void CarryItem()
+    {
+        if (IsUsingStation() || IsLifting() ||
+            nearest_pickup == null)
+        {
+            return;
+        }
+
+        // Carry thing.
+        nearest_pickup.transform.position = carry_position.position;
+        nearest_pickup.transform.rotation = carry_position.rotation;
+
+        // Disable Components.
+        nearest_pickup.GetComponent<Rigidbody>().isKinematic = true;
+        nearest_pickup.GetComponent<Collider>().enabled = false;
+
+        // Set player as parent of Pickup.
+        nearest_pickup.gameObject.GetComponent<Transform>().parent = (this.transform);
+        current_pickup = nearest_pickup;
+        nearest_pickup = null;
+    }
+
+
+    void ThrowItem()
+    {
+        if (IsUsingStation() || !IsLifting())
+        {
+            return;
+        }
+
+        // Throw/drop.
+        current_pickup.transform.position = drop_position.position;
+        current_pickup.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+        // Enable disabled components.
+        current_pickup.GetComponent<Rigidbody>().isKinematic = false;
+        current_pickup.GetComponent<Collider>().enabled = true;
+
+        // If the player is currently parented to a boat ect
+        if (transform.parent.parent != null)
+        {
+            // Set pickup's parent to that of the player...
+            current_pickup.transform.parent = transform.parent.parent;
+        }
+        else
+        {
+            // else remove the parentof the pickup
+            current_pickup.transform.parent = null;
+        }
+
+        current_pickup = null;
     }
 
 
@@ -238,6 +285,13 @@ public class PlayerControl : Controllable
         {
             transform.SetParent(null);
         }
+    }
+
+
+    void OnDestroy()
+    {
+        LeaveStation();
+        ThrowItem();
     }
 
 }
