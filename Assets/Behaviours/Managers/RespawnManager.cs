@@ -45,6 +45,7 @@ public class RespawnManager : MonoBehaviour
     void RespawnPlayer(ConnectedPlayer _player)
     {
         _player.character = CreatePlayer("Player" + _player.id.ToString(), _player.color);
+        _player.character.input = _player.input;
     }
 
 
@@ -56,9 +57,7 @@ public class RespawnManager : MonoBehaviour
         // Position the player.
         player.transform.position = new Vector3(0, 0, 0);
 
-        // Configure the player.
-        // TODO: ...
-
+        // Add player to alive list.
         alive_players.Add(player);
 
         return player;

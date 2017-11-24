@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerControl : Controllable
 {
+    public Player input;
+
     [Header("Parameters")]
     [SerializeField] float move_speed;
     [SerializeField] Vector3 mount_scan_offset;
     [SerializeField] float mount_scan_radius;
     [SerializeField] float mount_scan_delay;
+
+    [SerializeField] LayerMask station_layer;
+    [SerializeField] LayerMask pickup_layer;
 
     [Header("References")]
     [SerializeField] Rigidbody rigid_body;
@@ -17,10 +23,22 @@ public class PlayerControl : Controllable
     private Station nearest_station;
     private float last_scan_timestamp;
 
+    private Pickup current_pickup;
+    private Pickup nearest_pickup;
+
+    public Transform carry_position;
+    public Transform drop_position;
+
 
     public bool IsUsingStation()
     {
         return current_station != null;
+    }
+
+
+    public bool IsLifting()
+    {
+        return current_pickup != null;
     }
 
 
@@ -36,43 +54,45 @@ public class PlayerControl : Controllable
         }
     }
 
-    
-    public void UseStation()
-    {
-        if (!IsUsingStation() && nearest_station != null)
-        {
-            // Occupy station.
-            current_station = nearest_station;
-            current_station.controllable.OnControlStart(this);
-
-            transform.position = current_station.transform.position;
-            //rigid_body.isKinematic = true;
-
-            current_station.occupied = true;
-            nearest_station = null;
-        }
-        else if (IsUsingStation())
-        {
-            // Leave station.
-            current_station.occupied = false;
-            current_station = null;
-            rigid_body.isKinematic = false;
-        }
-    }
-
 
     void Start()
     {
-        transform.position = new Vector3(0, 1);
+
     }
 
 
     void Update()
     {
-        if (!IsUsingStation() && Time.time >= last_scan_timestamp + mount_scan_delay)
+        float horizontal = input.GetAxis("Horizontal");
+        float vertical = input.GetAxis("Vertical");
+
+        if (input.GetButtonDown("Interact"))
+            Interact();
+
+        if (!IsUsingStation())
         {
-            last_scan_timestamp = Time.time;
-            MountScan();
+            Move(new Vector3(horizontal, 0, vertical));
+
+            if (input.GetButtonDown("Attack"))
+                Attack();
+
+            if (Time.time >= last_scan_timestamp + mount_scan_delay)
+            {
+                last_scan_timestamp = Time.time;
+
+                if (!IsLifting())
+                {
+                    MountScan();
+                    PickUpScan();
+                }
+            }
+        }
+        else // Stuff to do with controlling a station ..
+        {
+            current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
+
+            if (input.GetButton("Attack"))
+                current_station.controllable.Activate();
         }
     }
 
@@ -91,7 +111,7 @@ public class PlayerControl : Controllable
 
     void MountScan()
     {
-        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius);
+        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius, station_layer);
         foreach (var collider in colliders)
         {
             var mount = collider.GetComponent<Station>();
@@ -103,6 +123,96 @@ public class PlayerControl : Controllable
         }
 
         nearest_station = null;
+    }
+
+
+    void PickUpScan()
+    {
+        var colliders = Physics.OverlapSphere(transform.position + mount_scan_offset, mount_scan_radius, pickup_layer);
+        foreach (var collider in colliders)
+        {
+            var pickup = collider.GetComponent<Pickup>();
+
+            if (pickup == null || pickup.GetInUse())
+                continue;
+
+            nearest_pickup = pickup;
+            return;
+        }
+
+        nearest_pickup = null;
+    }
+
+        
+    void Interact()
+    {
+        if (!IsUsingStation() && nearest_station != null)
+        {
+            // Occupy station.
+            current_station = nearest_station;
+            current_station.controllable.OnControlStart(this);
+
+            transform.position = current_station.transform.position;
+            rigid_body.isKinematic = true;
+
+            current_station.occupied = true;
+            nearest_station = null;
+        }
+        else if (IsUsingStation())
+        {
+            // Leave station.
+            current_station.controllable.OnControlEnd();
+            current_station.occupied = false;
+            current_station = null;
+            rigid_body.isKinematic = false;
+        }
+        else if(!IsLifting() && nearest_pickup != null)
+        {
+            // Carry thing.
+            nearest_pickup.transform.position = carry_position.position;
+            nearest_pickup.transform.rotation = carry_position.rotation;
+
+            // Disable Components.
+            nearest_pickup.GetComponent<Rigidbody>().isKinematic = true;
+            nearest_pickup.GetComponent<Collider>().enabled = false;
+
+            // Set player as parent of Pickup.
+            nearest_pickup.gameObject.GetComponent<Transform>().parent = (this.transform);
+            current_pickup = nearest_pickup;
+            nearest_pickup = null;
+        }
+        else if (IsLifting())
+        {
+            // Throw/drop.
+            current_pickup.transform.position = drop_position.position;
+            current_pickup.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+            // Enable disabled components.
+            current_pickup.GetComponent<Rigidbody>().isKinematic = false;
+            current_pickup.GetComponent<Collider>().enabled = true;
+
+            
+            // If the player is currently parented to a boat ect
+            if (GetComponentInParent<Transform>().parent != null)
+            {
+                // Set pickup's parent to that of the player...
+                current_pickup.gameObject.GetComponent<Transform>().parent
+                    = GetComponentInParent<Transform>().parent;
+            }
+            else
+            {
+                // else remove the parentof the pickup
+                current_pickup.gameObject.GetComponent<Transform>().parent = null;
+            }
+
+            current_pickup = null;
+        }
+    }
+
+
+    void Attack()
+    {
+        // Player's personal attack.
     }
 
 
