@@ -58,18 +58,25 @@ public class CameraManager : MonoBehaviour
         target_zoom = Mathf.Clamp(target_zoom, 0, 100);
         UpdateZoom();
 
-        SetTarget(CalculateAveragePos());
-        transform.LookAt(target_pos);
-
         if (update_mode == CameraUpdateMode.DELTA)
+        {
+            SetTarget(CalculateAveragePos());
+            transform.LookAt(target_pos);
+
             UpdatePosition();
+        }
     }
 
     
     void FixedUpdate()
     {
         if (update_mode == CameraUpdateMode.FIXED_DELTA)
+        {
+            SetTarget(CalculateAveragePos());
+            transform.LookAt(target_pos);
+
             UpdatePosition();
+        }
     }
 
 
