@@ -53,9 +53,8 @@ Shader "Custom/Terrain" {
 
 		 Input vert (inout appdata_full v) 
 		 {
-			Input o;
-           //Convert the normal to world coortinates
-           o.worldNormal = mul(UNITY_MATRIX_IT_MV, _Direction);
+			Input o;        
+           o.worldNormal = mul(UNITY_MATRIX_IT_MV, _Direction);//convert normal to world coordinates
 		   return o;
          }
 		
@@ -66,18 +65,14 @@ Shader "Custom/Terrain" {
 
 		void surf (Input IN, inout SurfaceOutputStandard o) 
 		{
-			// Albedo comes from a texture tinted by color
 			fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
 			o.Albedo = c.rgb;
 
-			float h = (_HeightMax-IN.worldPos.y) / (_HeightMax-_HeightMin);
-
-			 if(dot(WorldNormalVector(IN, o.Normal), _Direction.xyz) >= lerp(1,-1,_Amount) || IN.worldPos.y < _SandLevel)
+			 if(dot(WorldNormalVector(IN, o.Normal), _Direction.xyz) >= lerp(1,-1,_Amount) || IN.worldPos.y < _SandLevel)//paint sand bellow sea/at angle
 				 o.Albedo = _SurfaceColor.rgb;
 
-			if(dot(WorldNormalVector(IN, o.Normal), _GrassDirection.xyz) >= lerp(1,-1,_GrassAmount) && IN.worldPos.y > _HeightMin && IN.worldPos.y < _HeightMax)
-				o.Albedo = _GrassColor.rgb;
-		
+			if(dot(WorldNormalVector(IN, o.Normal), _GrassDirection.xyz) >= lerp(1,-1,_GrassAmount) && IN.worldPos.y > _HeightMin && IN.worldPos.y < _HeightMax)//grass at angle and height range
+				o.Albedo = _GrassColor.rgb;	
 
 			o.Alpha = c.a;
 		}
