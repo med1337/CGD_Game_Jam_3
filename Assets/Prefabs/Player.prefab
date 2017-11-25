@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8604f8a2bb8f0448aa0901138f0b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai_controlling: 0
   move_speed: 4
   mount_scan_offset: {x: 0, y: 1, z: 0}
   mount_scan_radius: 0.5
@@ -226,6 +227,8 @@ MonoBehaviour:
   throw_power: 150
   rigid_body: {fileID: 54248301143104516}
   smoke_puff_prefab: {fileID: 1008735952366906, guid: 9519603f1c602594e8421bf14f8ad76c,
+    type: 2}
+  punch_particle_prefab: {fileID: 1636161645169950, guid: d5b5b83183a60ed4ab9bf454b9f6f5db,
     type: 2}
   carry_position: {fileID: 4348904625205110}
   drop_position: {fileID: 4282075730589436}

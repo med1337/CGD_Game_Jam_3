@@ -21,6 +21,7 @@ public class PlayerControl : Controllable
     [Header("References")]
     public Rigidbody rigid_body;
     [SerializeField] GameObject smoke_puff_prefab;
+    [SerializeField] GameObject punch_particle_prefab;
 
     private Station current_station;
     private Station nearest_station;
@@ -298,6 +299,25 @@ public class PlayerControl : Controllable
     void Attack()
     {
         // Player's personal attack.
+        float hit_force = 250.0f;
+
+        Vector3 ray_spawn_position = transform.position;
+        ray_spawn_position.y += 1;
+
+        Vector3 punch_spawn_pos = transform.position;
+        punch_spawn_pos.y += 1;
+        punch_spawn_pos += transform.forward * 0.35f;
+
+        Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
+
+        RaycastHit hit;
+        if (Physics.SphereCast(ray_spawn_position, 0.5f, transform.forward, out hit, 0.5f))
+        {
+            if (hit.rigidbody)
+            {
+                hit.rigidbody.AddForce(transform.forward * hit_force);
+            }
+        }
     }
 
 
