@@ -119,6 +119,9 @@ public class PlayerControl : Controllable
 
             if (input.GetButton("Attack"))
                 current_station.controllable.Activate();
+
+            if (input.GetButtonUp("Attack"))
+                current_station.controllable.Stop();
         }
     }
 
@@ -308,39 +311,42 @@ public class PlayerControl : Controllable
 
     void Attack()
     {
-        // Player's personal attack.
-        float hit_force = 5.0f;
-
-        Vector3 ray_spawn_position = transform.position;
-        ray_spawn_position.y += 1;
-
-        Vector3 punch_spawn_pos = transform.position;
-        punch_spawn_pos.y += 1;
-        punch_spawn_pos += transform.forward * 0.35f;
-
-        Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
-
-        ///////////////////////////////////////////////////////////////////////////////
-        //JOE IF YOU TOUCH MY CODE I'LL BEAT YOU UP
-        ///////////////////////////////////////////////////////////////////////////////
-
-        RaycastHit hit;
-        if (Physics.SphereCast(ray_spawn_position, 0.5f, transform.forward, out hit, 0.5f))
+        //if not lifting
+        if (!IsLifting())
         {
-            if (hit.rigidbody)
-            {
-                if (current_deck)
-                {
-                    if (current_deck != hit.rigidbody)
-                    {
-                        Debug.Log(hit.rigidbody.name);
-                        //hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
-                    }
-                }
+            // Player's personal attack.
+            float hit_force = 5.0f;
 
-                else
+            //set positions for raycast and punch particle effect
+            Vector3 ray_spawn_position = transform.position;
+            ray_spawn_position.y += 1;
+
+            Vector3 punch_spawn_pos = transform.position;
+            punch_spawn_pos.y += 0.8f;
+            punch_spawn_pos += transform.forward * 0.35f;
+
+            Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
+
+            //check in front of player
+            RaycastHit hit;
+            if (Physics.SphereCast(ray_spawn_position, 0.5f, transform.forward, out hit, 0.5f))
+            {
+                if (hit.rigidbody)
                 {
-                    //hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                    //if on a deck, don't punch the deck's rigidbody
+                    if (current_deck)
+                    {
+                        if (current_deck.GetComponent<Rigidbody>() != hit.rigidbody)
+                        {
+                            hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                        }
+                    }
+
+                    //otherwise smack it 
+                    else
+                    {
+                        hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                    }
                 }
             }
         }
@@ -365,7 +371,11 @@ public class PlayerControl : Controllable
     {
         if (_other.CompareTag("Deck"))
         {
-            current_deck = _other.transform.parent.gameObject;
+            if (current_deck != _other.transform.parent.gameObject)
+            {
+                current_deck = _other.transform.parent.gameObject;
+            }
+
             transform.SetParent(_other.transform);
         }
     }

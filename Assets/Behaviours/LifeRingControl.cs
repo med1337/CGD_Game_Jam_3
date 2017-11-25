@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretControl : Controllable
+public class LifeRingControl : Controllable
 {
     [Header("Parameters")]
     [SerializeField] float steer_speed;
@@ -29,11 +29,7 @@ public class TurretControl : Controllable
     private Vector3 reticule_pos;
     private Vector3 reticule_offset;
     private GameObject reticule_vis;
-    private float last_shot_timestamp;
     private Vector3 target_forward;
-
-    Vector3 left_max;
-    Vector3 right_max;
 
 
     public override void Move(Vector3 _dir)
@@ -64,11 +60,13 @@ public class TurretControl : Controllable
 
     public override void Activate()
     {
-        if (Time.time >= last_shot_timestamp + shot_delay)
-        {
-            last_shot_timestamp = Time.time;
-            Shoot();
-        }
+        
+    }
+
+
+    public override void Stop()
+    {
+
     }
 
 
@@ -98,9 +96,6 @@ public class TurretControl : Controllable
 
     void Update()
     {
-        left_max = Quaternion.Euler(0, -max_steer_angle, 0) * transform.forward;
-        right_max = Quaternion.Euler(0, max_steer_angle, 0) * transform.forward;
-
         if (being_controlled)
             ControlUpdate();
     }
@@ -109,46 +104,22 @@ public class TurretControl : Controllable
     void ControlUpdate()
     {
         reticule_offset = move_dir * reticule_max_distance;
-        reticule_pos = transform.position + reticule_offset;
-        reticule_pos += transform.forward * reticule_min_distance;
+        reticule_pos = turret.transform.position + reticule_offset;
+        reticule_pos += turret.transform.forward * reticule_min_distance;
 
         if (reticule_vis != null)
             reticule_vis.transform.position = reticule_pos;
 
-        Vector3 new_forward = (reticule_pos - transform.position).normalized;
+        Vector3 new_forward = (reticule_pos - turret.transform.position).normalized;
         float angle = Vector3.Angle(transform.forward, new_forward);
 
         if (angle <= max_steer_angle)
         {
             target_forward = new_forward;
         }
-        else
-        {
-            float l_angle = Vector3.Angle(new_forward, left_max);
-            float r_angle = Vector3.Angle(new_forward, right_max);
-
-            if (l_angle > r_angle)
-            {
-                target_forward = right_max;
-            }
-            else
-            {
-                target_forward = left_max;
-            }
-        }
 
         Vector3 slerp = Vector3.Slerp(turret.transform.forward, target_forward, steer_speed * Time.deltaTime);
         turret.transform.forward = slerp;
-    }
-
-
-    void OnDrawGizmos()
-    {
-        Gizmos.DrawRay(transform.position, left_max * 10);
-        Gizmos.DrawRay(transform.position, right_max * 10);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, target_forward * 10);
     }
 
 }
