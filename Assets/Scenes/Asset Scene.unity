@@ -5776,6 +5776,11 @@ Prefab:
       propertyPath: sun
       value: 
       objectReference: {fileID: 1495482100}
+    - target: {fileID: 114643637136643106, guid: 6ed1efa45e9a0754ea45a13f0751647a,
+        type: 2}
+      propertyPath: buoyancy_force
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ed1efa45e9a0754ea45a13f0751647a, type: 2}
   m_IsPrefabParent: 0
