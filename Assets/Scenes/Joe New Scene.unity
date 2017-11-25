@@ -2573,6 +2573,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  on_health_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!23 &499138567
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3781,11 +3786,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
---- !u!4 &703374369 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4681791904304770, guid: 28df21bdc626f4f40bf8814c6a203a6b,
-    type: 2}
-  m_PrefabInternal: {fileID: 914791114}
 --- !u!1001 &703768565
 Prefab:
   m_ObjectHideFlags: 0
@@ -5938,6 +5938,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  on_health_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!23 &1201892562
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6051,7 +6056,6 @@ MonoBehaviour:
   original_zoom: 0
   offset: {x: 0, y: 30, z: -10}
   update_mode: 1
-  target: {fileID: 703374369}
   lerp_speed: 10
   zoom_speed: 5
   cam: {fileID: 1203284170}

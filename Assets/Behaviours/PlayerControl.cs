@@ -9,6 +9,7 @@ public class PlayerControl : Controllable
 
     [Header("Parameters")]
     [SerializeField] float move_speed;
+    [SerializeField] float water_move_modifier;
     [SerializeField] Vector3 mount_scan_offset;
     [SerializeField] float mount_scan_radius;
     [SerializeField] float mount_scan_delay;
@@ -22,6 +23,7 @@ public class PlayerControl : Controllable
     public Rigidbody rigid_body;
     [SerializeField] GameObject smoke_puff_prefab;
     [SerializeField] GameObject punch_particle_prefab;
+    [SerializeField] BuoyantObject buoyant_obj;
 
     private Station current_station;
     private Station nearest_station;
@@ -72,6 +74,12 @@ public class PlayerControl : Controllable
     {
         float horizontal = input.GetAxis("Horizontal");
         float vertical = input.GetAxis("Vertical");
+
+        if (buoyant_obj.in_water)
+        {
+            horizontal *= water_move_modifier;
+            vertical *= water_move_modifier;
+        }
 
         float acceleration = input.GetAxis("Forward");
         float decceleration = input.GetAxis("Backward");

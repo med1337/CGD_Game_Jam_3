@@ -7,9 +7,9 @@ public class WaterBuoyancy : MonoBehaviour
     [SerializeField] private float buoyancy_force = 30;
     [SerializeField] private float water_viscosity = 2;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider _other)
     {
-        BuoyantObject buoyant_object = other.GetComponent<BuoyantObject>() ?? other.GetComponentInParent<BuoyantObject>();
+        BuoyantObject buoyant_object = _other.GetComponent<BuoyantObject>() ?? _other.GetComponentInParent<BuoyantObject>();
 
         if (buoyant_object == null)
             return;
@@ -22,5 +22,20 @@ public class WaterBuoyancy : MonoBehaviour
 
         Vector3 drag_force = buoyant_object.target_rigidbody.velocity * -1 * water_viscosity;//invert velocity and scale by viscosity
         buoyant_object.target_rigidbody.AddForce(drag_force);
+
+        buoyant_object.in_water = true;
     }
+
+
+    void OnTriggerExit(Collider _other)
+    {
+        BuoyantObject buoyant_object = _other.GetComponent<BuoyantObject>() ??
+            _other.GetComponentInParent<BuoyantObject>();
+
+        if (buoyant_object == null)
+            return;
+
+        buoyant_object.in_water = false;
+    }
+
 }
