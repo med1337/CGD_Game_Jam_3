@@ -9,11 +9,13 @@ Shader "Custom/Terrain" {
 		_Direction ("Rock Direction", Vector) = (0,1,0)
 		_SurfaceColor ("Sand Color", Color) = (1,1,1,1)
 		_Amount ("Sand Falloff", float) = 1
+		_SandLevel ("Always Sand Bellow", float) = 1
+
 		_GrassColor ("Grass Colour", Color) = (1,1,1,1)
 		_GrassDirection ("Grass Direction", Vector) = (0,1,0)
 		_GrassAmount("Grass amount", float) = 0
-		_HeightMin ("Height Min", float) = -1
-		 _HeightMax ("Height Max", float) = 1
+		_HeightMin ("Grass Height Min", float) = -1
+		_HeightMax ("Grass Height Max", float) = 1
 		
 	}
 	SubShader {
@@ -41,6 +43,7 @@ Shader "Custom/Terrain" {
 		float4 _SurfaceColor;
         float4 _Direction;
 		float _Amount;
+		float _SandLevel;
 
 		fixed4 _GrassColor;
 		float4 _GrassDirection;
@@ -69,7 +72,7 @@ Shader "Custom/Terrain" {
 
 			float h = (_HeightMax-IN.worldPos.y) / (_HeightMax-_HeightMin);
 
-			 if(dot(WorldNormalVector(IN, o.Normal), _Direction.xyz) >= lerp(1,-1,_Amount))
+			 if(dot(WorldNormalVector(IN, o.Normal), _Direction.xyz) >= lerp(1,-1,_Amount) || IN.worldPos.y < _SandLevel)
 				 o.Albedo = _SurfaceColor.rgb;
 
 			if(dot(WorldNormalVector(IN, o.Normal), _GrassDirection.xyz) >= lerp(1,-1,_GrassAmount) && IN.worldPos.y > _HeightMin && IN.worldPos.y < _HeightMax)
