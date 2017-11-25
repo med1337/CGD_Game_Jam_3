@@ -67,6 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4319992903163296}
   - component: {fileID: 114944117474411644}
+  - component: {fileID: 114401986146060282}
   m_Layer: 0
   m_Name: TurretBase (1)
   m_TagString: Untagged
@@ -713,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4090288519489636}
   - component: {fileID: 114239650793335860}
+  - component: {fileID: 114733708588873408}
   m_Layer: 0
   m_Name: TurretBase
   m_TagString: Untagged
@@ -761,6 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117105822932280}
   - component: {fileID: 114947189231871536}
+  - component: {fileID: 114060017134222608}
   m_Layer: 0
   m_Name: TurretBase (2)
   m_TagString: Untagged
@@ -1984,6 +1987,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114239650793335860}
+--- !u!114 &114060017134222608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1967897424722234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed4f421589252e439f6b5692b2f43a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_radius: 20
 --- !u!114 &114084731680315488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2008,6 +2023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62c9ed3af20b4f546b5f5184beea218e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai_controlling: 0
   motorPower: 500
   steer_speed: 20
   max_steer_speed: 0
@@ -2030,6 +2046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36cf76a1ac852041a71e126220d5328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai_controlling: 0
   steer_speed: 5
   max_steer_angle: 70
   reticule_move_speed: 20
@@ -2079,6 +2096,18 @@ MonoBehaviour:
   patrol_speed: 5
   chase_speed: 6
   broad_side_distance: 5
+--- !u!114 &114401986146060282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133421242521098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed4f421589252e439f6b5692b2f43a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_radius: 20
 --- !u!114 &114494941490906180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2092,6 +2121,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114118544935634264}
+--- !u!114 &114733708588873408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1804655660934120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed4f421589252e439f6b5692b2f43a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detect_radius: 20
 --- !u!114 &114754160607656944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2136,6 +2177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36cf76a1ac852041a71e126220d5328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai_controlling: 0
   steer_speed: 5
   max_steer_angle: 70
   reticule_move_speed: 20
@@ -2161,6 +2203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36cf76a1ac852041a71e126220d5328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ai_controlling: 0
   steer_speed: 5
   max_steer_angle: 70
   reticule_move_speed: 20
