@@ -23,64 +23,20 @@ public class CameraManager : MonoBehaviour
     [Header("Parameters")]
     public Vector3 offset;
     public CameraUpdateMode update_mode;
-    [SerializeField] Transform target;
     [SerializeField] float lerp_speed;
     [SerializeField] float zoom_speed;
 
     [Header("References")]
     [SerializeField] Camera cam;
 
-    private Vector3 target_pos;
+    public Vector3 target_pos { get; private set; }
     private float target_zoom;
-
-
-    public CameraSettings GetSettings()
-    {
-        CameraSettings settings = new CameraSettings();
-        
-        settings.target = target;
-        settings.target_pos = target_pos;
-        settings.target_zoom = target_zoom;
-        settings.update_mode = update_mode;
-
-        return settings;
-    }
-
-
-    public void SetSettings(CameraSettings _settings)
-    {
-        if (_settings.target != null)
-        {
-            SetTarget(_settings.target, _settings.target_zoom);
-        }
-        else
-        {
-            SetTarget(_settings.target_pos, _settings.target_zoom);
-        }
-
-        update_mode = _settings.update_mode;
-    }
-
-
-    public void SetTarget(Transform _target, float _zoom)
-    {
-        target = _target;
-        target_pos = Vector3.zero;
-        target_zoom = _zoom;
-    }
 
 
     public void SetTarget(Vector3 _target, float _zoom)
     {
         target_pos = _target;
-        target = null;
         target_zoom = _zoom;
-    }
-
-
-    public void SetTarget(Transform _target)
-    {
-        SetTarget(_target, target_zoom);
     }
 
 
@@ -102,8 +58,8 @@ public class CameraManager : MonoBehaviour
         target_zoom = Mathf.Clamp(target_zoom, 0, 100);
         UpdateZoom();
 
-        if (target != null)
-            transform.LookAt(target);
+        SetTarget(CalculateAveragePos());
+        transform.LookAt(target_pos);
 
         if (update_mode == CameraUpdateMode.DELTA)
             UpdatePosition();
@@ -117,9 +73,30 @@ public class CameraManager : MonoBehaviour
     }
 
 
+    Vector3 CalculateAveragePos()
+    {
+        Vector3 avg_pos = new Vector3();
+
+        var players = GameManager.scene.respawn_manager.alive_players;
+        if (players.Count > 0)
+        {
+            avg_pos = players[0].transform.position;
+
+            for (int i = 1; i < players.Count; ++i)
+            {
+                avg_pos += players[i].transform.position;
+            }
+
+            avg_pos /= players.Count;
+        }
+
+        return avg_pos;
+    }
+
+
     void UpdatePosition()
     {
-        target_pos = (target != null ? target.position : target_pos) + offset;
+        target_pos += offset;
 
         transform.position = Vector3.Lerp(transform.position, target_pos,
             lerp_speed * GetCurrentDelta());
