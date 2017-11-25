@@ -16,6 +16,15 @@ ModelImporter:
     100016: railing2
     100018: rotaryBase
     100020: weapon
+    100022: r_back1
+    100024: r_back2
+    100026: r_front2
+    100028: r_Front3
+    100030: r_Front4
+    100032: r_front5
+    100034: r_front6
+    100036: r_front7
+    100038: r_front_1
     400000: //RootNode
     400002: Box001
     400004: Box002
@@ -27,6 +36,15 @@ ModelImporter:
     400016: railing2
     400018: rotaryBase
     400020: weapon
+    400022: r_back1
+    400024: r_back2
+    400026: r_front2
+    400028: r_Front3
+    400030: r_Front4
+    400032: r_front5
+    400034: r_front6
+    400036: r_front7
+    400038: r_front_1
     2300000: Box001
     2300002: Box002
     2300004: hull
@@ -37,6 +55,15 @@ ModelImporter:
     2300014: railing2
     2300016: rotaryBase
     2300018: weapon
+    2300020: r_back1
+    2300022: r_back2
+    2300024: r_front2
+    2300026: r_Front3
+    2300028: r_Front4
+    2300030: r_front5
+    2300032: r_front6
+    2300034: r_front7
+    2300036: r_front_1
     3300000: Box001
     3300002: Box002
     3300004: hull
@@ -47,6 +74,15 @@ ModelImporter:
     3300014: railing2
     3300016: rotaryBase
     3300018: weapon
+    3300020: r_back1
+    3300022: r_back2
+    3300024: r_front2
+    3300026: r_Front3
+    3300028: r_Front4
+    3300030: r_front5
+    3300032: r_front6
+    3300034: r_front7
+    3300036: r_front_1
     4300000: Box001
     4300002: Box002
     4300004: weapon
@@ -57,6 +93,15 @@ ModelImporter:
     4300014: railing2
     4300016: main_top
     4300018: main_second
+    4300020: r_front_1
+    4300022: r_front2
+    4300024: r_Front3
+    4300026: r_Front4
+    4300028: r_front5
+    4300030: r_front6
+    4300032: r_front7
+    4300034: r_back1
+    4300036: r_back2
   materials:
     importMaterials: 1
     materialName: 0
