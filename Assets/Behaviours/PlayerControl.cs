@@ -161,7 +161,21 @@ public class PlayerControl : Controllable
         
     void Interact()
     {
-        if (!IsUsingStation() && nearest_station != null)
+        //If the player is NOT on a station or Carrying AND has a nearest station and pickup
+        if (!IsUsingStation() && nearest_station != null && !IsLifting() && nearest_pickup != null)
+        {
+            // If station is closer mount it
+            if (Vector3.Distance(transform.position, nearest_station.transform.position) <
+                Vector3.Distance(transform.position, nearest_pickup.transform.position))
+            {
+                OccupyStation();
+            }
+
+            else
+                CarryItem();
+        }
+
+        else if (!IsUsingStation() && nearest_station != null && !IsLifting())
         {
             OccupyStation();
         }
@@ -169,7 +183,7 @@ public class PlayerControl : Controllable
         {
             LeaveStation();
         }
-        else if(!IsLifting() && nearest_pickup != null)
+        else if (!IsLifting() && nearest_pickup != null && !IsUsingStation())
         {
             CarryItem();
         }
