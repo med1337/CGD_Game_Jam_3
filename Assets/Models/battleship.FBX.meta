@@ -1,34 +1,22 @@
 fileFormatVersion: 2
-guid: 6b23edefc7602134e8233472dd1a7548
-timeCreated: 1511524389
+guid: 99783d7b8d164864c8850148f7ee575f
+timeCreated: 1511604937
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Box002
-    100002: Box004
-    100004: Box006
-    100006: //RootNode
-    100008: Sky001
-    100010: playerShipMesh
-    400000: Box002
-    400002: Box004
-    400004: Box006
-    400006: //RootNode
-    400008: Sky001
-    400010: playerShipMesh
-    2300000: Box002
-    2300002: Box004
-    2300004: Box006
-    2300006: playerShipMesh
-    3300000: Box002
-    3300002: Box004
-    3300004: Box006
-    3300006: playerShipMesh
-    4300000: Box002
-    4300002: Box004
-    4300004: Box006
-    4300006: playerShipMesh
+    100000: //RootNode
+    100002: Box001
+    100004: Box002
+    400000: //RootNode
+    400002: Box001
+    400004: Box002
+    2300000: Box001
+    2300002: Box002
+    3300000: Box001
+    3300002: Box002
+    4300000: Box001
+    4300002: Box002
   materials:
     importMaterials: 1
     materialName: 0
@@ -60,7 +48,7 @@ ModelImporter:
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -73,7 +61,7 @@ ModelImporter:
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
-    tangentImportMode: 0
+    tangentImportMode: 3
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
