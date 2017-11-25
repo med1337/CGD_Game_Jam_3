@@ -24,6 +24,11 @@ public class LifeForce : MonoBehaviour
 
     private int current_health = 100;
 
+    void Start()
+    {
+        ResetHealth();
+    }
+
 
     public void Damage(int _damage)
     {
