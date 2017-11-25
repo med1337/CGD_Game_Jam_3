@@ -10,6 +10,7 @@ public class LifeForce : MonoBehaviour
 
     public CustomEvents.GameObjectEvent on_death_event;
     public CustomEvents.IntEvent on_damage_event;
+    public CustomEvents.IntEvent on_health_changed_event;
 
     private int current_health = 100;
 
@@ -30,23 +31,23 @@ public class LifeForce : MonoBehaviour
     }
 
 
-    public bool Damage(int _damage)
+    public void Damage(int _damage)
     {
         if (current_health <= 0)
-            return false;
+            return;
 
         current_health -= _damage;//damage health
+        current_health = Mathf.Clamp(current_health, 0, int.MaxValue);
+        on_health_changed_event.Invoke(current_health);
 
         if (current_health > 0)
         {
             on_damage_event.Invoke(_damage);//trigger damage event if survived
-            return false;
         }
-
-        current_health = 0;
-        on_death_event.Invoke(gameObject);//trigger death event
-
-        return true;
+        else
+        {
+            on_death_event.Invoke(gameObject);//trigger death event
+        }
     }
 
 

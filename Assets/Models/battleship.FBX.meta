@@ -8,15 +8,55 @@ ModelImporter:
     100000: //RootNode
     100002: Box001
     100004: Box002
+    100006: hull
+    100008: main
+    100010: main_second
+    100012: main_top
+    100014: railing
+    100016: railing2
+    100018: rotaryBase
+    100020: weapon
     400000: //RootNode
     400002: Box001
     400004: Box002
+    400006: hull
+    400008: main
+    400010: main_second
+    400012: main_top
+    400014: railing
+    400016: railing2
+    400018: rotaryBase
+    400020: weapon
     2300000: Box001
     2300002: Box002
+    2300004: hull
+    2300006: main
+    2300008: main_second
+    2300010: main_top
+    2300012: railing
+    2300014: railing2
+    2300016: rotaryBase
+    2300018: weapon
     3300000: Box001
     3300002: Box002
+    3300004: hull
+    3300006: main
+    3300008: main_second
+    3300010: main_top
+    3300012: railing
+    3300014: railing2
+    3300016: rotaryBase
+    3300018: weapon
     4300000: Box001
     4300002: Box002
+    4300004: weapon
+    4300006: hull
+    4300008: railing
+    4300010: main
+    4300012: rotaryBase
+    4300014: railing2
+    4300016: main_top
+    4300018: main_second
   materials:
     importMaterials: 1
     materialName: 0
