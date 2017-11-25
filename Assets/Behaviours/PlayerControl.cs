@@ -24,6 +24,7 @@ public class PlayerControl : Controllable
     [SerializeField] GameObject smoke_puff_prefab;
     [SerializeField] GameObject punch_particle_prefab;
     [SerializeField] BuoyantObject buoyant_obj;
+    private GameObject current_deck = null;
 
     private Station current_station;
     private Station nearest_station;
@@ -307,7 +308,7 @@ public class PlayerControl : Controllable
     void Attack()
     {
         // Player's personal attack.
-        float hit_force = 250.0f;
+        float hit_force = 5.0f;
 
         Vector3 ray_spawn_position = transform.position;
         ray_spawn_position.y += 1;
@@ -318,15 +319,31 @@ public class PlayerControl : Controllable
 
         Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
 
+        ///////////////////////////////////////////////////////////////////////////////
+        //JOE IF YOU TOUCH MY CODE I'LL BEAT YOU UP
+        ///////////////////////////////////////////////////////////////////////////////
+
         RaycastHit hit;
         if (Physics.SphereCast(ray_spawn_position, 0.5f, transform.forward, out hit, 0.5f))
         {
             if (hit.rigidbody)
             {
-                hit.rigidbody.AddForce(transform.forward * hit_force);
+                if (current_deck)
+                {
+                    if (current_deck != hit.rigidbody)
+                    {
+                        Debug.Log(hit.rigidbody.name);
+                        //hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                    }
+                }
+
+                else
+                {
+                    //hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                }
             }
         }
-    }
+    }    
 
 
     void Jump()
@@ -347,6 +364,7 @@ public class PlayerControl : Controllable
     {
         if (_other.CompareTag("Deck"))
         {
+            current_deck = _other.transform.parent.gameObject;
             transform.SetParent(_other.transform);
         }
     }
@@ -356,6 +374,7 @@ public class PlayerControl : Controllable
     {
         if (_other.CompareTag("Deck"))
         {
+            current_deck = null;
             transform.SetParent(null);
         }
     }
