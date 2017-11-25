@@ -842,3 +842,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7802783840eba83409c0f89cbf91092c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map_bounds_radius: 500
+  default_texture_: {fileID: 2800000, guid: 4d2ee24d48452f64ab4e44960f40930b, type: 3}

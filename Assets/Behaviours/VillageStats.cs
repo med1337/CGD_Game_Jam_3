@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class VillageStats : MonoBehaviour {
 
-    private float village_money = 150;  //currency
-    private float village_population = 500; //villagers
-    private float village_happiness = 30;   //approval rating 
+    [SerializeField] float village_money = 150;  //currency
+    [SerializeField] float village_population = 500; //villagers
+    [SerializeField] float village_happiness = 30;   //approval rating 
 
     // Use this for initialization
     void Start () {
@@ -25,7 +25,7 @@ public class VillageStats : MonoBehaviour {
 
     public void SetMoney(float money)
     {
-        village_money += money;
+        village_money =+ money;
     }
 
     public float GetPopulation()
@@ -35,7 +35,7 @@ public class VillageStats : MonoBehaviour {
 
     public void SetPopulation(float population)
     {
-        village_population += population;
+        village_population =+ population;
     }
 
     public float GetHappiness()
@@ -45,6 +45,6 @@ public class VillageStats : MonoBehaviour {
 
     public void SetHappiness(float happiness)
     {
-        village_happiness += happiness;
+        village_happiness =+ happiness;
     }
 }
