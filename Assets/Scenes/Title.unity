@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_rigidbody: {fileID: 19947948}
+  in_water: 0
 --- !u!54 &19947948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -470,6 +471,10 @@ Prefab:
         type: 2}
       propertyPath: buoyancy_force
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843332581665952, guid: 6ed1efa45e9a0754ea45a13f0751647a, type: 2}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ed1efa45e9a0754ea45a13f0751647a, type: 2}
