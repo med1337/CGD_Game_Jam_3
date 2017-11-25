@@ -366,7 +366,10 @@ Prefab:
       propertyPath: m_Name
       value: Boat Vehicle (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114401986146060282, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114060017134222608, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114733708588873408, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &95591752
@@ -1629,7 +1632,10 @@ Prefab:
       propertyPath: m_Name
       value: Boat Vehicle (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114733708588873408, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114060017134222608, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114401986146060282, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &346830448
@@ -2458,6 +2464,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 114376222697790790, guid: 28df21bdc626f4f40bf8814c6a203a6b,
+        type: 2}
+      propertyPath: captain_faction
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
@@ -2493,8 +2504,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b240d57d6e0d65469b9518d7b4824a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshes:
-  - {fileID: 499138567}
+  flash_color: {r: 1, g: 1, b: 1, a: 1}
+  flash_duration: 0.05
+  renderers: []
 --- !u!114 &499138566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3313,7 +3325,10 @@ Prefab:
       propertyPath: m_Name
       value: Boat Vehicle (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114733708588873408, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114060017134222608, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114401986146060282, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &614600446
@@ -4732,14 +4747,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
       propertyPath: m_Name
-      value: Boat Vehicle (1)
+      value: Player Boat
       objectReference: {fileID: 0}
     - target: {fileID: 114376222697790790, guid: 28df21bdc626f4f40bf8814c6a203a6b,
         type: 2}
       propertyPath: is_starting_boat
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114733708588873408, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114060017134222608, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114401986146060282, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &953180735
@@ -5779,8 +5797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b240d57d6e0d65469b9518d7b4824a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshes:
-  - {fileID: 1201892562}
+  flash_color: {r: 1, g: 1, b: 1, a: 1}
+  flash_duration: 0.05
+  renderers: []
 --- !u!114 &1201892561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7994,7 +8013,10 @@ Prefab:
       propertyPath: m_Name
       value: Boat Vehicle (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114733708588873408, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114060017134222608, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114401986146060282, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1741036147
@@ -9383,7 +9405,10 @@ Prefab:
       propertyPath: m_Name
       value: Boat Vehicle (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114401986146060282, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114060017134222608, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+    - {fileID: 114733708588873408, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &2055515507

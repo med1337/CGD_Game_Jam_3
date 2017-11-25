@@ -105,7 +105,9 @@ public class TurretControl : Controllable
         reticule_offset = move_dir * reticule_max_distance;
         reticule_pos = turret.transform.position + reticule_offset;
         reticule_pos += turret.transform.forward * reticule_min_distance;
-        reticule_vis.transform.position = reticule_pos;
+
+        if (reticule_vis != null)
+            reticule_vis.transform.position = reticule_pos;
 
         Vector3 new_forward = (reticule_pos - turret.transform.position).normalized;
         float angle = Vector3.Angle(transform.forward, new_forward);
