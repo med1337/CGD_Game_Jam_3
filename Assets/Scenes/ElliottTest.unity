@@ -12499,8 +12499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b240d57d6e0d65469b9518d7b4824a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshes:
-  - {fileID: 1652160711}
+  flash_color: {r: 1, g: 1, b: 1, a: 1}
+  flash_duration: 0.05
+  renderers: []
 --- !u!114 &1652160710
 MonoBehaviour:
   m_ObjectHideFlags: 0
