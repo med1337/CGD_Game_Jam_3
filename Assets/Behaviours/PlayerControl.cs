@@ -126,7 +126,7 @@ public class PlayerControl : Controllable
 
     void MountScan()
     {
-        var colliders = Physics.OverlapSphere(new Vector3(drop_position.position.x, mount_scan_offset.y, drop_position.position.z), mount_scan_radius, station_layer);
+        var colliders = Physics.OverlapSphere(drop_position.position, mount_scan_radius, station_layer);
         foreach (var collider in colliders)
         {
             var mount = collider.GetComponent<Station>();
@@ -143,7 +143,7 @@ public class PlayerControl : Controllable
 
     void PickUpScan()
     {
-        var colliders = Physics.OverlapSphere(new Vector3(drop_position.position.x, mount_scan_offset.y, drop_position.position.z), mount_scan_radius, pickup_layer);
+        var colliders = Physics.OverlapSphere(drop_position.position, mount_scan_radius, pickup_layer);
         foreach (var collider in colliders)
         {
             var pickup = collider.GetComponent<Pickup>();
@@ -165,8 +165,8 @@ public class PlayerControl : Controllable
         if (!IsUsingStation() && nearest_station != null && !IsLifting() && nearest_pickup != null)
         {
             // If station is closer mount it
-            if (Vector3.Distance(new Vector3(drop_position.position.x, mount_scan_offset.y, drop_position.position.z), nearest_station.transform.position) <
-                Vector3.Distance(new Vector3(drop_position.position.x, mount_scan_offset.y, drop_position.position.z), nearest_pickup.transform.position))
+            if (Vector3.Distance(drop_position.position, nearest_station.transform.position) <
+                Vector3.Distance(drop_position.position, nearest_pickup.transform.position))
             {
                 OccupyStation();
             }
@@ -311,7 +311,7 @@ public class PlayerControl : Controllable
     void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(new Vector3(drop_position.position.x, mount_scan_offset.y, drop_position.position.z), mount_scan_radius);
+        Gizmos.DrawWireSphere(drop_position.position, mount_scan_radius);
     }
 
 
