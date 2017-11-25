@@ -311,11 +311,13 @@ public class PlayerControl : Controllable
 
     void Attack()
     {
+        //if not lifting
         if (!IsLifting())
         {
             // Player's personal attack.
             float hit_force = 5.0f;
 
+            //set positions for raycast and punch particle effect
             Vector3 ray_spawn_position = transform.position;
             ray_spawn_position.y += 1;
 
@@ -325,23 +327,24 @@ public class PlayerControl : Controllable
 
             Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
 
+            //check in front of player
             RaycastHit hit;
             if (Physics.SphereCast(ray_spawn_position, 0.5f, transform.forward, out hit, 0.5f))
             {
                 if (hit.rigidbody)
                 {
+                    //if on a deck, don't punch the deck's rigidbody
                     if (current_deck)
                     {
                         if (current_deck.GetComponent<Rigidbody>() != hit.rigidbody)
                         {
-                            Debug.Log(hit.rigidbody.name);
                             hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
                         }
                     }
 
+                    //otherwise smack it 
                     else
                     {
-                        //Debug.Log(hit.rigidbody.name);
                         hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
                     }
                 }
