@@ -13,30 +13,31 @@ public class AICaptain : MonoBehaviour
         DEAD
     }
 
-    [SerializeField] private Faction captain_faction;
+    [SerializeField] private Faction captain_faction = Faction.CIVILIAN;
     [SerializeField] private BoatControl boat_control;
     [SerializeField] private NavMeshAgent nav_mesh_agent;
+    [SerializeField] private Transform deck_volume;
     
-    [SerializeField] private float waypoint_radius;
-    [SerializeField] private float distance_between_waypoints;
-    [SerializeField] private float chase_radius;
+    [SerializeField] private float waypoint_radius = 60;
+    [SerializeField] private float distance_between_waypoints = 45;
+    [SerializeField] private float chase_radius = 40;
     [SerializeField] private float patrol_speed = 10;
-    [SerializeField] private float chase_speed = 15;
-    [SerializeField] private float broad_side_distance = 1;
+    [SerializeField] private float chase_speed = 11;
+    [SerializeField] private float broad_side_distance = 5;
 
     private CaptainState current_state = CaptainState.PATROL;
     private PlayerControl closest_enemy;
     private Vector3 waypoint;
 
 
-    void Start()
+    private void Start()
     {
         nav_mesh_agent.speed = patrol_speed;
         SetNewPatrolPoint();
     }
 
 
-	void Update ()
+    private void Update ()
     {
         UpdateState();
 	}
@@ -45,17 +46,15 @@ public class AICaptain : MonoBehaviour
     public void Kill()
     {
         current_state = CaptainState.DEAD;
+        Destroy(nav_mesh_agent);
+        Destroy(this);
     }
 
 
-    public void Revive()
+    private void UpdateState()
     {
-        current_state = CaptainState.PATROL;
-    }
+        CheckTransitionToDead();
 
-
-    void UpdateState()
-    {
         switch (current_state)
         {
             case CaptainState.PATROL: Patrol();
@@ -68,7 +67,7 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void Patrol()
+    private void Patrol()
     {
         if (nav_mesh_agent.remainingDistance < 5)
             SetNewPatrolPoint();
@@ -78,7 +77,13 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void FindClosestPlayer()
+    private void CheckTransitionToDead()
+    {
+      //if boat is destroyed transition to death      
+    }
+
+
+    private void FindClosestPlayer()
     {
         List<PlayerControl> current_players = GameManager.scene.respawn_manager.alive_players;
 
@@ -103,7 +108,7 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void CheckTransitionToChase()
+    private void CheckTransitionToChase()
     {
         if (closest_enemy == null)
             return;
@@ -117,7 +122,7 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void SetNewPatrolPoint()
+    private void SetNewPatrolPoint()
     {
         Vector2 random = Random.insideUnitCircle * waypoint_radius;//get random point in circle
         Vector3 random_waypoint = new Vector3(random.x, boat_control.transform.position.y, random.y);//convert to vec3
@@ -127,7 +132,7 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void Chase()
+    private void Chase()
     {
         CheckTransitionToPatrol();
 
@@ -142,7 +147,7 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void CheckTransitionToPatrol()
+    private void CheckTransitionToPatrol()
     {
         if (closest_enemy == null)
         {
@@ -151,7 +156,7 @@ public class AICaptain : MonoBehaviour
         }
 
         if ((transform.position - closest_enemy.transform.position).sqrMagnitude >
-            chase_radius * chase_radius) //chase when a player is near
+            chase_radius * chase_radius || closest_enemy.transform.parent == deck_volume) //chase when a player is near
         {
             nav_mesh_agent.speed = chase_speed;
             current_state = CaptainState.PATROL;
@@ -159,21 +164,38 @@ public class AICaptain : MonoBehaviour
     }
 
 
-    void SetChaseTarget()
+    private void SetChaseTarget()
     {
-        Vector3 chase_target = closest_enemy.transform.position + (closest_enemy.transform.right * broad_side_distance);
+        if (closest_enemy == null)
+            return;
+
+        if (closest_enemy.transform.parent == null)
+            return;
+
+        if (closest_enemy.transform.parent == deck_volume)//disable movement if player is on board
+        {
+            nav_mesh_agent.isStopped = true;
+            return;
+        }
+
+        nav_mesh_agent.isStopped = false;
+
+        Vector3 chase_target = closest_enemy.transform.parent.position + (closest_enemy.transform.right * broad_side_distance);//use players parent whih should be boat
         nav_mesh_agent.SetDestination(chase_target);
     }
 
 
-    void SetFleeTarget()
+    private void SetFleeTarget()
     {
+        if (closest_enemy == null)
+            return;
+
         Vector3 flee_target = (transform.position - closest_enemy.transform.position).normalized * distance_between_waypoints;
         nav_mesh_agent.SetDestination(flee_target);
     }
 
 
-    private void OnDrawGizmos()
+    private void OnDrawSelectedGizmos()
     {
         Gizmos.color = Color.blue;
         Vector3 next_waypoint_pos = transform.position + boat_control.transform.forward * distance_between_waypoints;

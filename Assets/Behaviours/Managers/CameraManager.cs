@@ -102,6 +102,9 @@ public class CameraManager : MonoBehaviour
         target_zoom = Mathf.Clamp(target_zoom, 0, 100);
         UpdateZoom();
 
+        if (target != null)
+            transform.LookAt(target);
+
         if (update_mode == CameraUpdateMode.DELTA)
             UpdatePosition();
     }

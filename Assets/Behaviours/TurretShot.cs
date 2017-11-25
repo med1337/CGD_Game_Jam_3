@@ -15,11 +15,11 @@ public class TurretShot : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 prev_pos = transform.position;
 
-        transform.position += transform.forward * travel_speed * Time.deltaTime;
+        transform.position += transform.forward * travel_speed * Time.fixedDeltaTime;
 
         Vector3 current_pos = transform.position;
 
