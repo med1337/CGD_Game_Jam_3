@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,8 +13,12 @@ public class AICaptain : MonoBehaviour
         CHASE
     }
 
+    [SerializeField] bool is_starting_boat = false;
+    [Space]
+
     [Header("References")] 
     [SerializeField] NavMeshAgent nav_mesh_agent;
+    [SerializeField] NavMeshObstacle nav_mesh_obstacle;
     [SerializeField] Transform deck_volume;
     [Space]
 
@@ -33,6 +38,12 @@ public class AICaptain : MonoBehaviour
 
     private void Start()
     {
+        if (is_starting_boat)
+        {
+            Kill();
+            return;
+        }
+
         nav_mesh_agent.speed = patrol_speed;
         SetNewPatrolPoint();//set start patrol waypoint
     }
@@ -47,8 +58,8 @@ public class AICaptain : MonoBehaviour
     public void Kill()
     {
         Destroy(nav_mesh_agent);//destroy AI related components
-        Destroy(this);//will allow player to captain ship
-        //TODO add navmesh obstacle component and enable it on death
+        nav_mesh_obstacle.enabled = true;
+        Destroy(this);//will allow player to captain ship       
     }
 
 
@@ -120,7 +131,7 @@ public class AICaptain : MonoBehaviour
         Vector3 random_waypoint = new Vector3(random.x, transform.position.y, random.y);//convert to vec3
 
         waypoint = transform.position+ transform.forward * distance_between_waypoints +  random_waypoint;//put rand point in front of boat
-        nav_mesh_agent.SetDestination(waypoint);//set nav direction
+        nav_mesh_agent.SetDestination(ValidDestination(waypoint));//set nav direction
     }
 
 
@@ -174,7 +185,7 @@ public class AICaptain : MonoBehaviour
 
         Vector3 side_direction = DetermineApproachSide();
         Vector3 chase_target = closest_enemy.transform.parent.position + (side_direction * broad_side_distance);//use players parent whih should be boat
-        nav_mesh_agent.SetDestination(chase_target);
+        nav_mesh_agent.SetDestination(ValidDestination(chase_target));
     }
 
 
@@ -188,6 +199,17 @@ public class AICaptain : MonoBehaviour
             side = -closest_enemy.transform.right;
 
         return side;
+    }
+
+
+    private Vector3 ValidDestination(Vector3 _desired_waypoint)
+    {
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(_desired_waypoint, out hit, 100, NavMesh.AllAreas))
+            return _desired_waypoint;
+
+        NavMesh.FindClosestEdge(_desired_waypoint, out hit, NavMesh.AllAreas);
+        return hit.position;
     }
 
 
@@ -213,7 +235,7 @@ public class AICaptain : MonoBehaviour
 
         Vector3 flee_target = (transform.position - closest_enemy.transform.position).normalized *
             distance_between_waypoints;//set waypoint in oposite direction to enemy
-        nav_mesh_agent.SetDestination(flee_target);
+        nav_mesh_agent.SetDestination(ValidDestination(flee_target));
     }
 
 
@@ -227,7 +249,7 @@ public class AICaptain : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, chase_radius);//draw chase trigger radius
 
         Gizmos.color = Color.magenta;
-        Gizmos.DrawSphere(waypoint, 5);//draw current waypoint
+        Gizmos.DrawSphere(waypoint, .5f);//draw current waypoint
     }
 
 }
