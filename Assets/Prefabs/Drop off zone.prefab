@@ -163,4 +163,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: Loot
-  despawn_timer: 0.3
+  despawn_timer: 0.2
+  coin_particle: {fileID: 198405445744539218, guid: 640272e29fb4ebd4bad8f261e9d64558,
+    type: 2}
