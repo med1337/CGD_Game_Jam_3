@@ -4,9 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class LifeForce : MonoBehaviour
 {
+    [System.Serializable]
+    private struct Threshold
+    {
+        public float threshold_percentage;
+        public UnityEvent threshold_trigger_event;
+    }
+
+
     [SerializeField] private int max_health = 100;
+    [SerializeField] private List<Threshold> thresholds = new List<Threshold>();
 
     public CustomEvents.GameObjectEvent on_death_event;
     public CustomEvents.IntEvent on_damage_event;
@@ -15,30 +25,18 @@ public class LifeForce : MonoBehaviour
     private int current_health = 100;
 
 
-    void Awake()
-    {
-        CreateEvents();
-    }
-
-
-    private void CreateEvents()
-    {
-        if (on_death_event == null)
-            on_death_event = new CustomEvents.GameObjectEvent();//create event
-
-        if (on_damage_event == null)
-            on_damage_event = new CustomEvents.IntEvent();
-    }
-
-
     public void Damage(int _damage)
     {
         if (current_health <= 0)
             return;
 
+        int prev_health = current_health;
+
         current_health -= _damage;//damage health
         current_health = Mathf.Clamp(current_health, 0, int.MaxValue);
         on_health_changed_event.Invoke(current_health);
+
+        thresholds.ForEach(t => CheckThresholdTriggered(t, prev_health));
 
         if (current_health > 0)
         {
@@ -48,6 +46,14 @@ public class LifeForce : MonoBehaviour
         {
             on_death_event.Invoke(gameObject);//trigger death event
         }
+    }
+
+
+    void CheckThresholdTriggered(Threshold _threshold, int _prev_health)
+    {
+        float health_threshold = _threshold.threshold_percentage * max_health;
+        if (_prev_health >=  health_threshold && current_health < health_threshold)
+            _threshold.threshold_trigger_event.Invoke();
     }
 
 

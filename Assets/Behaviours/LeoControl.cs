@@ -80,5 +80,11 @@ public class LeoControl : Controllable
                 colliders[i].motorTorque += deceleration * -motorPower;
             }
         }
+
+
+        if (transform.position.sqrMagnitude > GameManager.map_bound_radius * GameManager.map_bound_radius)
+        {
+            transform.position = transform.position.normalized * GameManager.map_bound_radius;
+        }
     }
 }

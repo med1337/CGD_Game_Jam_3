@@ -42,6 +42,9 @@ public class AIGunner : MonoBehaviour
         if (closest_enemy.transform.parent == null)
             return;
 
+        if (closest_enemy.transform.root.GetComponent<AICaptain>() != null)//if the boat they are on has an ai captain stop firing
+            return;
+
         if ((transform.position - closest_enemy.transform.position).sqrMagnitude <=
             detect_radius * detect_radius)
         {

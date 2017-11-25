@@ -204,6 +204,11 @@ public class AICaptain : MonoBehaviour
 
     private Vector3 ValidDestination(Vector3 _desired_waypoint)
     {
+        if (_desired_waypoint.sqrMagnitude > GameManager.map_bound_radius * GameManager.map_bound_radius)
+        {
+            _desired_waypoint = _desired_waypoint.normalized * GameManager.map_bound_radius;
+        }
+
         NavMeshHit hit;
         if (NavMesh.SamplePosition(_desired_waypoint, out hit, 100, NavMesh.AllAreas))
             return _desired_waypoint;

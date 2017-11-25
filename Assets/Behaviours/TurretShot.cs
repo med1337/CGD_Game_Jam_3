@@ -7,6 +7,7 @@ public class TurretShot : MonoBehaviour
     [Header("Parameters")]
     [SerializeField] float travel_speed;
     [SerializeField] GameObject ricochet_prefab;
+    [SerializeField] int damage = 5;
 
     
     void Start()
@@ -54,7 +55,7 @@ public class TurretShot : MonoBehaviour
         if (life == null)
             return;
 
-        life.Damage(0);
+        life.Damage(damage);
 
         GameObject particle_clone = Instantiate(ricochet_prefab, hit.point,
             Quaternion.LookRotation(hit.normal));

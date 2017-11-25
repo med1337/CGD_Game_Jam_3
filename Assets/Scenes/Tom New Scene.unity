@@ -102,13 +102,13 @@ NavMeshSettings:
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    minRegionArea: 2
+    minRegionArea: 250
     manualCellSize: 0
     cellSize: 0.39666668
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 23800000, guid: 2666652b29b66e448852ed653017a3ce, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6c63f631c83a2b54a9ba5aaf21a5e794, type: 2}
 --- !u!1001 &9184824
 Prefab:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ Prefab:
         type: 2}
       propertyPath: respawn_point
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 703374369}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1252fccf7159f8e46915a5d7a0e851e4, type: 2}
   m_IsPrefabParent: 0
@@ -369,6 +369,10 @@ Prefab:
     - target: {fileID: 114376222697790790, guid: 28df21bdc626f4f40bf8814c6a203a6b,
         type: 2}
       propertyPath: captain_faction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -1655,6 +1659,10 @@ Prefab:
       propertyPath: m_Name
       value: Boat Vehicle (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -2455,11 +2463,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114754160607656944, guid: 28df21bdc626f4f40bf8814c6a203a6b,
-        type: 2}
-      propertyPath: on_death_event.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4681791904304770, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
       propertyPath: m_LocalPosition.x
       value: -6.39
@@ -2492,15 +2495,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 114754160607656944, guid: 28df21bdc626f4f40bf8814c6a203a6b,
-        type: 2}
-      propertyPath: on_death_event.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+    - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+      propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114754160607656944, guid: 28df21bdc626f4f40bf8814c6a203a6b,
-        type: 2}
-      propertyPath: on_death_event.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
@@ -2552,6 +2549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_health: 100
+  thresholds: []
   on_death_event:
     m_PersistentCalls:
       m_Calls: []
@@ -2571,6 +2569,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  on_health_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!23 &499138567
@@ -3375,6 +3378,10 @@ Prefab:
     - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
       propertyPath: m_Name
       value: Boat Vehicle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -4784,7 +4791,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4681791904304770, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4681791904304770, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4822,6 +4829,11 @@ Prefab:
         type: 2}
       propertyPath: is_starting_boat
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114754160607656944, guid: 28df21bdc626f4f40bf8814c6a203a6b,
+        type: 2}
+      propertyPath: max_health
+      value: 10000
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -5917,6 +5929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   max_health: 100
+  thresholds: []
   on_death_event:
     m_PersistentCalls:
       m_Calls: []
@@ -5936,6 +5949,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  on_health_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!23 &1201892562
@@ -6051,7 +6069,6 @@ MonoBehaviour:
   original_zoom: 0
   offset: {x: 0, y: 30, z: -10}
   update_mode: 1
-  target: {fileID: 703374369}
   lerp_speed: 10
   zoom_speed: 5
   cam: {fileID: 1203284170}
@@ -8141,6 +8158,10 @@ Prefab:
       propertyPath: captain_faction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 0}
@@ -9532,6 +9553,10 @@ Prefab:
     - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
       propertyPath: m_Name
       value: Boat Vehicle (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
