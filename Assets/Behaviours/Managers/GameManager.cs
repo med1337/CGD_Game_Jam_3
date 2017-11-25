@@ -7,10 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public static TempSceneRefs scene = new TempSceneRefs();
     public static float map_bound_radius = Mathf.Infinity;
+    public static Texture default_texture { get { return instance.default_texture_; } }
 
     private static GameManager instance;
 
     [SerializeField] float map_bounds_radius = 500;
+    [SerializeField] Texture default_texture_;
 
 
 
