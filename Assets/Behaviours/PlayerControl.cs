@@ -112,6 +112,7 @@ public class PlayerControl : Controllable
         else // Stuff to do with controlling a station ..
         {
             transform.position = current_station.transform.position;
+            transform.rotation = current_station.transform.rotation;
 
             current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
             current_station.controllable.Accelerate(new Vector2(acceleration, decceleration));
