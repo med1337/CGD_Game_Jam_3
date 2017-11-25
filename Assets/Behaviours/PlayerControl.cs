@@ -118,6 +118,9 @@ public class PlayerControl : Controllable
 
             if (input.GetButton("Attack"))
                 current_station.controllable.Activate();
+
+            if (input.GetButtonUp("Attack"))
+                current_station.controllable.Stop();
         }
     }
 

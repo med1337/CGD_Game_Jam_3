@@ -17,5 +17,6 @@ public abstract class Controllable : MonoBehaviour
     public virtual void OnControlEnd() { controlling_player = null; }
 
     public virtual void Activate() {}
+    public virtual void Stop() {}
 
 }
