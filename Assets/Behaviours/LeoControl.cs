@@ -71,7 +71,7 @@ public class LeoControl : Controllable
             if (i < 2)
             {
 
-                colliders[i].steerAngle = move_dir.x * steer_speed;
+                colliders[i].steerAngle = move_dir.x * steer_speed/2;
             }
             else
             {
