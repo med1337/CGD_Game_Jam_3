@@ -13,6 +13,8 @@ public class PlayerControl : Controllable
     [SerializeField] Vector3 mount_scan_offset;
     [SerializeField] float mount_scan_radius;
     [SerializeField] float mount_scan_delay;
+    [SerializeField] float jump_cooldown;
+    [SerializeField] float punch_cooldown;
 
     [SerializeField] LayerMask station_layer;
     [SerializeField] LayerMask pickup_layer;
@@ -31,6 +33,8 @@ public class PlayerControl : Controllable
     private Station current_station;
     private Station nearest_station;
     private float last_scan_timestamp;
+    private float last_jump_timestamp;
+    private float last_punch_timestamp;
 
     private Pickup current_pickup;
     private Pickup nearest_pickup;
@@ -288,6 +292,7 @@ public class PlayerControl : Controllable
         }
 
         transform.position = current_station.transform.position;
+        transform.rotation = current_station.transform.rotation;
 
         current_station.occupied = true;
         nearest_station = null;
@@ -337,7 +342,7 @@ public class PlayerControl : Controllable
         nearest_pickup.GetComponent<Collider>().enabled = false;
 
         // Set player as parent of Pickup.
-        nearest_pickup.gameObject.GetComponent<Transform>().parent = (this.transform);
+        nearest_pickup.transform.parent = (this.transform);
         current_pickup = nearest_pickup;
         nearest_pickup = null;
     }
@@ -396,6 +401,11 @@ public class PlayerControl : Controllable
             // Player's personal attack.
             float hit_force = 5.0f;
 
+            if (Time.time < last_punch_timestamp + punch_cooldown)
+                return;
+
+            last_punch_timestamp = Time.time;
+
             //set positions for raycast and punch particle effect
             Vector3 ray_spawn_position = transform.position;
             ray_spawn_position.y += 1;
@@ -436,6 +446,11 @@ public class PlayerControl : Controllable
 
     void Jump()
     {
+        if (Time.time < last_jump_timestamp + jump_cooldown)
+            return;
+
+        last_jump_timestamp = Time.time;
+
         AudioManager.PlayOneShot("jump");
         rigid_body.AddForce(Vector3.up * 7, ForceMode.Impulse);
         Instantiate(smoke_puff_prefab, transform.position + new Vector3(0, 0.33f), Quaternion.identity);
