@@ -57,9 +57,22 @@ public class RespawnManager : MonoBehaviour
         PlayerControl player = Instantiate(player_prefab).GetComponent<PlayerControl>();
 
         // Position the player.
-        Vector3 respawn_pos = new Vector3();
-        if (respawn_point != null)
-            respawn_pos = respawn_point.position;
+        GameObject[] spawn_positions = GameObject.FindGameObjectsWithTag("Spawn");
+        Transform nearest = null;
+        float distance = 10000;
+        foreach (var spawn in spawn_positions)
+        {
+            float dist2 = Vector3.Distance(spawn.transform.position, player.transform.position);
+            if (dist2 < distance)
+            {
+                nearest = spawn.transform;
+                distance = dist2;
+            }
+        }
+
+        Vector3 respawn_pos = nearest.position;
+        //if (respawn_point != null)
+        //    respawn_pos = respawn_point.position;
 
         respawn_pos += respawn_offset;
 
