@@ -47,6 +47,8 @@ public class PlayerControl : Controllable
     public Transform carry_position;
     public Transform drop_position;
 
+    public Transform death_position;
+
 
     public bool IsUsingStation()
     {
@@ -134,6 +136,7 @@ public class PlayerControl : Controllable
             if (input.GetButtonUp("Attack"))
                 current_station.controllable.Stop();
         }
+        
     }
 
 
