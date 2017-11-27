@@ -1852,12 +1852,12 @@ GameObject:
   - component: {fileID: 405148426}
   - component: {fileID: 405148425}
   m_Layer: 0
-  m_Name: Ship Spawn Manager
+  m_Name: Ship/Loot Spawn Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &405148425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1872,16 +1872,25 @@ MonoBehaviour:
   check_layers:
     serializedVersion: 2
     m_Bits: 4112
-  spawn_distance: 150
-  max_civilian_pop: 5
-  max_cargo_pop: 5
-  max_navy_pop: 5
+  spawn_distance: 80
+  clear_distance: 300
+  max_loot_pop: 10
+  max_civilian_pop: 8
+  max_cargo_pop: 8
+  max_navy_pop: 2
+  loot_spawn_timer: 4
+  civ_spawn_timer: 4
+  cargo_spawn_timer: 4
+  navy_spawn_timer: 8
+  update_timer: 10
+  loot_prefabs:
+  - {fileID: 1982851056821702, guid: b90737d453a9a9747bef334f0835c4c2, type: 2}
   civilian_ships_prefabs:
   - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
-  cargo_ship_prefabs:
-  - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
-  navy_ship_prefabs:
-  - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+  cargo_ships_prefabs:
+  - {fileID: 1373188482427538, guid: 81746f673487e3645a0090050079f045, type: 2}
+  navy_ships_prefabs:
+  - {fileID: 1919811853381234, guid: 0157b231436fda64dae6fcc3ba8a72b9, type: 2}
 --- !u!4 &405148426
 Transform:
   m_ObjectHideFlags: 0
@@ -1996,6 +2005,34 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
   m_PrefabInternal: {fileID: 406441597}
+--- !u!1 &411057887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 411057888}
+  m_Layer: 0
+  m_Name: SPAWN
+  m_TagString: Spawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &411057888
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411057887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &414365168
 Prefab:
   m_ObjectHideFlags: 0
@@ -7410,11 +7447,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4677633144682304, guid: 8302155e429275344a4263535eeecdc3, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.08
+      value: 1.414
       objectReference: {fileID: 0}
     - target: {fileID: 4677633144682304, guid: 8302155e429275344a4263535eeecdc3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.7965401
+      value: -1.655
       objectReference: {fileID: 0}
     - target: {fileID: 4677633144682304, guid: 8302155e429275344a4263535eeecdc3, type: 2}
       propertyPath: m_LocalRotation.x
