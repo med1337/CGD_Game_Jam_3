@@ -20,11 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4677633144682304}
   - component: {fileID: 33486294872355604}
-  - component: {fileID: 65911693194345116}
   - component: {fileID: 23221887464017424}
   - component: {fileID: 114372108619514548}
   - component: {fileID: 54063155539124994}
   - component: {fileID: 114211511587772742}
+  - component: {fileID: 65044697715701888}
   m_Layer: 9
   m_Name: TEMP CARGO
   m_TagString: Untagged
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1982851056821702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.9, y: 3.97, z: -54.95}
+  m_LocalPosition: {x: -2.9, y: 3.97, z: -56.3}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: beabdfff63258414ca0c753c2ec1fbdd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_SelectedEditorRenderState: 3
@@ -83,7 +83,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1982851056821702}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 0615ea46e4132d84b8f5d068d2ad76e2, type: 3}
 --- !u!54 &54063155539124994
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 2
---- !u!65 &65911693194345116
+--- !u!65 &65044697715701888
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!114 &114211511587772742
 MonoBehaviour:
   m_ObjectHideFlags: 1
