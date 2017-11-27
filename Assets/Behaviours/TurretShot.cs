@@ -60,6 +60,8 @@ public class TurretShot : MonoBehaviour
         GameObject particle_clone = Instantiate(ricochet_prefab, hit.point,
             Quaternion.LookRotation(hit.normal));
 
+        AudioManager.PlayOneShot("ricochet");
+
         Destroy(this.gameObject);
     }
 
