@@ -47,8 +47,6 @@ public class PlayerControl : Controllable
     public Transform carry_position;
     public Transform drop_position;
 
-    public Transform death_position;
-
 
     public bool IsUsingStation()
     {
@@ -136,7 +134,6 @@ public class PlayerControl : Controllable
             if (input.GetButtonUp("Attack"))
                 current_station.controllable.Stop();
         }
-        
     }
 
 
@@ -238,6 +235,11 @@ public class PlayerControl : Controllable
             AudioManager.PlayOneShot("occupying_gun_station");
         }
 
+        else if (current_station.name == "CaptainStation")
+        {
+            AudioManager.PlayOneShot("occupying_captain_station");
+        }
+
         transform.position = current_station.transform.position;
 
         current_station.occupied = true;
@@ -255,6 +257,11 @@ public class PlayerControl : Controllable
         if (current_station.name == "TurretStation")
         {
             AudioManager.PlayOneShot("leaving_gun_station");
+        }
+
+        else if (current_station.name == "CaptainStation")
+        {
+            AudioManager.PlayOneShot("leaving_captain_station");
         }
 
         // Leave station.
