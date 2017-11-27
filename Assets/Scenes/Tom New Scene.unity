@@ -1889,10 +1889,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
-    - target: {fileID: 1340312617503532, guid: b013198e8f9a35e479bc5f09e0a988e9, type: 2}
-      propertyPath: m_Name
-      value: Shark
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b013198e8f9a35e479bc5f09e0a988e9, type: 2}
   m_IsPrefabParent: 0

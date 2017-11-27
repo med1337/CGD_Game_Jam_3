@@ -20,28 +20,24 @@ public class CollisionEventForwarder : MonoBehaviour
     // ENTER EVENTS -----------------------------------------------------------
     void OnCollisionEnter(Collision _other)
     {
-        if (_other.transform.root != transform.root)
             collision_enter_events.Invoke(_other);
     }
 
 
     void OnTriggerEnter(Collider _other)
     {
-        if (_other.transform.root != transform.root)
             trigger_enter_events.Invoke(_other);
     }
 
 
     void OnCollisionEnter2D(Collision2D _other)
     {
-        if (_other.transform.root != transform.root)
             collision_enter_2d_events.Invoke(_other);
     }
 
 
     void OnTriggerEnter2D(Collider2D _other)
     {
-        if (_other.transform.root != transform.root)
             trigger_enter_2d_events.Invoke(_other);
     }
 
@@ -49,28 +45,24 @@ public class CollisionEventForwarder : MonoBehaviour
     // EXIT EVENTS ------------------------------------------------------------
     void OnCollisionExit(Collision _other)
     {
-        if (_other.transform.root != transform.root)
             collision_exit_events.Invoke(_other);
     }
 
 
     void OnTriggerExit(Collider _other)
     {
-        if (_other.transform.root != transform.root)
             trigger_exit_events.Invoke(_other);
     }
 
 
     void OnCollisionExit2D(Collision2D _other)
     {
-        if (_other.transform.root != transform.root)
             collision_exit_2d_events.Invoke(_other);
     }
 
 
     void OnTriggerExit2D(Collider2D _other)
     {
-        if (_other.transform.root != transform.root)
             trigger_exit_2d_events.Invoke(_other);
     }
 
