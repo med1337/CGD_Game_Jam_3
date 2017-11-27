@@ -16,16 +16,33 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 4000010708501322}
-  - 114: {fileID: 114000013230019050}
+  - component: {fileID: 4000010708501322}
+  - component: {fileID: 114000013230019050}
   m_Layer: 4
   m_Name: LPWaterHighQuality
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1225622373309608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4001903989842830}
+  - component: {fileID: 65205093399417832}
+  - component: {fileID: 114388347789212940}
+  m_Layer: 0
+  m_Name: Water With Buoyency
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4000010708501322
 Transform:
@@ -34,12 +51,38 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010242649756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1.0000001}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_Children:
+  - {fileID: 4001903989842830}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4001903989842830
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225622373309608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_Children: []
+  m_Father: {fileID: 4000010708501322}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65205093399417832
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225622373309608}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1000, y: 500, z: 1000}
+  m_Center: {x: 0, y: -250, z: 0}
 --- !u!114 &114000013230019050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,15 +94,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6a49d405310944fb9cd55bef9e018f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridType: 0
+  gridType: 1
   LOD: 0.2
   LODPower: 3
   customMesh: {fileID: 0}
   material: {fileID: 2100000, guid: deafa17c6e01f8b43ae33c12383ebaec, type: 2}
   sun: {fileID: 0}
-  sizeX: 60
-  sizeZ: 60
-  noise: 0.6
+  sizeX: 400
+  sizeZ: 400
+  noise: 0.96
   enableReflection: 1
   enableRefraction: 0
   reflection:
@@ -68,11 +111,24 @@ MonoBehaviour:
     clipPlaneOffset: 0.07
     reflectLayers:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294959103
     refractLayers:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4294959103
   receiveShadows: 0
   waveScale: -1337
   gridTypeLite: 0
-  displayProgress: 0
+  displayProgress: 1
+--- !u!114 &114388347789212940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225622373309608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf046e2dc26d2d439e2ed91436d83e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buoyancy_force: 15
+  water_viscosity: 2
