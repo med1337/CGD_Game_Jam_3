@@ -1852,12 +1852,12 @@ GameObject:
   - component: {fileID: 405148426}
   - component: {fileID: 405148425}
   m_Layer: 0
-  m_Name: Ship Spawn Manager
+  m_Name: AI Ship Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &405148425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1872,15 +1872,16 @@ MonoBehaviour:
   check_layers:
     serializedVersion: 2
     m_Bits: 4112
-  spawn_distance: 150
-  max_civilian_pop: 5
-  max_cargo_pop: 5
-  max_navy_pop: 5
+  spawn_distance: 75
+  clear_ship_distance: 300
+  max_civilian_pop: 10
+  max_cargo_pop: 0
+  max_navy_pop: 0
   civilian_ships_prefabs:
   - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
-  cargo_ship_prefabs:
+  cargo_ships_prefabs:
   - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
-  navy_ship_prefabs:
+  navy_ships_prefabs:
   - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
 --- !u!4 &405148426
 Transform:
