@@ -3542,7 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a3ab9c24b143b4b910721a1a01f0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_starting_boat: 1
+  is_starting_boat: 0
   nav_mesh_agent: {fileID: 195589019159795574}
   nav_mesh_obstacle: {fileID: 208663062792900282}
   deck_volume: {fileID: 4839154689304656}

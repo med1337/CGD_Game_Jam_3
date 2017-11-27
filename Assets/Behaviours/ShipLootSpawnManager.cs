@@ -3,42 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ShipSpawnManager : MonoBehaviour
+public class ShipLootSpawnManager : MonoBehaviour
 {
     [Header("Parameters")]
     [SerializeField] LayerMask check_layers; // Raycast Layers to check spawn pos is in sea
-    [SerializeField] float spawn_distance; // Distance to spawn ship, away from avg player pos
-    [SerializeField] float clear_ship_distance;
+    [SerializeField] float spawn_distance; // Distance to spawn object, away from avg player pos
+    [SerializeField] float clear_distance;
 
     [Space]
     [Header("Ship Type Populations")]
     // Max pop for each Ship class
+    [SerializeField] int max_loot_pop;
     [SerializeField] int max_civilian_pop;
     [SerializeField] int max_cargo_pop;
     [SerializeField] int max_navy_pop;
 
     [Space]
     [Header("Time Between Spawning")]
-    // Time Between Spawning a new ship of this clas
+    // Time Between Spawning a new object of this class
+    [SerializeField] int loot_spawn_timer;
     [SerializeField] int civ_spawn_timer;
     [SerializeField] int cargo_spawn_timer;
     [SerializeField] int navy_spawn_timer;
 
     [Space]
     [Header("How Often Ships Are Cleared")]
-    [SerializeField] int update_ship_timer;
+    [SerializeField] int update_timer;
 
     [Space]
     [Header("Ship Type Prefabs")]
+    [SerializeField] List<GameObject> loot_prefabs;
     [SerializeField] List<GameObject> civilian_ships_prefabs;
     [SerializeField] List<GameObject> cargo_ships_prefabs;
     [SerializeField] List<GameObject> navy_ships_prefabs;
 
     // Handles to ships in scene
+    private List<GameObject> floating_loot;
     private List<AICaptain> civilian_ships;
     private List<AICaptain> cargo_ships;
     private List<AICaptain> navy_ships;
 
+    private float loot_counter;
     private float civ_counter;
     private float cargo_counter;
     private float navy_counter;
@@ -49,10 +54,12 @@ public class ShipSpawnManager : MonoBehaviour
 
     private void Start()
     {
+        floating_loot  = new List<GameObject>();
         civilian_ships = new List<AICaptain>();
         cargo_ships    = new List<AICaptain>();
         navy_ships     = new List<AICaptain>();
 
+        loot_counter     = 0;
         civ_counter      = 0;
         cargo_counter    = 0;
         navy_counter     = 0;
@@ -61,10 +68,12 @@ public class ShipSpawnManager : MonoBehaviour
 
     private void Update()
     {
-        SpawnNewShips(); // Spawn Ships
-        StatusUpdate(); // Update Ships
+        SpawnNewItems(); // Spawn Ships
+
+        StatusUpdate(); // Update Ships & Loot
 
         // Update Spawn Timers
+        loot_counter   += Time.deltaTime;
         civ_counter    += Time.deltaTime;
         cargo_counter  += Time.deltaTime;
         navy_counter   += Time.deltaTime;
@@ -74,13 +83,18 @@ public class ShipSpawnManager : MonoBehaviour
 
     void StatusUpdate()
     {
-        if(update_counter >= update_ship_timer)
+        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
+        GameManager.scene.camera_manager.target_pos.z);
+
+        if (update_counter >= update_timer)
         {
-            ClearShips(civilian_ships);
+            ClearShips(civilian_ships, pos);
 
-            ClearShips(cargo_ships);
+            ClearShips(cargo_ships, pos);
 
-            ClearShips(navy_ships);
+            ClearShips(navy_ships, pos);
+
+            ClearLoot(floating_loot, pos);
 
             // Reset Timer
             update_counter = 0;
@@ -89,7 +103,7 @@ public class ShipSpawnManager : MonoBehaviour
 
 
     // Clear Inactive or Distant ships
-    void ClearShips(List<AICaptain> _ships)
+    void ClearShips(List<AICaptain> _ships, Vector3 _pos)
     {
         // Remove Disabled Ships
         _ships.RemoveAll(item => item == null);
@@ -99,7 +113,7 @@ public class ShipSpawnManager : MonoBehaviour
 
         for (int i = _ships.Count - 1; i > -1; i--)
         {
-            if(Vector3.Distance(pos, _ships[i].transform.position) > clear_ship_distance)
+            if(Vector3.Distance(_pos, _ships[i].transform.position) > clear_distance)
             {
                 Destroy(_ships[i].gameObject, 0.5f);
                 _ships.RemoveAt(i);
@@ -108,8 +122,28 @@ public class ShipSpawnManager : MonoBehaviour
         }
     }
 
+    
+    void ClearLoot(List<GameObject> _items, Vector3 _pos)
+    {
+        for (int i = floating_loot.Count - 1; i > -1; i--)
+        {
+            if (Vector3.Distance(_pos, floating_loot[i].transform.position) > clear_distance)
+            {
+                Destroy(floating_loot[i], 0.5f);
+                floating_loot.RemoveAt(i);
+                Debug.Log("Loot too far away... Removing");
+            }
 
-    void SpawnNewShips()
+            else if(floating_loot[i].transform.parent != null)
+            {
+                floating_loot.RemoveAt(i);
+                Debug.Log("Players have claimed Loot");
+            }
+        }
+    }
+
+
+    void SpawnNewItems()
     {
         //Spawn new CIV boat
         if (civ_counter >= civ_spawn_timer && civilian_ships.Count < max_civilian_pop)
@@ -118,7 +152,7 @@ public class ShipSpawnManager : MonoBehaviour
 
             if (ValidatePos(pos))
             {
-                SpawnShip(pos, civilian_ships_prefabs);
+                SpawnItem(pos, civilian_ships_prefabs);
             }
 
             civ_counter = 0;
@@ -131,7 +165,7 @@ public class ShipSpawnManager : MonoBehaviour
 
             if (ValidatePos(pos))
             {
-                SpawnShip(pos, cargo_ships_prefabs);
+                SpawnItem(pos, cargo_ships_prefabs);
             }
 
             cargo_counter = 0;
@@ -144,10 +178,23 @@ public class ShipSpawnManager : MonoBehaviour
 
             if (ValidatePos(pos))
             {
-                SpawnShip(pos, navy_ships_prefabs);
+                SpawnItem(pos, navy_ships_prefabs);
             }
 
             navy_counter = 0;
+        }
+
+        // Spawn Cargo
+        if (loot_counter >= loot_spawn_timer && floating_loot.Count < max_loot_pop)
+        {
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnItem(pos, loot_prefabs);
+            }
+
+            loot_counter = 0;
         }
     }
 
@@ -214,27 +261,33 @@ public class ShipSpawnManager : MonoBehaviour
     }
 
 
-    void SpawnShip(Vector3 _spawn_pos, List<GameObject> _ship_class)
+    // Spawn a new Ship OR Loot
+    void SpawnItem(Vector3 _spawn_pos, List<GameObject> object_type)
     {
-        int rand_ship = Random.Range(0, _ship_class.Count);
+        int rand_item = Random.Range(0, object_type.Count);
 
-        var ship = Instantiate(_ship_class[rand_ship], _spawn_pos,
-            _ship_class[rand_ship].transform.rotation);
+        var game_obj = Instantiate(object_type[rand_item], _spawn_pos,
+            object_type[rand_item].transform.rotation);
 
 
-        if (_ship_class == civilian_ships_prefabs)
+        if (object_type == civilian_ships_prefabs)
         {
-            civilian_ships.Add(ship.GetComponent<AICaptain>());
+            civilian_ships.Add(game_obj.GetComponent<AICaptain>());
         }
 
-        if (_ship_class == cargo_ships_prefabs)
+        if (object_type == cargo_ships_prefabs)
         {
-            cargo_ships.Add(ship.GetComponent<AICaptain>());
+            cargo_ships.Add(game_obj.GetComponent<AICaptain>());
         }
 
-        if (_ship_class == navy_ships_prefabs)
+        if (object_type == navy_ships_prefabs)
         {
-            navy_ships.Add(ship.GetComponent<AICaptain>());
+            navy_ships.Add(game_obj.GetComponent<AICaptain>());
+        }
+
+        if (object_type == loot_prefabs)
+        {
+            floating_loot.Add(game_obj.gameObject);
         }
     }
 
@@ -245,6 +298,6 @@ public class ShipSpawnManager : MonoBehaviour
             GameManager.scene.camera_manager.target_pos.z);
 
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireSphere(pos, clear_ship_distance);
+        Gizmos.DrawWireSphere(pos, clear_distance);
     }
 }
