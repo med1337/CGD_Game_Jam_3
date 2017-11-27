@@ -6969,6 +6969,58 @@ Prefab:
       propertyPath: motorPower
       value: 5000
       objectReference: {fileID: 0}
+    - target: {fileID: 1587886814144182, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327040373219046, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062842579709860, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1032115316937872, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1141906640065514, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1676078319389472, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357630543601268, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324411010652302, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816570306524112, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448866639478488, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1533097744778192, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214778771756358, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113598311832486, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
   m_IsPrefabParent: 0
