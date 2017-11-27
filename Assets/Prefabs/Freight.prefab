@@ -1472,7 +1472,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1373012165272528}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.408, z: -0.18000002}
+  m_LocalPosition: {x: 0, y: 5.07, z: -0.18000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4319517120417196}
@@ -3151,6 +3151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114253850180561830}
+  outlines: []
 --- !u!114 &114346000085186890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3186,6 +3187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114180125277961806}
+  outlines: []
 --- !u!114 &114372027576492420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3269,6 +3271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114059188454597612}
+  outlines: []
 --- !u!114 &114682446276981644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3282,6 +3285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114461291837128184}
+  outlines: []
 --- !u!146 &146076246529668184
 WheelCollider:
   m_ObjectHideFlags: 1
