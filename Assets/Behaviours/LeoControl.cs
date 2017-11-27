@@ -25,7 +25,7 @@ public class LeoControl : Controllable
     public override void Accelerate(Vector2 _acc)
     {
         acceleration = _acc.x;
-        deceleration = _acc.y;
+        deceleration = _acc.y*0.25f;
     }
 
 

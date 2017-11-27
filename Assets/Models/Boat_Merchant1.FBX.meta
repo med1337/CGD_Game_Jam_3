@@ -6,10 +6,64 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Box002
+    100004: front
+    100006: hull
+    100008: rail1
+    100010: rail2
+    100012: rail3
+    100014: roof
+    100016: side1
+    100018: side2
+    100020: sides
+    100022: walk
     400000: //RootNode
+    400002: Box002
+    400004: front
+    400006: hull
+    400008: rail1
+    400010: rail2
+    400012: rail3
+    400014: roof
+    400016: side1
+    400018: side2
+    400020: sides
+    400022: walk
     2300000: //RootNode
+    2300002: Box002
+    2300004: front
+    2300006: hull
+    2300008: rail1
+    2300010: rail2
+    2300012: rail3
+    2300014: roof
+    2300016: side1
+    2300018: side2
+    2300020: sides
+    2300022: walk
     3300000: //RootNode
+    3300002: Box002
+    3300004: front
+    3300006: hull
+    3300008: rail1
+    3300010: rail2
+    3300012: rail3
+    3300014: roof
+    3300016: side1
+    3300018: side2
+    3300020: sides
+    3300022: walk
     4300000: Box002
+    4300002: hull
+    4300004: rail1
+    4300006: rail2
+    4300008: rail3
+    4300010: side2
+    4300012: roof
+    4300014: front
+    4300016: side1
+    4300018: sides
+    4300020: walk
   materials:
     importMaterials: 1
     materialName: 0
