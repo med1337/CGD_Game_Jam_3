@@ -219,6 +219,11 @@ public class PlayerControl : Controllable
         current_station = nearest_station;
         current_station.controllable.OnControlStart(this);
 
+        if (current_station.name == "TurretStation")
+        {
+            AudioManager.PlayOneShot("occupying_gun_station");
+        }
+
         transform.position = current_station.transform.position;
 
         current_station.occupied = true;
@@ -231,6 +236,11 @@ public class PlayerControl : Controllable
         if (!IsUsingStation() || IsLifting())
         {
             return;
+        }
+
+        if (current_station.name == "TurretStation")
+        {
+            AudioManager.PlayOneShot("leaving_gun_station");
         }
 
         // Leave station.
@@ -287,6 +297,7 @@ public class PlayerControl : Controllable
         // if the player is moving throw the object.
         else
         {
+            AudioManager.PlayOneShot("throwing");
             current_pickup.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up) * throw_power);
             Debug.Log("Throw Object");
         }
@@ -323,7 +334,7 @@ public class PlayerControl : Controllable
 
             Vector3 punch_spawn_pos = transform.position;
             punch_spawn_pos.y += 0.8f;
-            punch_spawn_pos += transform.forward * 0.35f;
+            punch_spawn_pos += transform.forward * 0.35f;            
 
             Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
 
@@ -338,6 +349,7 @@ public class PlayerControl : Controllable
                     {
                         if (current_deck.GetComponent<Rigidbody>() != hit.rigidbody)
                         {
+                            AudioManager.PlayOneShot("slap");
                             hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
                         }
                     }
@@ -345,6 +357,7 @@ public class PlayerControl : Controllable
                     //otherwise smack it 
                     else
                     {
+                        AudioManager.PlayOneShot("slap");
                         hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
                     }
                 }
@@ -355,6 +368,7 @@ public class PlayerControl : Controllable
 
     void Jump()
     {
+        AudioManager.PlayOneShot("jump");
         rigid_body.AddForce(Vector3.up * 7, ForceMode.Impulse);
         Instantiate(smoke_puff_prefab, transform.position + new Vector3(0, 0.33f), Quaternion.identity);
     }
