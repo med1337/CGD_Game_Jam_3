@@ -11,24 +11,69 @@ ModelImporter:
     100006: //RootNode
     100008: Sky001
     100010: playerShipMesh
+    100012: front1
+    100014: front2
+    100016: front3
+    100018: hull
+    100020: Object001
+    100022: Object002
+    100024: Object003
+    100026: Object004
+    100028: Object005
     400000: Box002
     400002: Box004
     400004: Box006
     400006: //RootNode
     400008: Sky001
     400010: playerShipMesh
+    400012: front1
+    400014: front2
+    400016: front3
+    400018: hull
+    400020: Object001
+    400022: Object002
+    400024: Object003
+    400026: Object004
+    400028: Object005
     2300000: Box002
     2300002: Box004
     2300004: Box006
     2300006: playerShipMesh
+    2300008: front1
+    2300010: front2
+    2300012: front3
+    2300014: hull
+    2300016: Object001
+    2300018: Object002
+    2300020: Object003
+    2300022: Object004
+    2300024: Object005
     3300000: Box002
     3300002: Box004
     3300004: Box006
     3300006: playerShipMesh
+    3300008: front1
+    3300010: front2
+    3300012: front3
+    3300014: hull
+    3300016: Object001
+    3300018: Object002
+    3300020: Object003
+    3300022: Object004
+    3300024: Object005
     4300000: Box002
     4300002: Box004
     4300004: Box006
     4300006: playerShipMesh
+    4300008: Object001
+    4300010: Object002
+    4300012: Object003
+    4300014: Object004
+    4300016: Object005
+    4300018: hull
+    4300020: front1
+    4300022: front2
+    4300024: front3
   materials:
     importMaterials: 1
     materialName: 0
