@@ -8842,6 +8842,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114346000085186890, guid: ea98d365317483e4286f648bdf53cb2b,
+        type: 2}
+      propertyPath: is_starting_boat
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea98d365317483e4286f648bdf53cb2b, type: 2}
   m_IsPrefabParent: 0
