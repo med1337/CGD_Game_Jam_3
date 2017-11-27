@@ -34,6 +34,8 @@ public class LootDropPoint : MonoBehaviour
             Destroy(collider.gameObject, despawn_timer);
 
             Instantiate(coin_particle, coin_spawn, coin_particle.transform.rotation);
+
+            AudioManager.PlayOneShot("coin_spill");
         }
     }
 }
