@@ -87,6 +87,8 @@ public class TurretControl : Controllable
 
         GameObject particle_clone = Instantiate(particle_prefab, shoot_point.position,
             Quaternion.LookRotation(shot_forward));
+
+        AudioManager.PlayOneShot("50_cal_one_shot");
     }
 
 
