@@ -110,7 +110,7 @@ public class PlayerControl : Controllable
             }
             else
             {
-                 if (nearest_station != null)
+                if (nearest_station != null)
                     nearest_station.outline_enabled = true;
 
                 if (nearest_pickup != null)
@@ -137,15 +137,15 @@ public class PlayerControl : Controllable
 
                 if (!IsLifting() && !IsUsingStation())
                 {
-                    MountScan();
+                    StationScan();
                     PickUpScan();
                 }
             }
         }
         else // Stuff to do with controlling a station ..
         {
-            transform.position = current_station.transform.position;
-            transform.rotation = current_station.transform.rotation;
+            //transform.position = current_station.transform.position;
+            //transform.rotation = current_station.transform.rotation;
 
             current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
             current_station.controllable.Accelerate(new Vector2(acceleration, decceleration));
@@ -179,16 +179,19 @@ public class PlayerControl : Controllable
     }
 
 
-    void MountScan()
+    void StationScan()
     {
         var colliders = Physics.OverlapSphere(drop_position.position, mount_scan_radius, station_layer);
         foreach (var collider in colliders)
         {
-            var mount = collider.GetComponent<Station>();
-            if (mount == null || mount.occupied)
+            var station = collider.GetComponent<Station>();
+            if (station == null || station.occupied)
                 continue;
 
-            nearest_station = mount;
+            if (nearest_station != null && station != nearest_station)
+                nearest_station.outline_enabled = false;
+
+            nearest_station = station;
             return;
         }
 
@@ -208,6 +211,9 @@ public class PlayerControl : Controllable
 
             if (pickup == null || pickup.GetInUse())
                 continue;
+
+            if (nearest_pickup != null && pickup != nearest_pickup)
+                nearest_pickup.outline_enabled = false;
 
             nearest_pickup = pickup;
             return;
@@ -266,6 +272,8 @@ public class PlayerControl : Controllable
             return;
         }
 
+        rigid_body.isKinematic = true;
+
         current_station = nearest_station;
         current_station.controllable.OnControlStart(this);
 
@@ -292,6 +300,8 @@ public class PlayerControl : Controllable
         {
             return;
         }
+
+        rigid_body.isKinematic = false;
 
         if (current_station.name == "TurretStation")
         {

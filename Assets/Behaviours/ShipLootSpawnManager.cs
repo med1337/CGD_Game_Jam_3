@@ -7,6 +7,7 @@ public class ShipLootSpawnManager : MonoBehaviour
 {
     [Header("Parameters")]
     [SerializeField] LayerMask check_layers; // Raycast Layers to check spawn pos is in sea
+    [SerializeField] LayerMask boat_layer;
     [SerializeField] float spawn_distance; // Distance to spawn object, away from avg player pos
     [SerializeField] float clear_distance;
 
@@ -117,7 +118,6 @@ public class ShipLootSpawnManager : MonoBehaviour
             {
                 Destroy(_ships[i].gameObject, 0.5f);
                 _ships.RemoveAt(i);
-                Debug.Log("Captain too far away... Removing");
             }
         }
     }
@@ -131,13 +131,11 @@ public class ShipLootSpawnManager : MonoBehaviour
             {
                 Destroy(floating_loot[i], 0.5f);
                 floating_loot.RemoveAt(i);
-                Debug.Log("Loot too far away... Removing");
             }
 
             else if(floating_loot[i].transform.parent != null)
             {
                 floating_loot.RemoveAt(i);
-                Debug.Log("Players have claimed Loot");
             }
         }
     }
@@ -208,7 +206,7 @@ public class ShipLootSpawnManager : MonoBehaviour
             return true;
         }
 
-        Debug.Log("No position found...");
+        // If no pos Found.
         return false;
     }
 
@@ -241,7 +239,15 @@ public class ShipLootSpawnManager : MonoBehaviour
                     Debug.DrawRay(position, dist_to_target, Color.red, 3);
 
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
-                        return potential_pos_valid;
+                    {
+                        // Final Check to see if pos hits a collider (ie another Boat)
+                        Collider[] colliders = Physics.OverlapSphere(potential_pos_valid, 20.0f, boat_layer);
+
+                        if (colliders.Length == 0)
+                        {
+                            return potential_pos_valid;
+                        }
+                    }
                 }
             }
         }

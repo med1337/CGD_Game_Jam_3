@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4652872613248312}
   - component: {fileID: 64746967467425600}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: raiing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -345,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4792530363811870}
   - component: {fileID: 64710687739325770}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: window3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038271627364858}
   - component: {fileID: 64068902771092808}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: window2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4236925850822420}
   - component: {fileID: 64302481699847590}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: railing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,7 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606663029842970}
   - component: {fileID: 64150795048677304}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4240335815246616}
   - component: {fileID: 64477251390384270}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: boat_hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4989057647801252}
   - component: {fileID: 64746873916059238}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: boat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4919179448527952}
   - component: {fileID: 64831973745233592}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: railing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4775392795692870}
   - component: {fileID: 64760844012264172}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: window1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1043,7 +1043,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4014209056318678}
   - component: {fileID: 64717983856341762}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}

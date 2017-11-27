@@ -1872,7 +1872,10 @@ MonoBehaviour:
   check_layers:
     serializedVersion: 2
     m_Bits: 4112
-  spawn_distance: 80
+  boat_layer:
+    serializedVersion: 2
+    m_Bits: 8192
+  spawn_distance: 100
   clear_distance: 300
   max_loot_pop: 10
   max_civilian_pop: 8

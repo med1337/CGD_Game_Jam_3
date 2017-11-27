@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247429317810690}
   - component: {fileID: 65153196578169644}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object005 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4440763548636402}
   - component: {fileID: 64268097507324504}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4979091791390752}
   - component: {fileID: 64623309117308808}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: front2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4017747317545370}
   - component: {fileID: 64447860865802662}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4217168210156966}
   - component: {fileID: 64890127083168922}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4996720708484844}
   - component: {fileID: 64217393075396236}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: front1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4436792061769726}
   - component: {fileID: 64390899542651872}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4284415277574582}
   - component: {fileID: 65001337981405110}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4968139107443574}
   - component: {fileID: 65888104585214560}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object005 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4519626928360864}
   - component: {fileID: 64710610566583470}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4041769967666004}
   - component: {fileID: 65928121710169084}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object005 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4788561987046568}
   - component: {fileID: 65186454537607430}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Object005 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4405729695295430}
   - component: {fileID: 64988030610074216}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: front3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3406,7 +3406,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1792386585333522}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 2.86
+  m_Radius: 20
   m_Speed: 2
   m_Acceleration: 1
   avoidancePriority: 50
