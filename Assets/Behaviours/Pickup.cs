@@ -1,9 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using cakeslice;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    public bool outline_enabled
+    {
+        get
+        {
+            return outlines.TrueForAll(elem => elem.enabled);
+        }
+
+        set
+        {
+            outlines.ForEach(elem => elem.enabled = value);
+        }
+    }
+
+    [SerializeField] List<Outline> outlines;
+
     private bool in_use;
     private bool hooked;
     private Vector3 trajectory_start;

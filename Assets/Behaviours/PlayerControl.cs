@@ -8,33 +8,24 @@ public class PlayerControl : Controllable
     public Player input;
 
     [Header("Parameters")]
-    [SerializeField]
-    float move_speed;
-    [SerializeField]
-    float water_move_modifier;
-    [SerializeField]
-    Vector3 mount_scan_offset;
-    [SerializeField]
-    float mount_scan_radius;
-    [SerializeField]
-    float mount_scan_delay;
+    [SerializeField] float move_speed;
+    [SerializeField] float water_move_modifier;
+    [SerializeField] Vector3 mount_scan_offset;
+    [SerializeField] float mount_scan_radius;
+    [SerializeField] float mount_scan_delay;
 
-    [SerializeField]
-    LayerMask station_layer;
-    [SerializeField]
-    LayerMask pickup_layer;
+    [SerializeField] LayerMask station_layer;
+    [SerializeField] LayerMask pickup_layer;
 
-    [SerializeField]
-    float throw_power;
+    [SerializeField] float throw_power;
 
     [Header("References")]
     public Rigidbody rigid_body;
-    [SerializeField]
-    GameObject smoke_puff_prefab;
-    [SerializeField]
-    GameObject punch_particle_prefab;
-    [SerializeField]
-    BuoyantObject buoyant_obj;
+    [SerializeField] GameObject smoke_puff_prefab;
+    [SerializeField] GameObject punch_particle_prefab;
+    [SerializeField] BuoyantObject buoyant_obj;
+    [SerializeField] PlayerWorldCanvas player_canvas;
+
     private GameObject current_deck = null;
 
     private Station current_station;
@@ -96,6 +87,37 @@ public class PlayerControl : Controllable
         float acceleration = input.GetAxis("Forward");
         float decceleration = input.GetAxis("Backward");
 
+        bool interact_prompt_enabled = !IsUsingStation() && !IsLifting() &&
+                                       (nearest_station != null || nearest_pickup != null);
+        player_canvas.SetInteractPromptActive(interact_prompt_enabled);
+
+        if (interact_prompt_enabled)
+        {
+            if (nearest_station != null && nearest_pickup != null)
+            {
+                // If station is closer mount it
+                if (Vector3.Distance(drop_position.position, nearest_station.transform.position) <
+                    Vector3.Distance(drop_position.position, nearest_pickup.transform.position))
+                {
+                    nearest_station.outline_enabled = true;
+                    nearest_pickup.outline_enabled = false;
+                }
+                else
+                {
+                    nearest_station.outline_enabled = false;
+                    nearest_pickup.outline_enabled = true;
+                }
+            }
+            else
+            {
+                 if (nearest_station != null)
+                    nearest_station.outline_enabled = true;
+
+                if (nearest_pickup != null)
+                    nearest_pickup.outline_enabled = true;
+            }
+        }
+
         if (input.GetButtonDown("Interact"))
             Interact();
 
@@ -143,9 +165,17 @@ public class PlayerControl : Controllable
         {
             Vector3 move = move_dir * move_speed * Time.deltaTime;
             rigid_body.MovePosition(transform.position + move);
-
-            //move_dir = Vector3.zero;
         }
+    }
+
+
+    void ResetNearbyOutlines()
+    {
+        if (nearest_station != null)
+            nearest_station.outline_enabled = false;
+
+        if (nearest_pickup != null)
+            nearest_pickup.outline_enabled = false;
     }
 
 
@@ -161,6 +191,9 @@ public class PlayerControl : Controllable
             nearest_station = mount;
             return;
         }
+
+        if (nearest_station != null)
+            nearest_station.outline_enabled = false;
 
         nearest_station = null;
     }
@@ -180,12 +213,17 @@ public class PlayerControl : Controllable
             return;
         }
 
+        if (nearest_pickup != null)
+            nearest_pickup.outline_enabled = false;
+
         nearest_pickup = null;
     }
 
 
     void Interact()
     {
+        ResetNearbyOutlines();
+
         //If the player is NOT on a station or Carrying AND has a nearest station and pickup
         if (!IsUsingStation() && nearest_station != null && !IsLifting() && nearest_pickup != null)
         {
@@ -195,9 +233,10 @@ public class PlayerControl : Controllable
             {
                 OccupyStation();
             }
-
             else
+            {
                 CarryItem();
+            }
         }
 
         else if (!IsUsingStation() && nearest_station != null && !IsLifting())
@@ -320,10 +359,8 @@ public class PlayerControl : Controllable
         {
             AudioManager.PlayOneShot("throwing");
             current_pickup.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up) * throw_power);
-            Debug.Log("Throw Object");
+            Debug.Log("Throwing object");
         }
-
-
 
         // If the player is currently parented to a boat ect
         if (transform.parent != null)
@@ -440,6 +477,7 @@ public class PlayerControl : Controllable
 
     void OnDestroy()
     {
+        ResetNearbyOutlines();
         LeaveStation();
         ThrowItem();
     }

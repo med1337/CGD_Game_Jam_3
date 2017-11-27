@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4354808040565948}
   - component: {fileID: 33477853682724418}
   - component: {fileID: 23711002494163550}
+  - component: {fileID: 114823954692043540}
   m_Layer: 0
   m_Name: TurretMesh
   m_TagString: Untagged
@@ -102,6 +103,7 @@ GameObject:
   - component: {fileID: 4224595358889676}
   - component: {fileID: 33514786199487752}
   - component: {fileID: 23710842884721668}
+  - component: {fileID: 114696802915137714}
   m_Layer: 0
   m_Name: BaseMesh
   m_TagString: Untagged
@@ -295,7 +297,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1380753572208950}
   m_LocalRotation: {x: -0, y: -0.707107, z: -0, w: -0.7071066}
-  m_LocalPosition: {x: 1.402, y: 1.117, z: -0.12}
+  m_LocalPosition: {x: -48.419876, y: 0.77, z: -4.635788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4224595358889676}
@@ -557,6 +559,21 @@ MonoBehaviour:
   showGizmos: 1
   gizmoSize: 0.1
   gizmoColor: {r: 1, g: 0, b: 0, a: 0.5}
+--- !u!114 &114696802915137714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190985662720598}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114710161105472316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -584,6 +601,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target_rigidbody: {fileID: 54528039075936044}
   in_water: 0
+--- !u!114 &114823954692043540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140494680371852}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
 --- !u!114 &114861076299348104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -611,6 +643,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   occupied: 0
   controllable_: {fileID: 114068534832763618}
+  outlines:
+  - {fileID: 114696802915137714}
+  - {fileID: 114823954692043540}
 --- !u!120 &120745625242297376
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -644,7 +679,7 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 1.4519999, y: 1.057, z: -1.36}
+  - {x: -48.419876, y: 0.77, z: -4.635788}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 10
