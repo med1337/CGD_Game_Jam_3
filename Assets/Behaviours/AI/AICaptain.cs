@@ -238,6 +238,12 @@ public class AICaptain : MonoBehaviour
         if (closest_enemy == null)
             return;
 
+        if (closest_enemy.transform.parent == deck_volume)//disable movement if the player is on board
+        {
+            current_state = AICaptainState.PATROL;
+            return;
+        }
+
         Vector3 flee_target = (transform.position - closest_enemy.transform.position).normalized *
             distance_between_waypoints;//set waypoint in oposite direction to enemy
         nav_mesh_agent.SetDestination(ValidDestination(flee_target));
