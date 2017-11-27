@@ -8,22 +8,33 @@ public class PlayerControl : Controllable
     public Player input;
 
     [Header("Parameters")]
-    [SerializeField] float move_speed;
-    [SerializeField] float water_move_modifier;
-    [SerializeField] Vector3 mount_scan_offset;
-    [SerializeField] float mount_scan_radius;
-    [SerializeField] float mount_scan_delay;
+    [SerializeField]
+    float move_speed;
+    [SerializeField]
+    float water_move_modifier;
+    [SerializeField]
+    Vector3 mount_scan_offset;
+    [SerializeField]
+    float mount_scan_radius;
+    [SerializeField]
+    float mount_scan_delay;
 
-    [SerializeField] LayerMask station_layer;
-    [SerializeField] LayerMask pickup_layer;
+    [SerializeField]
+    LayerMask station_layer;
+    [SerializeField]
+    LayerMask pickup_layer;
 
-    [SerializeField] float throw_power;
+    [SerializeField]
+    float throw_power;
 
     [Header("References")]
     public Rigidbody rigid_body;
-    [SerializeField] GameObject smoke_puff_prefab;
-    [SerializeField] GameObject punch_particle_prefab;
-    [SerializeField] BuoyantObject buoyant_obj;
+    [SerializeField]
+    GameObject smoke_puff_prefab;
+    [SerializeField]
+    GameObject punch_particle_prefab;
+    [SerializeField]
+    BuoyantObject buoyant_obj;
     private GameObject current_deck = null;
 
     private Station current_station;
@@ -57,7 +68,7 @@ public class PlayerControl : Controllable
         }
         else
         {
-            if(_dir != Vector3.zero)
+            if (_dir != Vector3.zero)
                 transform.rotation = Quaternion.LookRotation(_dir);
 
             move_dir = _dir;
@@ -172,7 +183,7 @@ public class PlayerControl : Controllable
         nearest_pickup = null;
     }
 
-        
+
     void Interact()
     {
         //If the player is NOT on a station or Carrying AND has a nearest station and pickup
@@ -279,7 +290,7 @@ public class PlayerControl : Controllable
         current_pickup.GetComponent<Collider>().enabled = true;
 
         // If player isnt moving.... place the object.
-        if(move_dir == Vector3.zero)
+        if (move_dir == Vector3.zero)
         {
             current_pickup.GetComponent<Rigidbody>().AddForce(transform.forward + transform.up);
             Debug.Log("Placing Object");
@@ -350,7 +361,7 @@ public class PlayerControl : Controllable
                 }
             }
         }
-    }    
+    }
 
 
     void Jump()
@@ -381,12 +392,24 @@ public class PlayerControl : Controllable
     }
 
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Roof")
+        {
+            other.GetComponent<HideableRoof>().Hide();
+        }
+    }
+
     void OnTriggerExit(Collider _other)
     {
         if (_other.CompareTag("Deck"))
         {
             current_deck = null;
             transform.SetParent(null);
+        }
+        if (_other.tag == "Roof")
+        {
+            _other.GetComponent<HideableRoof>().Show();
         }
     }
 

@@ -8,15 +8,55 @@ ModelImporter:
     100000: boat
     100002: //RootNode
     100004: roof
+    100006: boat_hull
+    100008: floor
+    100010: raiing1
+    100012: railing2
+    100014: railing3
+    100016: window1
+    100018: window2
+    100020: window3
     400000: boat
     400002: //RootNode
     400004: roof
+    400006: boat_hull
+    400008: floor
+    400010: raiing1
+    400012: railing2
+    400014: railing3
+    400016: window1
+    400018: window2
+    400020: window3
     2300000: boat
     2300002: roof
+    2300004: boat_hull
+    2300006: floor
+    2300008: raiing1
+    2300010: railing2
+    2300012: railing3
+    2300014: window1
+    2300016: window2
+    2300018: window3
     3300000: boat
     3300002: roof
+    3300004: boat_hull
+    3300006: floor
+    3300008: raiing1
+    3300010: railing2
+    3300012: railing3
+    3300014: window1
+    3300016: window2
+    3300018: window3
     4300000: boat
     4300002: roof
+    4300004: boat_hull
+    4300006: raiing1
+    4300008: railing2
+    4300010: railing3
+    4300012: floor
+    4300014: window1
+    4300016: window2
+    4300018: window3
   materials:
     importMaterials: 1
     materialName: 0

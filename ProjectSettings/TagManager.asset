@@ -8,6 +8,7 @@ TagManager:
   - Loot
   - Spawn
   - Water
+  - Roof
   layers:
   - Default
   - TransparentFX
