@@ -16,9 +16,9 @@ public class ShipSpawnManager : MonoBehaviour
     [SerializeField] List<GameObject> cargo_ship_prefabs;
     [SerializeField] List<GameObject> navy_ship_prefabs;
 
-    private List<GameObject> civilian_ships;
-    private List<GameObject> cargo_ships;
-    private List<GameObject> navy_ships;
+    private List<AICaptain> civilian_ships;
+    private List<AICaptain> cargo_ships;
+    private List<AICaptain> navy_ships;
 
     private int civ_spawn_timer = 2;
     private int cargo_spawn_timer = 5;
@@ -28,11 +28,13 @@ public class ShipSpawnManager : MonoBehaviour
     private float cargo_timer;
     private float navy_timer;
 
+    private int search_attempts = 20;
+
     private void Start()
     {
-        civilian_ships = new List<GameObject>();
-        cargo_ships = new List<GameObject>();
-        navy_ships = new List<GameObject>();
+        civilian_ships = new List<AICaptain>();
+        cargo_ships = new List<AICaptain>();
+        navy_ships = new List<AICaptain>();
 
         civ_timer = 0;
         cargo_timer = 0;
@@ -44,21 +46,39 @@ public class ShipSpawnManager : MonoBehaviour
         //Spawn new CIV boat
         if (civ_timer >= civ_spawn_timer && civilian_ships.Count < max_civilian_pop)
         {
-            SpawnShip(GeneratePos(), civilian_ships_prefabs);
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnShip(pos, civilian_ships_prefabs);
+            }
+
             civ_timer = 0;
         }
 
         // Spawn new CARGO boat
         if (cargo_timer >= cargo_spawn_timer && cargo_ships.Count < max_cargo_pop)
         {
-            SpawnShip(GeneratePos(), cargo_ship_prefabs);
+            Vector3 pos = GeneratePos();
+
+            if(ValidatePos(pos))
+            {
+                SpawnShip(pos, cargo_ship_prefabs);
+            }
+
             cargo_timer = 0;
         }
 
         // Spawn new NAVY boat
         if (navy_timer >= navy_spawn_timer && navy_ships.Count < max_navy_pop)
         {
-            SpawnShip(GeneratePos(), navy_ship_prefabs);
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnShip(pos, navy_ship_prefabs);
+            }
+
             navy_timer = 0;
         }
 
@@ -69,36 +89,55 @@ public class ShipSpawnManager : MonoBehaviour
         navy_timer += Time.deltaTime;
     }
 
+    bool ValidatePos(Vector3 _pos)
+    {
+        _pos = GeneratePos();
+
+        if(_pos != Vector3.zero)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
 
     Vector3 GeneratePos()
     {
-        float angle = Random.Range(0, 360);
-
         // Loop until a position is found
-        while (true)
+        for (int i = 0; i < search_attempts; i++)
         {
-            //Vector3 position = GameManager.scene.camera_manager.target_pos;
+            float angle = Random.Range(0, 360);
+
+            // Take Cameras X & Z position
+            Vector3 position = new Vector3 (GameManager.scene.camera_manager.target_pos.x, 0.0f,
+                GameManager.scene.camera_manager.target_pos.z);
 
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
             Vector3 dist_to_target = rotation * transform.forward * spawn_distance;
 
-            Vector3 potential_pos = transform.position + dist_to_target;
+            Vector3 potential_pos = position + dist_to_target;
 
-            Vector3 safe_spawn = ValidDestination(potential_pos);
+            Vector3 potential_pos_valid = ValidDestination(potential_pos);
 
-            RaycastHit hit;
-            if (Physics.Raycast(new Vector3(safe_spawn.x, 100.0f, safe_spawn.z), Vector3.down, out hit, 100.0f, check_layers))
+            if (Vector3.Distance(potential_pos_valid, Vector3.zero) < GameManager.map_bound_radius)
             {
-                Debug.DrawRay(transform.position, dist_to_target, Color.red, 3);
+                RaycastHit hit;
+                if (Physics.Raycast(new Vector3(potential_pos_valid.x, 100.0f, potential_pos_valid.z),
+                    Vector3.down, out hit, 100.0f, check_layers))
+                {
+                    Debug.DrawRay(position, dist_to_target, Color.red, 3);
 
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
-                    return safe_spawn;
+                    if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
+                        return potential_pos_valid;
+                }
             }
 
             // Increase angle and try next position
-            angle += 10.0f;
         }
+
+        return Vector3.zero;
     }
 
 
@@ -122,23 +161,23 @@ public class ShipSpawnManager : MonoBehaviour
 
         if (_ship_class == civilian_ships_prefabs)
         {
-            civilian_ships.Add(ship);
+            civilian_ships.Add(ship.GetComponent<AICaptain>());
         }
 
         if (_ship_class == cargo_ship_prefabs)
         {
-            cargo_ships.Add(ship);
+            cargo_ships.Add(ship.GetComponent<AICaptain>());
         }
 
         if (_ship_class == navy_ship_prefabs)
         {
-            navy_ships.Add(ship);
+            navy_ships.Add(ship.GetComponent<AICaptain>());
         }
     }
 
 
-    public void SetNavySpawnTimer(int _time)
+    public void SetNavySpawnTimer(int _spawn_timer)
     {
-        navy_spawn_timer = _time;
+        navy_spawn_timer = _spawn_timer;
     }
 }
