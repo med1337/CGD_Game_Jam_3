@@ -607,30 +607,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_PrefabInternal: {fileID: 118484569}
---- !u!84 &123190765
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 456
-  m_Height: 257
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapMode: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &126398808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &322940238
 Transform:
   m_ObjectHideFlags: 0
@@ -3701,30 +3677,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2979895, y: 0.8140246, z: 1.8843305}
   m_Center: {x: -0.12085147, y: 0.025945932, z: 0.08135173}
---- !u!84 &566975271
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 456
-  m_Height: 257
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapMode: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &579454163
 Prefab:
   m_ObjectHideFlags: 0
@@ -4978,7 +4930,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000010242649756, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4001903989842830, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
       propertyPath: m_RootOrder
@@ -5296,12 +5248,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4127545415474598, guid: 1920637fe5dedcb4e8375bbeee24280f,
     type: 2}
   m_PrefabInternal: {fileID: 895857522}
---- !u!114 &811617000 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114023694168824988, guid: dbf01a8ded225f64a8f0fa1d9e4b5c71,
-    type: 2}
-  m_PrefabInternal: {fileID: 1703297018}
-  m_Script: {fileID: 11500000, guid: d722d9b31e470dc459f5a1efffcc3832, type: 3}
 --- !u!1001 &828009168
 Prefab:
   m_ObjectHideFlags: 0
@@ -7059,9 +7005,8 @@ MonoBehaviour:
       PublicKeyToken=null
   motorPower: 500
   steer_speed: 20
-  max_steer_speed: 0
-  stations:
-  - {fileID: 811617000}
+  decceleration_multiplier: 1
+  centre_of_mass: {x: 0, y: 1, z: 0}
   hull: {fileID: 1722280369}
   colliders:
   - {fileID: 2077418404}
@@ -7145,7 +7090,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 0
   m_RenderingPath: 1
-  m_TargetTexture: {fileID: 123190765}
+  m_TargetTexture: {fileID: 1291008573}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -7796,8 +7741,8 @@ MonoBehaviour:
   sourceCamera: {fileID: 1203284170}
   outlineCamera: {fileID: 1149633005}
   outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 123190765}
-  extraRenderTexture: {fileID: 566975271}
+  renderTexture: {fileID: 1291008573}
+  extraRenderTexture: {fileID: 2108023268}
 --- !u!1 &1210156526
 GameObject:
   m_ObjectHideFlags: 0
@@ -8079,6 +8024,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
+--- !u!84 &1291008573
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 444
+  m_Height: 250
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapMode: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &1296494459
 Prefab:
   m_ObjectHideFlags: 0
@@ -8958,9 +8927,8 @@ MonoBehaviour:
       PublicKeyToken=null
   motorPower: 500
   steer_speed: 20
-  max_steer_speed: 0
-  stations:
-  - {fileID: 1736890331}
+  decceleration_multiplier: 1
+  centre_of_mass: {x: 0, y: 1, z: 0}
   hull: {fileID: 966993233}
   colliders:
   - {fileID: 612826625}
@@ -11173,12 +11141,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbf01a8ded225f64a8f0fa1d9e4b5c71, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1736890331 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114023694168824988, guid: dbf01a8ded225f64a8f0fa1d9e4b5c71,
-    type: 2}
-  m_PrefabInternal: {fileID: 1736890330}
-  m_Script: {fileID: 11500000, guid: d722d9b31e470dc459f5a1efffcc3832, type: 3}
 --- !u!4 &1736890332 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4944085987153642, guid: dbf01a8ded225f64a8f0fa1d9e4b5c71,
@@ -13512,6 +13474,30 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
+--- !u!84 &2108023268
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 444
+  m_Height: 250
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapMode: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &2112471543
 GameObject:
   m_ObjectHideFlags: 0
