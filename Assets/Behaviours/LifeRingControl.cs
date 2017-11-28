@@ -107,6 +107,8 @@ public class LifeRingControl : Controllable
 
         rope_mid.transform.position = shoot_point.position;
         rope_mid.AddForce(shot_forward * (shoot_strength / 2), ForceMode.Impulse);
+
+        AudioManager.PlayOneShot("throwing");
     }
 
 
