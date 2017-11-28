@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CargoStats : MonoBehaviour {
 
-    [SerializeField] float cargo_value = 10;
+    [SerializeField] int cargo_value = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +16,7 @@ public class CargoStats : MonoBehaviour {
 		
 	}
 
-    public float GetValue()
+    public int GetValue()
     {
         return cargo_value;
     }

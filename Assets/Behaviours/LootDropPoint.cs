@@ -21,14 +21,15 @@ public class LootDropPoint : MonoBehaviour
         {
             float current_money = stats.GetMoney();
 
-            float cargo_value = collider.GetComponent<CargoStats>().GetValue();
+            int cargo_value = collider.GetComponent<CargoStats>().GetValue();
 
             // increase player score ect.
-            stats.SetMoney(current_money + cargo_value);
+
+            GameManager.scene.player_score.IncreaseScore(cargo_value);            
 
             Vector3 coin_spawn = collider.transform.position;
 
-            coin_spawn.y =+ 1;
+            coin_spawn.y += 1;
 
             // despawn loot container.
             Destroy(collider.gameObject, despawn_timer);
