@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music_volume: 0.5
   sfx_volume: 0.5
-  music_clips: []
+  music_clips:
+  - {fileID: 8300000, guid: 5ef9d20a7fba9034da6d956042bcc1ec, type: 3}
   sfx_clips:
   - {fileID: 8300000, guid: 38c9e5c03dffff74f8e4ed84527be188, type: 3}
   - {fileID: 8300000, guid: 7a4960645d5ca40428d5ac3c120d0df0, type: 3}
