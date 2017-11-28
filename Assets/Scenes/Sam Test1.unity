@@ -1886,10 +1886,10 @@ MonoBehaviour:
   max_large_cargo_pop: 0
   max_navy_pop: 2
   max_large_navy_pop: 0
-  loot_spawn_timer: 1
-  wildlife_spawn_timer: 2
+  loot_spawn_timer: 2
+  wildlife_spawn_timer: 3
   civ_spawn_timer: 4
-  refugee_spawn_timer: 1
+  refugee_spawn_timer: 3
   cargo_spawn_timer: 6
   large_cargo_spawn_timer: 12
   navy_spawn_timer: 8
