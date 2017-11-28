@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: cacc6a25677ad9d48ad3326100d680fa
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 7dc99c3c4c95e084997d6833e5c4656f
+    path: Assets/Scenes/GoldMasterScene.unity
+    guid: e6e49bb0f7e112b4daa6b24e3080a25e
   - enabled: 1
     path: Assets/Scenes/Elliott's Sharknado.unity
-    guid: 00000000000000000000000000000000
+    guid: 263dd868b42417d4aaa4b97f2f335e68

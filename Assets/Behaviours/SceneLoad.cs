@@ -16,7 +16,7 @@ public class SceneLoad : MonoBehaviour {
     {
         if (Input.GetKeyDown("joystick button 7"))
         {
-            SceneManager.LoadScene("LeoMain");
+            SceneManager.LoadScene(1);
         }
         if (Input.GetKeyDown("joystick button 8") && (Input.GetKeyDown("joystick button 9")))
         {
