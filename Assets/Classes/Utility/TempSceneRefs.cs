@@ -26,8 +26,20 @@ public struct TempSceneRefs
         }
     }
 
+    public PlayerScore player_score
+    {
+        get
+        {
+            if (player_score_ == null)
+                player_score_ = GameObject.FindObjectOfType<PlayerScore>();
+
+            return player_score_;
+        }
+    }
+
 
     private CameraManager camera_manager_;
     private RespawnManager respawn_manager_;
+    private PlayerScore player_score_;
 
 }
