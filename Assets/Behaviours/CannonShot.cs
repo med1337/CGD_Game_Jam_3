@@ -71,7 +71,6 @@ public class CannonShot : MonoBehaviour
     void DamageAllInSphere()
     {
         var elems = Physics.OverlapSphere(transform.position, explosion_radius);
-        Debug.Log(elems.Length);
 
         foreach (var elem in elems)
         {
@@ -82,8 +81,6 @@ public class CannonShot : MonoBehaviour
 
             if (life == null || affected_entities.Contains(life))
                 continue;
-
-            Debug.Log("damaging entity");
 
             life.Damage(damage);
             affected_entities.Add(life);

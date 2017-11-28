@@ -87,7 +87,14 @@ public class CameraManager : MonoBehaviour
         var players = GameManager.scene.respawn_manager.alive_players;
         if (players.Count > 0)
         {
-            avg_pos = players[0].transform.position;
+            foreach (var player in players)
+            {
+                if (player == null)
+                    continue;
+
+                avg_pos = player.transform.position;
+                break;
+            }
 
             for (int i = 1; i < players.Count; ++i)
             {
