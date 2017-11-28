@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 23451060626568534}
   - component: {fileID: 95428067382999084}
   - component: {fileID: 114675864424552782}
+  - component: {fileID: 114630947341726906}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -80,6 +81,7 @@ GameObject:
   - component: {fileID: 23992290644779998}
   - component: {fileID: 95197839555029804}
   - component: {fileID: 114976177473655336}
+  - component: {fileID: 114002373001041216}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -99,6 +101,7 @@ GameObject:
   - component: {fileID: 23026858188188830}
   - component: {fileID: 95590871469731468}
   - component: {fileID: 114817493838191320}
+  - component: {fileID: 114862092355527342}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -242,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1846047270664206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.064583, y: 0, z: 22.255718}
+  m_LocalPosition: {x: -61.64845, y: 0, z: 19.632381}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4395347214524572}
@@ -619,6 +622,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114002373001041216
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286010446650364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6fc324cff3fc941aca1ac23d5fb7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: a9b454c52f2ef9748a28113eba536b86, type: 2}
+  man_mesh: {fileID: 23992290644779998}
+  re_roll: 0
 --- !u!114 &114014497053484460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -684,6 +701,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlines:
   - {fileID: 114976177473655336}
+--- !u!114 &114630947341726906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1183566999966022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6fc324cff3fc941aca1ac23d5fb7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: a9b454c52f2ef9748a28113eba536b86, type: 2}
+  man_mesh: {fileID: 23992290644779998}
+  re_roll: 0
 --- !u!114 &114675864424552782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -753,6 +784,20 @@ MonoBehaviour:
   eraseRenderer: 0
   originalLayer: 0
   originalMaterials: []
+--- !u!114 &114862092355527342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1510321947827048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd6fc324cff3fc941aca1ac23d5fb7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 11400000, guid: a9b454c52f2ef9748a28113eba536b86, type: 2}
+  man_mesh: {fileID: 23026858188188830}
+  re_roll: 0
 --- !u!114 &114891157046001712
 MonoBehaviour:
   m_ObjectHideFlags: 1
