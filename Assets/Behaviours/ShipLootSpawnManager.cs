@@ -22,6 +22,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     [SerializeField] int max_cargo_pop; // 
     [SerializeField] int max_large_cargo_pop;
     [SerializeField] int max_navy_pop; // 
+    [SerializeField] int difficulty_max_navy_pop; // 
     [SerializeField] int max_large_navy_pop;
 
     [Space]
@@ -39,6 +40,8 @@ public class ShipLootSpawnManager : MonoBehaviour
     [Space]
     [Header("How Often Ships Are Cleared")]
     [SerializeField] int update_timer;
+    [SerializeField] float difficulty_timer;
+    private float difficulty_counter;
 
     [Space]
     [Header("Prefabs")]
@@ -94,6 +97,8 @@ public class ShipLootSpawnManager : MonoBehaviour
         navy_counter              = 0;
         large_navy_counter        = 0;
         update_counter            = 0;
+
+        difficulty_counter = 0;
     }
 
     private void Update()
@@ -112,6 +117,15 @@ public class ShipLootSpawnManager : MonoBehaviour
         navy_counter        += Time.deltaTime;
         large_navy_counter  += Time.deltaTime;
         update_counter      += Time.deltaTime;
+
+
+        difficulty_counter  += Time.deltaTime;
+
+        if(difficulty_counter > difficulty_timer)
+        {
+            IncreaseNavy();
+            difficulty_counter = 0;
+        }
     }
 
 
@@ -409,6 +423,15 @@ public class ShipLootSpawnManager : MonoBehaviour
         if (object_type == wildlife_prefabs)
         {
             wildlife.Add(game_obj.GetComponent<AICaptain>());
+        }
+    }
+
+
+    public void IncreaseNavy()
+    {
+        if (max_navy_pop < difficulty_max_navy_pop)
+        {
+            max_navy_pop += 2;
         }
     }
 
