@@ -31,6 +31,7 @@ public class CameraManager : MonoBehaviour
 
     public Vector3 target_pos { get; private set; }
     private float target_zoom;
+    private Transform spawn_point;
 
 
     public void SetTarget(Vector3 _target, float _zoom)
@@ -50,6 +51,7 @@ public class CameraManager : MonoBehaviour
     {
         target_zoom = cam.orthographicSize;
         original_zoom = target_zoom;
+        spawn_point = GameObject.FindGameObjectWithTag("Spawn").transform;
     }
 
 
@@ -103,6 +105,12 @@ public class CameraManager : MonoBehaviour
 
             avg_pos /= players.Count;
         }
+        else
+        {
+            return spawn_point.position;
+        }
+
+        
 
         return avg_pos;
     }
