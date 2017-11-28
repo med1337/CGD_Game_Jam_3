@@ -100,7 +100,10 @@ public class CameraManager : MonoBehaviour
 
             for (int i = 1; i < players.Count; ++i)
             {
-                avg_pos += players[i].transform.position;
+                if (players[i] != null)
+                {
+                    avg_pos += players[i].transform.position;
+                }
             }
 
             avg_pos /= players.Count;
@@ -137,5 +140,4 @@ public class CameraManager : MonoBehaviour
         return update_mode == CameraUpdateMode.DELTA ?
             Time.unscaledDeltaTime : Time.fixedUnscaledDeltaTime;
     }
-
 }
