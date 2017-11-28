@@ -219,11 +219,7 @@ public class AICaptain : MonoBehaviour
             return _desired_waypoint;
 
         NavMesh.FindClosestEdge(_desired_waypoint, out hit, NavMesh.AllAreas);
-
-        Vector3 shunt_dir = hit.position - _desired_waypoint;
-        
-
-        return hit.position + (shunt_dir.normalized * 1.5f);
+        return hit.position;
     }
 
 

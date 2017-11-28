@@ -20,7 +20,9 @@ public class LifeForce : MonoBehaviour
 
     public CustomEvents.GameObjectEvent on_death_event;
     public CustomEvents.IntEvent on_damage_event;
+    public CustomEvents.IntEvent on_heal_event;
     public CustomEvents.IntEvent on_health_changed_event;
+    public CustomEvents.FloatEvent on_health_percentage_changed_event;
 
     public int current_health { get; private set;}
 
@@ -39,14 +41,16 @@ public class LifeForce : MonoBehaviour
 
     public void Damage(int _damage)
     {
-        if (current_health <= 0)
+        if (current_health <= 0 || _damage <= 0)
             return;
 
         int prev_health = current_health;
 
         current_health -= _damage;//damage health
         current_health = Mathf.Clamp(current_health, 0, int.MaxValue);
+
         on_health_changed_event.Invoke(current_health);
+        on_health_percentage_changed_event.Invoke(GetHealthPercentage());
 
         thresholds.ForEach(t => CheckThresholdTriggered(t, prev_health));
 
@@ -71,8 +75,17 @@ public class LifeForce : MonoBehaviour
 
     public void Heal(int _heal_amount)
     {
+        if (_heal_amount <= 0)
+            return;
+
+        if (current_health != max_health)
+            on_heal_event.Invoke(_heal_amount);
+
         current_health += _heal_amount;
         current_health = Mathf.Clamp(current_health, 0, max_health);//clamp to max value
+
+        on_health_changed_event.Invoke(current_health);
+        on_health_percentage_changed_event.Invoke(GetHealthPercentage());
     }
 
 
@@ -88,6 +101,9 @@ public class LifeForce : MonoBehaviour
 
         if (!_update_current_health)
             return;
+
+        on_health_changed_event.Invoke(current_health);
+        on_health_percentage_changed_event.Invoke(GetHealthPercentage());
 
         ResetHealth();//update current health if specified
     }

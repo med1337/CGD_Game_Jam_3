@@ -16,6 +16,13 @@ public class LeoControl : Controllable
     public List<WheelCollider> colliders;
 
 
+    [Space] [Header("Engine Audio")]
+    [SerializeField] private AudioSource engine_audio_source;
+    [SerializeField] private float pitch_to_speed_reduction = 8;
+    [SerializeField] private float minimum_pitch = 0.9f;
+    [SerializeField] private float maximum_pitch = 1.9f;
+
+
     public override void Move(Vector3 _dir)
     {
         move_dir = _dir;
@@ -55,7 +62,8 @@ public class LeoControl : Controllable
     // Update is called once per frame
     void Update()
     {
-
+        engine_audio_source.pitch = Remap(Mathf.Abs(colliders[3].motorTorque), 0, motorPower, minimum_pitch,
+            maximum_pitch);
     }
 
     private void FixedUpdate()
@@ -86,5 +94,11 @@ public class LeoControl : Controllable
         {
             transform.position = transform.position.normalized * GameManager.map_bound_radius;
         }
+    }
+
+
+    float Remap(float currentValue, float minimumOne, float maximumOne, float minimumTwo, float maximumTwo)
+    {
+        return ((currentValue - minimumOne) / (maximumOne - minimumOne) * (maximumTwo - minimumTwo)) + minimumTwo;
     }
 }
