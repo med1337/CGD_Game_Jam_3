@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starting_cash: 1000
-  collection_delay: 60
+  collection_delay: 120
   collection_amount: 500
   score_gained_events:
     m_PersistentCalls:
@@ -658,13 +658,13 @@ MonoBehaviour:
   min_spawn_distance: 60
   max_spawn_distance: 120
   clear_distance: 180
-  max_loot_pop: 12
-  max_wildlife_pop: 5
+  max_loot_pop: 60
+  max_wildlife_pop: 3
   max_civilian_pop: 0
-  max_refugee_pop: 8
+  max_refugee_pop: 7
   max_cargo_pop: 0
   max_large_cargo_pop: 0
-  max_navy_pop: 7
+  max_navy_pop: 5
   max_large_navy_pop: 0
   loot_spawn_timer: 2
   wildlife_spawn_timer: 2

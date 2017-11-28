@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114185300596411224}
   m_Layer: 9
   m_Name: TEMP HOSTAGE
-  m_TagString: Untagged
+  m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1556579f7fb0d2642b6a1ddcb686721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  min_value: 5
-  max_value: 25
+  min_value: 200
+  max_value: 200
 --- !u!114 &114247222048879244
 MonoBehaviour:
   m_ObjectHideFlags: 1
