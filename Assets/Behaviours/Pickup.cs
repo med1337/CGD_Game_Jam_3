@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    [SerializeField] float cleanup_after = 60;
+
     public bool outline_enabled
     {
         get
@@ -26,10 +28,13 @@ public class Pickup : MonoBehaviour
     private Transform trajectory_end;
     private float hook_progress;
 
+    private float cleanup_timer;
+
 
     public void SetInUse(bool _in_use)
     {
         in_use = _in_use;
+        cleanup_timer = 0;
     }
 
 
@@ -41,6 +46,22 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
+        if (GetInUse())
+        {
+            cleanup_timer = 0;
+        }
+        else
+        {
+            float prev_timer = cleanup_timer;
+            cleanup_timer += Time.deltaTime;
+
+            if (prev_timer < cleanup_after && cleanup_timer >= cleanup_after)
+            {
+                Destroy(GetComponent<Collider>());
+                Destroy(this.gameObject, 5);
+            }
+        }
+
         if (hooked)
             HookedUpdate();
     }
@@ -68,6 +89,7 @@ public class Pickup : MonoBehaviour
     {
         if (_other.CompareTag("Deck"))
         {
+            cleanup_timer = 0;
             transform.SetParent(_other.transform);
         }
     }

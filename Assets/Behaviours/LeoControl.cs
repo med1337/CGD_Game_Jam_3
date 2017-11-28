@@ -23,6 +23,12 @@ public class LeoControl : Controllable
     [SerializeField] private float maximum_pitch = 1.9f;
 
 
+    public void CleanUpDeadBoat()
+    {
+        Destroy(this.gameObject, 10);
+    }
+
+
     public override void Move(Vector3 _dir)
     {
         move_dir = _dir;

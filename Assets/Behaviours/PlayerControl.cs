@@ -337,6 +337,8 @@ public class PlayerControl : Controllable
         nearest_pickup.transform.position = carry_position.position;
         nearest_pickup.transform.rotation = carry_position.rotation;
 
+        nearest_pickup.SetInUse(true);
+
         // Disable Components.
         nearest_pickup.GetComponent<Rigidbody>().isKinematic = true;
         nearest_pickup.GetComponent<Collider>().enabled = false;
@@ -358,6 +360,8 @@ public class PlayerControl : Controllable
         // Throw/drop.
         current_pickup.transform.position = drop_position.position;
         current_pickup.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 0.0f);
+
+        current_pickup.SetInUse(false);
 
         // Enable disabled components.
         current_pickup.GetComponent<Rigidbody>().isKinematic = false;
