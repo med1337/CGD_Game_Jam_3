@@ -20,7 +20,6 @@ public class GameOverMenu : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("fuck you");
         t = timer_duration;
         player_doubloons.text = "Doubloons: $" + GameManager.scene.player_score.accumulated_cash.ToString();
         player_time.text = "Time: " + GameManager.scene.player_score.GetTimePlayedString();
