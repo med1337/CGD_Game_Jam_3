@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 23246298261321432}
   - component: {fileID: 114988970836150546}
   - component: {fileID: 65273426508059590}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: SteeringBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 208072963804603298}
   - component: {fileID: 114433392773930594}
   - component: {fileID: 114150742935605132}
+  - component: {fileID: 82468927293827530}
   m_Layer: 0
   m_Name: Navy Boat
   m_TagString: Untagged
@@ -1633,7 +1634,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449990215258088}
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 8.22, y: -2.42, z: 5.43}
+  m_LocalPosition: {x: 8.22, y: -3, z: 5.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4547035818765354}
@@ -2766,6 +2767,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!82 &82468927293827530
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1215897641744414}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 470632eaed24c0047afab592e6691ada, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114031658288940318
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2863,7 +2944,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  repair_per_activate: 5
+  repair_per_activate: 15
   particle_prefab: {fileID: 0}
   repair_sound: {fileID: 0}
   repair_point: {fileID: 4373984290271582}
@@ -3122,7 +3203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe7ff44e17c7fd4d91a3ef8d0470ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_health: 500
+  max_health: 250
   thresholds:
   - threshold_percentage: 0.4
     threshold_trigger_event:
@@ -3158,6 +3239,28 @@ MonoBehaviour:
       - m_Target: {fileID: 1847336105339306}
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114963796380428962}
+        m_MethodName: Kill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114253119250063934}
+        m_MethodName: Kill
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3400,7 +3503,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   motorPower: 500
-  steer_speed: 20
+  steer_speed: 30
   max_steer_speed: 0
   stations:
   - {fileID: 0}
@@ -3410,6 +3513,10 @@ MonoBehaviour:
   - {fileID: 146783635131519086}
   - {fileID: 146573905271402258}
   - {fileID: 146595384886177614}
+  engine_audio_source: {fileID: 82468927293827530}
+  pitch_to_speed_reduction: 8
+  minimum_pitch: 0.9
+  maximum_pitch: 1.9
 --- !u!114 &114818204378102896
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3744,7 +3851,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1821204747869746}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.27024317
   m_Height: 3.89
   m_Direction: 2

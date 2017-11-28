@@ -1080,6 +1080,30 @@ MeshCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
   m_PrefabInternal: {fileID: 224170281}
+--- !u!84 &236795414
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 363
+  m_Height: 226
+  m_AntiAliasing: 1
+  m_DepthFormat: 1
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapMode: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &247964253
 Prefab:
   m_ObjectHideFlags: 0
@@ -4712,30 +4736,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4435900956092948, guid: fcf4b9928f0d14f4ab3fdc7d1c0d9e7b,
     type: 2}
   m_PrefabInternal: {fileID: 953180735}
---- !u!84 &969239293
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 468
-  m_Height: 292
-  m_AntiAliasing: 1
-  m_DepthFormat: 1
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapMode: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &981778213
 Prefab:
   m_ObjectHideFlags: 0
@@ -4794,7 +4794,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 969239293}
+      objectReference: {fileID: 236795414}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22a19e2eeec1e7444abe016d4572aec4, type: 2}
   m_IsPrefabParent: 0
@@ -6297,6 +6297,67 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 3f8d898d0a9bf0e4c85f6725f1604818, type: 3}
+--- !u!1001 &1371555456
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -24.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4230127108579722, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215897641744414, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+      propertyPath: m_Name
+      value: Navy Boat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 120807477095764352, guid: 01be58cbe32fcb042ab45171136d4fef,
+        type: 2}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -24.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 120807477095764352, guid: 01be58cbe32fcb042ab45171136d4fef,
+        type: 2}
+      propertyPath: m_Positions.Array.data[0].z
+      value: -14.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 114080869626807068, guid: 01be58cbe32fcb042ab45171136d4fef,
+        type: 2}
+      propertyPath: is_starting_boat
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 01be58cbe32fcb042ab45171136d4fef, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1380732202
 Prefab:
   m_ObjectHideFlags: 0
@@ -7720,7 +7781,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 904ce392efbdf674f95098dd9fbfcffa, type: 3}
   m_IsPrefabParent: 0
---- !u!84 &1698378349
+--- !u!84 &1702823137
 RenderTexture:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -7729,8 +7790,8 @@ RenderTexture:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_Width: 468
-  m_Height: 292
+  m_Width: 363
+  m_Height: 226
   m_AntiAliasing: 1
   m_DepthFormat: 1
   m_ColorFormat: 0

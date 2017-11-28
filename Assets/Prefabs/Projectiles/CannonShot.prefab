@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4494173678142116}
   - component: {fileID: 33738544546408482}
   - component: {fileID: 23109291065052324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 114458489599847332}
   - component: {fileID: 114609227734742196}
   - component: {fileID: 114846977751675400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
