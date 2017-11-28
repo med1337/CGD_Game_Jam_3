@@ -366,6 +366,7 @@ public class PlayerControl : Controllable
         // If player isnt moving.... place the object.
         if (move_dir == Vector3.zero)
         {
+            AudioManager.PlayOneShot("drop_box");
             current_pickup.GetComponent<Rigidbody>().AddForce(transform.forward + transform.up);
             Debug.Log("Placing Object");
         }
