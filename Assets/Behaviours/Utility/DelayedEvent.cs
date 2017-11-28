@@ -9,7 +9,7 @@ public class DelayedEvent : MonoBehaviour
     [SerializeField] UnityEvent on_delay_end;
 
 
-	void Start ()
+	void OnEnable()
     {
 		Invoke("TriggerEvent", invoke_delay);
 	}
