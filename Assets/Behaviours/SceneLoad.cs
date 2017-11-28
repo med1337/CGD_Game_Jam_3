@@ -18,5 +18,9 @@ public class SceneLoad : MonoBehaviour {
         {
             SceneManager.LoadScene("Main");
         }
+        if (Input.GetKeyDown("joystick button 8") && (Input.GetKeyDown("joystick button 9")))
+        {
+            SceneManager.LoadScene("Elliott's Sharknado");
+        }
 	}
 }
