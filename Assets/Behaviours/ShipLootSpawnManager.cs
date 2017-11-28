@@ -7,9 +7,9 @@ public class ShipLootSpawnManager : MonoBehaviour
 {
     [Header("Parameters")]
     [SerializeField] LayerMask check_layers; // Raycast Layers to check spawn pos is in sea
-    [SerializeField] LayerMask boat_layer;
-    [SerializeField] float spawn_distance; // Distance to spawn object, away from avg player pos
-    //[SerializeField] float spawn_distance_large; // Distance to spawn object, away from avg player pos
+    [SerializeField] LayerMask ship_layer;
+    [SerializeField] float min_spawn_distance; // Distance to spawn object, away from avg player pos
+    [SerializeField] float max_spawn_distance; // Distance to spawn object, away from avg player pos
     [SerializeField] float clear_distance;
 
     [Space]
@@ -34,7 +34,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     [SerializeField] int cargo_spawn_timer;
     [SerializeField] int large_cargo_spawn_timer;
     [SerializeField] int navy_spawn_timer;
-    [SerializeField] int large_navy_timer;
+    [SerializeField] int large_navy_spawn_timer;
 
     [Space]
     [Header("How Often Ships Are Cleared")]
@@ -143,17 +143,17 @@ public class ShipLootSpawnManager : MonoBehaviour
             cargo_counter = 0;
         }
 
-        // Spawn new CARGO boat
-        if (cargo_counter >= cargo_spawn_timer && cargo_ships.Count < max_cargo_pop)
+        // Spawn new LARGE CARGO boat
+        if (large_cargo_counter >= large_cargo_spawn_timer && large_cargo_ships.Count < max_large_cargo_pop)
         {
             Vector3 pos = GeneratePos();
 
             if (ValidatePos(pos))
             {
-                SpawnItem(pos, cargo_ships_prefabs);
+                SpawnItem(pos, large_cargo_ships_prefabs);
             }
 
-            cargo_counter = 0;
+            large_cargo_counter = 0;
         }
 
         // Spawn new NAVY boat
@@ -167,6 +167,19 @@ public class ShipLootSpawnManager : MonoBehaviour
             }
 
             navy_counter = 0;
+        }
+
+        // Spawn new LARGE NAVY boat
+        if (large_navy_counter >= large_navy_spawn_timer && large_navy_ships.Count < max_large_navy_pop)
+        {
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnItem(pos, large_navy_ships_prefabs);
+            }
+
+            large_navy_counter = 0;
         }
 
         // Spawn Loot
@@ -221,7 +234,11 @@ public class ShipLootSpawnManager : MonoBehaviour
 
             ClearShips(cargo_ships, pos);
 
+            ClearShips(large_cargo_ships, pos);
+
             ClearShips(navy_ships, pos);
+
+            ClearShips(large_navy_ships, pos);
 
             ClearShips(wildlife, pos);
 
@@ -301,7 +318,7 @@ public class ShipLootSpawnManager : MonoBehaviour
 
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
-            Vector3 dist_to_target = rotation * transform.forward * spawn_distance;
+            Vector3 dist_to_target = rotation * transform.forward * Random.Range(min_spawn_distance, max_spawn_distance);
 
             Vector3 potential_pos = position + dist_to_target;
 
@@ -318,7 +335,7 @@ public class ShipLootSpawnManager : MonoBehaviour
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
                     {
                         // Final Check to see if pos hits a collider (ie another Boat)
-                        Collider[] colliders = Physics.OverlapSphere(potential_pos_valid, 20.0f, boat_layer);
+                        Collider[] colliders = Physics.OverlapSphere(potential_pos_valid, 25.0f, ship_layer);
 
                         if (colliders.Length == 0)
                         {
@@ -363,9 +380,19 @@ public class ShipLootSpawnManager : MonoBehaviour
             cargo_ships.Add(game_obj.GetComponent<AICaptain>());
         }
 
+        if (object_type == large_cargo_ships_prefabs)
+        {
+            large_cargo_ships.Add(game_obj.GetComponent<AICaptain>());
+        }
+
         if (object_type == navy_ships_prefabs)
         {
             navy_ships.Add(game_obj.GetComponent<AICaptain>());
+        }
+
+        if (object_type == large_navy_ships_prefabs)
+        {
+            large_navy_ships.Add(game_obj.GetComponent<AICaptain>());
         }
 
         if (object_type == loot_prefabs)

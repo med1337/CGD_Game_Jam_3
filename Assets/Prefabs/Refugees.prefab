@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 54539651778733324}
   - component: {fileID: 65661034478161118}
   - component: {fileID: 114974593117750216}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Refugees
   m_TagString: Untagged
   m_Icon: {fileID: 0}
