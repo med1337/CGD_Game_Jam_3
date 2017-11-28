@@ -400,7 +400,7 @@ public class PlayerControl : Controllable
         if (!IsLifting())
         {
             // Player's personal attack.
-            float hit_force = 5.0f;
+            float hit_force = 2.5f;
 
             if (Time.time < last_punch_timestamp + punch_cooldown)
                 return;
@@ -430,6 +430,8 @@ public class PlayerControl : Controllable
                         {
                             AudioManager.PlayOneShot("slap");
                             hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                            hit.rigidbody.AddForce(-transform.right * hit_force, ForceMode.VelocityChange);
+                            hit.rigidbody.AddForce(transform.up * hit_force * 2, ForceMode.VelocityChange);
                         }
                     }
 
@@ -438,6 +440,8 @@ public class PlayerControl : Controllable
                     {
                         AudioManager.PlayOneShot("slap");
                         hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                        hit.rigidbody.AddForce(-transform.right * hit_force, ForceMode.VelocityChange);
+                        hit.rigidbody.AddForce(transform.up * hit_force * 2, ForceMode.VelocityChange);
                     }
                 }
             }
