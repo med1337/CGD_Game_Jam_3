@@ -72,7 +72,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     private float update_counter;
 
     //How many times to check for a spawn pos
-    private int search_attempts = 20;
+    private int search_attempts = 100;
 
     private void Start()
     {
@@ -300,6 +300,7 @@ public class ShipLootSpawnManager : MonoBehaviour
             return true;
         }
 
+        Debug.Log("no pos found");
         // If no pos Found.
         return false;
     }
@@ -335,7 +336,7 @@ public class ShipLootSpawnManager : MonoBehaviour
                     if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Water"))
                     {
                         // Final Check to see if pos hits a collider (ie another Boat)
-                        Collider[] colliders = Physics.OverlapSphere(potential_pos_valid, 25.0f, ship_layer);
+                        Collider[] colliders = Physics.OverlapSphere(potential_pos_valid, 10.0f, ship_layer);
 
                         if (colliders.Length == 0)
                         {
@@ -368,9 +369,6 @@ public class ShipLootSpawnManager : MonoBehaviour
 
         var game_obj = Instantiate(object_type[rand_item], _spawn_pos,
             object_type[rand_item].transform.rotation);
-
-        Debug.Log(_spawn_pos);
-
 
         if (object_type == civilian_ships_prefabs)
         {
