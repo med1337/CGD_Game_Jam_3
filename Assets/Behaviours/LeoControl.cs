@@ -9,8 +9,7 @@ public class LeoControl : Controllable
     float acceleration;
     float deceleration;
     [SerializeField] float steer_speed;
-    [SerializeField] float max_steer_speed;
-    [SerializeField] List<Station> stations = new List<Station>();
+    [SerializeField] float decceleration_multiplier = 1;
 
     public GameObject hull;
     public List<WheelCollider> colliders;
@@ -32,7 +31,7 @@ public class LeoControl : Controllable
     public override void Accelerate(Vector2 _acc)
     {
         acceleration = _acc.x;
-        deceleration = _acc.y*0.25f;
+        deceleration = _acc.y* decceleration_multiplier;
     }
 
 
@@ -62,18 +61,15 @@ public class LeoControl : Controllable
     // Update is called once per frame
     void Update()
     {
+        if (engine_audio_source == null)
+            return;
+
         engine_audio_source.pitch = Remap(Mathf.Abs(colliders[3].motorTorque), 0, motorPower, minimum_pitch,
             maximum_pitch);
     }
 
     private void FixedUpdate()
     {
-        //if(!colliders[0].isGrounded && !colliders[2].isGrounded || !colliders[1].isGrounded && !colliders[3].isGrounded)
-        //{
-        //    colliders[0].transform.parent.gameObject.SetActive(false);
-        //    hull.SetActive(true);
-        //}
-
         for (int i = 0; i < colliders.Count; ++i)
         {
             if (i < 2)
