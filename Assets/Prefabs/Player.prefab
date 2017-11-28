@@ -393,7 +393,7 @@ MonoBehaviour:
   mount_scan_radius: 0.6
   mount_scan_delay: 0.1
   jump_cooldown: 1
-  punch_cooldown: 0.1
+  punch_cooldown: 0.5
   station_layer:
     serializedVersion: 2
     m_Bits: 256
