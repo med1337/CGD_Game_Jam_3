@@ -299,7 +299,7 @@ public class PlayerControl : Controllable
     }
 
 
-    void LeaveStation()
+    public void LeaveStation()
     {
         if (!IsUsingStation() || IsLifting())
         {
@@ -348,7 +348,7 @@ public class PlayerControl : Controllable
     }
 
 
-    void ThrowItem()
+    public void ThrowItem()
     {
         if (IsUsingStation() || !IsLifting())
         {
@@ -423,11 +423,17 @@ public class PlayerControl : Controllable
             {
                 if (hit.rigidbody)
                 {
+                    if (hit.transform.name == "Player(Clone)")
+                    {
+                        hit.transform.GetComponent<PlayerControl>().ThrowItem();
+                        hit.transform.GetComponent<PlayerControl>().LeaveStation();
+                    }
+
                     //if on a deck, don't punch the deck's rigidbody
                     if (current_deck)
                     {
                         if (current_deck.GetComponent<Rigidbody>() != hit.rigidbody)
-                        {
+                        {                            
                             AudioManager.PlayOneShot("slap");
                             hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
                             hit.rigidbody.AddForce(-transform.right * hit_force, ForceMode.VelocityChange);
