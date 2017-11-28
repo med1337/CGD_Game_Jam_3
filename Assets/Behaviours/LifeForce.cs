@@ -24,7 +24,13 @@ public class LifeForce : MonoBehaviour
     public CustomEvents.IntEvent on_health_changed_event;
     public CustomEvents.FloatEvent on_health_percentage_changed_event;
 
-    public int current_health { get; private set;}
+    public int current_health { get; private set; }
+
+
+    public bool IsFullyHealed()
+    {
+        return current_health == max_health;
+    }
 
 
     public float GetHealthPercentage()

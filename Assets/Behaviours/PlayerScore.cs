@@ -24,14 +24,23 @@ public class PlayerScore : MonoBehaviour
     [SerializeField] Text next_collection_display;
 
     private int current_cash;
+    public int accumulated_cash { get; private set; }
 
     private float play_time;
     private float collection_countdown;
 
 
+    string GetTimePlayedString()
+    {
+        return time_display.text;
+    }
+
+
     public void IncreaseScore(int _amount)
     {
         current_cash += _amount;
+        accumulated_cash += _amount;
+
         cash_display.text = current_cash.ToString();
         
         score_gained_events.Invoke();

@@ -52,7 +52,7 @@ public class RepairControl : Controllable
 
     public override void Activate()
     {
-        if (!can_activate)
+        if (!can_activate || attached_lifeforce.IsFullyHealed())
             return;
 
         can_activate = false;
