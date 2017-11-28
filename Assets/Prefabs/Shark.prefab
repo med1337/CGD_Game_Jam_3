@@ -696,7 +696,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340312617503532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.2, y: -0.06, z: -1.24}
+  m_LocalPosition: {x: 47.57431, y: 2.3, z: 165.49536}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4156485953808192}
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   reticule_max_distance: 5
   shot_delay: 0.1
   shot_spread: 0.03
-  shot_prefab: {fileID: 1714420033264594, guid: da9b43dd94bd6ed4084325119ca95d44,
+  shot_prefab: {fileID: 1195171204108128, guid: 7f49a702d4f2d844e99bd5314af626af,
     type: 2}
   shot_shake_strength: 0
   shot_shake_duration: 0
