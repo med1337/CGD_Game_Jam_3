@@ -22,7 +22,14 @@ public class LifeForce : MonoBehaviour
     public CustomEvents.IntEvent on_damage_event;
     public CustomEvents.IntEvent on_health_changed_event;
 
-    private int current_health = 100;
+    public int current_health { get; private set;}
+
+
+    public float GetHealthPercentage()
+    {
+        return (float)current_health / (float)max_health;
+    }
+
 
     void Start()
     {
