@@ -60,8 +60,6 @@ public class Pickup : MonoBehaviour
         {
             hooked = false;
             hook_progress = 0;
-
-            Debug.Log("hook end");
         }
     }
 
