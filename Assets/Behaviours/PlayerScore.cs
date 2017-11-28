@@ -26,7 +26,7 @@ public class PlayerScore : MonoBehaviour
     private int current_cash;
     public int accumulated_cash { get; private set; }
 
-    private float play_time;
+    public float play_time { get; private set; }
     private float collection_countdown;
 
 
