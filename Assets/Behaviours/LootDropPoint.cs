@@ -37,6 +37,7 @@ public class LootDropPoint : MonoBehaviour
                     {
                         Instantiate(coin_particle, collected_items[i].transform.position, coin_particle.transform.rotation);
                         Destroy(collected_items[i]);
+                        AudioManager.PlayOneShot("coin_spill");
                     }
                 }
             }
@@ -61,15 +62,7 @@ public class LootDropPoint : MonoBehaviour
 
             // increase player score ect.
 
-            GameManager.scene.player_score.IncreaseScore(cargo_value);
-
-            Vector3 coin_spawn = collider.transform.position;
-
-            coin_spawn.y += 1;
-
-            //Instantiate(coin_particle, coin_spawn, coin_particle.transform.rotation);
-
-            AudioManager.PlayOneShot("coin_spill");
+            GameManager.scene.player_score.IncreaseScore(cargo_value);            
         }
     }
 }

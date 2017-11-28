@@ -433,10 +433,15 @@ public class PlayerControl : Controllable
 
                 if ((hit_rigidbody) && (!hit_rigidbodies.Contains(hit_rigidbody)))
                 {
-                    if (hitColliders[i].transform.name == "Player(Clone)")
+                    Debug.Log(hitColliders[i].gameObject.name);
+
+                    if (hit_rigidbody.gameObject.name == "Player(Clone)")
                     {
-                        hitColliders[i].transform.GetComponent<PlayerControl>().ThrowItem();
-                        hitColliders[i].transform.GetComponent<PlayerControl>().LeaveStation();
+                        Debug.Log("hit player");
+
+                        PlayerControl control_script = hitColliders[i].GetComponentInParent<PlayerControl>();
+                        control_script.ThrowItem();
+                        control_script.LeaveStation();
                     }
 
                     //if on a deck, don't punch the deck's rigidbody
