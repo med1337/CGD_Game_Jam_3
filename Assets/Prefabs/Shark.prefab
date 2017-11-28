@@ -1298,8 +1298,12 @@ MonoBehaviour:
   shot_spread: 0.03
   shot_prefab: {fileID: 1714420033264594, guid: da9b43dd94bd6ed4084325119ca95d44,
     type: 2}
+  shot_shake_strength: 0
+  shot_shake_duration: 0
   particle_prefab: {fileID: 1824834035103590, guid: 6e68a1189873a6e4db0aecce6ad87345,
     type: 2}
+  semi_auto: 0
+  shot_sound: {fileID: 0}
   turret: {fileID: 1198160653726104}
   shoot_point: {fileID: 4932210313512276}
   ejection_point: {fileID: 4232974518962208}

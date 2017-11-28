@@ -56,6 +56,7 @@ public class AIGunner : MonoBehaviour
         if (current_burst_duration > burst_duration)
         {
             current_cooldown += Time.deltaTime;
+            turret.Stop();
 
             if (current_cooldown >= burst_cool_down_duration)
             {
@@ -79,6 +80,10 @@ public class AIGunner : MonoBehaviour
             turret.Move(aim_dir);
             current_burst_duration += Time.deltaTime;
             turret.Activate();
+        }
+        else
+        {
+            turret.Stop();
         }
     }
 

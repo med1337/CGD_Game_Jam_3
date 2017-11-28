@@ -40,6 +40,11 @@ public class AICaptain : MonoBehaviour
     {
         if (is_starting_boat)
         {
+            AIGunner[] turrets = GetComponentsInChildren<AIGunner>();
+            foreach (AIGunner ai_gunner in turrets)
+            {
+                ai_gunner.Kill();
+            }
             Kill();
             return;
         }
@@ -127,10 +132,10 @@ public class AICaptain : MonoBehaviour
 
     private void SetNewPatrolPoint()
     {
-        Vector2 random = Random.insideUnitCircle * waypoint_radius;//get random point in circle
+        Vector2 random = Random.insideUnitCircle * GameManager.map_bound_radius;//get random point in circle
         Vector3 random_waypoint = new Vector3(random.x, transform.position.y, random.y);//convert to vec3
 
-        waypoint = transform.position+ transform.forward * distance_between_waypoints +  random_waypoint;//put rand point in front of boat
+        waypoint = Vector3.zero +  random_waypoint;//put rand point in front of boat
         nav_mesh_agent.SetDestination(ValidDestination(waypoint));//set nav direction
     }
 
@@ -145,7 +150,7 @@ public class AICaptain : MonoBehaviour
         }
         else if (captain_faction == Faction.CIVILIAN)//flee if civilian
         {
-            SetFleeTarget();
+            Patrol();
         }  
     }
 
@@ -214,7 +219,11 @@ public class AICaptain : MonoBehaviour
             return _desired_waypoint;
 
         NavMesh.FindClosestEdge(_desired_waypoint, out hit, NavMesh.AllAreas);
-        return hit.position;
+
+        Vector3 shunt_dir = hit.position - _desired_waypoint;
+        
+
+        return hit.position + (shunt_dir.normalized * 1.5f);
     }
 
 
@@ -252,9 +261,7 @@ public class AICaptain : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.blue;
-        Vector3 next_waypoint_pos = transform.position + transform.forward * distance_between_waypoints;
-        Gizmos.DrawWireSphere(next_waypoint_pos, waypoint_radius);//draw patrol waypoint selection area
+       
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chase_radius);//draw chase trigger radius

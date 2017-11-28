@@ -17,10 +17,10 @@ public class RepairControl : Controllable
     [SerializeField] Transform repair_point;
 
     [Header("References")]
-    [SerializeField] LifeForce attached_lifeforce;
     [SerializeField] GameObject canvas_obj;
     [SerializeField] Image health_bar;
 
+    private LifeForce attached_lifeforce;
     private bool can_activate = true;
 
 
@@ -70,7 +70,7 @@ public class RepairControl : Controllable
 
     void Start()
     {
-
+        attached_lifeforce = GetComponentInParent<LifeForce>();
     }
 
 

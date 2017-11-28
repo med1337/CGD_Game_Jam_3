@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public abstract class Controllable : MonoBehaviour
 {
-    public bool ai_controlling = false;
+    [HideInInspector] public bool ai_controlling = false;
     public bool being_controlled { get { return controlling_player != null || ai_controlling; } }
     public PlayerControl controlling_player { get; private set; }
     public UnityEvent on_player_control;
