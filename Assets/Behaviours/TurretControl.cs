@@ -17,9 +17,17 @@ public class TurretControl : Controllable
     [SerializeField] float shot_delay;
     [SerializeField] float shot_spread;
     [SerializeField] GameObject shot_prefab;
+    [SerializeField] float shot_shake_strength;
+    [SerializeField] float shot_shake_duration;
 
     [Space]
     [SerializeField] GameObject particle_prefab;
+
+    [Space]
+    [SerializeField] bool semi_auto;
+
+    [Space]
+    [SerializeField] AudioClip shot_sound;
 
     [Header("References")]
     [SerializeField] GameObject turret;
@@ -34,6 +42,8 @@ public class TurretControl : Controllable
 
     Vector3 left_max;
     Vector3 right_max;
+
+    private bool can_activate = true;
 
 
     public override void Move(Vector3 _dir)
@@ -64,11 +74,22 @@ public class TurretControl : Controllable
 
     public override void Activate()
     {
+        if (semi_auto && !can_activate)
+            return;
+
+        can_activate = false;
+
         if (Time.time >= last_shot_timestamp + shot_delay)
         {
             last_shot_timestamp = Time.time;
             Shoot();
         }
+    }
+
+
+    public override void Stop()
+    {
+        can_activate = true;
     }
 
 
@@ -88,7 +109,8 @@ public class TurretControl : Controllable
         GameObject particle_clone = Instantiate(particle_prefab, shoot_point.position,
             Quaternion.LookRotation(shot_forward));
 
-        AudioManager.PlayOneShot("50_cal_one_shot");
+        AudioManager.PlayOneShot(shot_sound);
+        CameraShake.Shake(shot_shake_strength, shot_shake_duration);
     }
 
 

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4290334864689356}
   - component: {fileID: 198405445744539218}
   - component: {fileID: 199820160945531868}
-  - component: {fileID: 114095213068450060}
+  - component: {fileID: 114893633616630186}
   m_Layer: 0
   m_Name: Coin emitter
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &114095213068450060
+--- !u!114 &114893633616630186
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -50,10 +50,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1446704554384544}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e39addb30dbf0b44b918b1a8e0369bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d769b8b598defa4ab0416bf47a163f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroy_delay: 11
 --- !u!198 &198405445744539218
 ParticleSystem:
   m_ObjectHideFlags: 1

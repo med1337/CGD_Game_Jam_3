@@ -137,3 +137,4 @@ MonoBehaviour:
   travel_speed: 100
   ricochet_prefab: {fileID: 1697160659028514, guid: 95d8d250a9521f545bbde7f24c162dcf,
     type: 2}
+  damage: 5
