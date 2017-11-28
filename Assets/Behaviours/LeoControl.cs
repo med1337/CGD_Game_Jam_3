@@ -10,6 +10,7 @@ public class LeoControl : Controllable
     float deceleration;
     [SerializeField] float steer_speed;
     [SerializeField] float decceleration_multiplier = 1;
+    [SerializeField] Vector3 centre_of_mass = Vector3.up;
 
     public GameObject hull;
     public List<WheelCollider> colliders;
@@ -55,7 +56,7 @@ public class LeoControl : Controllable
     // Use this for initialization
     void Start()
     {
-        GetComponent<Rigidbody>().centerOfMass = new Vector3(0, 2, 0);
+        GetComponent<Rigidbody>().centerOfMass = centre_of_mass;
     }
 
     // Update is called once per frame

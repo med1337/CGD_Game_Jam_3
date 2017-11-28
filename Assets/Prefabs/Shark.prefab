@@ -1109,15 +1109,18 @@ MonoBehaviour:
       PublicKeyToken=null
   motorPower: 500
   steer_speed: 20
-  max_steer_speed: 0
-  stations:
-  - {fileID: 114849262781225866}
+  decceleration_multiplier: 1
+  centre_of_mass: {x: 0, y: 2, z: 0}
   hull: {fileID: 1389416135052496}
   colliders:
   - {fileID: 146540706764659484}
   - {fileID: 146700053432823060}
   - {fileID: 146638002658355214}
   - {fileID: 146866853490264674}
+  engine_audio_source: {fileID: 0}
+  pitch_to_speed_reduction: 8
+  minimum_pitch: 0.9
+  maximum_pitch: 1.9
 --- !u!114 &114112647470420328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1413,6 +1416,11 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  on_heal_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   on_health_changed_event:
     m_PersistentCalls:
       m_Calls:
@@ -1428,6 +1436,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  on_health_percentage_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+FloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114849262781225866
 MonoBehaviour:
