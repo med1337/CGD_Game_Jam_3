@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 54539651778733324}
   - component: {fileID: 65661034478161118}
   - component: {fileID: 114974593117750216}
+  - component: {fileID: 208605181808458324}
   m_Layer: 13
   m_Name: Refugees
   m_TagString: Untagged
@@ -559,7 +560,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.93, y: 0.53878593, z: 4.06}
+  m_Size: {x: 4.2, y: 0.53878593, z: 4.2}
   m_Center: {x: 0, y: 0.47, z: 0}
 --- !u!95 &95197839555029804
 Animator:
@@ -748,3 +749,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &208605181808458324
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1846047270664206}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 2, y: 0.5, z: 2}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

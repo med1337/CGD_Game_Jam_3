@@ -293,9 +293,9 @@ public class ShipLootSpawnManager : MonoBehaviour
 
     bool ValidatePos(Vector3 _pos)
     {
-        _pos = GeneratePos();
+        //_pos = GeneratePos();
 
-        if(_pos != Vector3.zero)
+        if(_pos.sqrMagnitude > 0.0f)
         {
             return true;
         }
@@ -368,6 +368,8 @@ public class ShipLootSpawnManager : MonoBehaviour
 
         var game_obj = Instantiate(object_type[rand_item], _spawn_pos,
             object_type[rand_item].transform.rotation);
+
+        Debug.Log(_spawn_pos);
 
 
         if (object_type == civilian_ships_prefabs)

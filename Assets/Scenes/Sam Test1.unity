@@ -1879,10 +1879,10 @@ MonoBehaviour:
   max_spawn_distance: 120
   clear_distance: 180
   max_loot_pop: 12
-  max_wildlife_pop: 6
-  max_civilian_pop: 6
-  max_refugee_pop: 6
-  max_cargo_pop: 6
+  max_wildlife_pop: 12
+  max_civilian_pop: 12
+  max_refugee_pop: 12
+  max_cargo_pop: 12
   max_large_cargo_pop: 0
   max_navy_pop: 2
   max_large_navy_pop: 0
@@ -2506,10 +2506,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  on_heal_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   on_health_changed_event:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  on_health_percentage_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+FloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!23 &499138567
 MeshRenderer:
@@ -5751,10 +5761,20 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  on_heal_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   on_health_changed_event:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: CustomEvents+IntEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  on_health_percentage_changed_event:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CustomEvents+FloatEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!23 &1201892562
 MeshRenderer:
