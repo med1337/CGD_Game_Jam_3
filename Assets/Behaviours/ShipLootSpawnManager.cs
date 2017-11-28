@@ -9,45 +9,66 @@ public class ShipLootSpawnManager : MonoBehaviour
     [SerializeField] LayerMask check_layers; // Raycast Layers to check spawn pos is in sea
     [SerializeField] LayerMask boat_layer;
     [SerializeField] float spawn_distance; // Distance to spawn object, away from avg player pos
+    //[SerializeField] float spawn_distance_large; // Distance to spawn object, away from avg player pos
     [SerializeField] float clear_distance;
 
     [Space]
     [Header("Ship Type Populations")]
     // Max pop for each Ship class
-    [SerializeField] int max_loot_pop;
-    [SerializeField] int max_civilian_pop;
-    [SerializeField] int max_cargo_pop;
-    [SerializeField] int max_navy_pop;
+    [SerializeField] int max_loot_pop; //
+    [SerializeField] int max_wildlife_pop; //
+    [SerializeField] int max_civilian_pop; //
+    [SerializeField] int max_refugee_pop; //
+    [SerializeField] int max_cargo_pop; // 
+    [SerializeField] int max_large_cargo_pop;
+    [SerializeField] int max_navy_pop; // 
+    [SerializeField] int max_large_navy_pop;
 
     [Space]
     [Header("Time Between Spawning")]
     // Time Between Spawning a new object of this class
     [SerializeField] int loot_spawn_timer;
+    [SerializeField] int wildlife_spawn_timer;
     [SerializeField] int civ_spawn_timer;
+    [SerializeField] int refugee_spawn_timer;
     [SerializeField] int cargo_spawn_timer;
+    [SerializeField] int large_cargo_spawn_timer;
     [SerializeField] int navy_spawn_timer;
+    [SerializeField] int large_navy_timer;
 
     [Space]
     [Header("How Often Ships Are Cleared")]
     [SerializeField] int update_timer;
 
     [Space]
-    [Header("Ship Type Prefabs")]
+    [Header("Prefabs")]
     [SerializeField] List<GameObject> loot_prefabs;
+    [SerializeField] List<GameObject> wildlife_prefabs;
     [SerializeField] List<GameObject> civilian_ships_prefabs;
+    [SerializeField] List<GameObject> refugee_prefabs;
     [SerializeField] List<GameObject> cargo_ships_prefabs;
+    [SerializeField] List<GameObject> large_cargo_ships_prefabs;
     [SerializeField] List<GameObject> navy_ships_prefabs;
+    [SerializeField] List<GameObject> large_navy_ships_prefabs;
 
     // Handles to ships in scene
     private List<GameObject> floating_loot;
+    private List<AICaptain> wildlife;
     private List<AICaptain> civilian_ships;
+    private List<GameObject> refugee_ships;
     private List<AICaptain> cargo_ships;
+    private List<AICaptain> large_cargo_ships;
     private List<AICaptain> navy_ships;
+    private List<AICaptain> large_navy_ships;
 
     private float loot_counter;
+    private float wildlife_counter;
     private float civ_counter;
+    private float refugee_counter;
     private float cargo_counter;
+    private float large_cargo_counter;
     private float navy_counter;
+    private float large_navy_counter;
     private float update_counter;
 
     //How many times to check for a spawn pos
@@ -55,89 +76,42 @@ public class ShipLootSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        floating_loot  = new List<GameObject>();
-        civilian_ships = new List<AICaptain>();
-        cargo_ships    = new List<AICaptain>();
-        navy_ships     = new List<AICaptain>();
+        floating_loot     = new List<GameObject>();
+        wildlife          = new List<AICaptain>();
+        civilian_ships    = new List<AICaptain>();
+        refugee_ships     = new List<GameObject>();
+        cargo_ships       = new List<AICaptain>();
+        large_cargo_ships = new List<AICaptain>();
+        navy_ships        = new List<AICaptain>();
+        large_navy_ships  = new List<AICaptain>();
 
-        loot_counter     = 0;
-        civ_counter      = 0;
-        cargo_counter    = 0;
-        navy_counter     = 0;
-        update_counter   = 0;
+        loot_counter              = 0;
+        wildlife_counter          = 0;
+        civ_counter               = 0;
+        refugee_spawn_timer       = 0;
+        cargo_counter             = 0;
+        large_cargo_counter       = 0;
+        navy_counter              = 0;
+        large_navy_counter        = 0;
+        update_counter            = 0;
     }
 
     private void Update()
     {
-        SpawnNewItems(); // Spawn Ships
+        SpawnNewItems(); // Spawn new stuff!
 
         StatusUpdate(); // Update Ships & Loot
 
         // Update Spawn Timers
-        loot_counter   += Time.deltaTime;
-        civ_counter    += Time.deltaTime;
-        cargo_counter  += Time.deltaTime;
-        navy_counter   += Time.deltaTime;
-        update_counter += Time.deltaTime;
-    }
-
-
-    void StatusUpdate()
-    {
-        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
-        GameManager.scene.camera_manager.target_pos.z);
-
-        if (update_counter >= update_timer)
-        {
-            ClearShips(civilian_ships, pos);
-
-            ClearShips(cargo_ships, pos);
-
-            ClearShips(navy_ships, pos);
-
-            ClearLoot(floating_loot, pos);
-
-            // Reset Timer
-            update_counter = 0;
-        }
-    }
-
-
-    // Clear Inactive or Distant ships
-    void ClearShips(List<AICaptain> _ships, Vector3 _pos)
-    {
-        // Remove Disabled Ships
-        _ships.RemoveAll(item => item == null);
-
-        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
-            GameManager.scene.camera_manager.target_pos.z);
-
-        for (int i = _ships.Count - 1; i > -1; i--)
-        {
-            if(Vector3.Distance(_pos, _ships[i].transform.position) > clear_distance)
-            {
-                Destroy(_ships[i].gameObject, 0.5f);
-                _ships.RemoveAt(i);
-            }
-        }
-    }
-
-    
-    void ClearLoot(List<GameObject> _items, Vector3 _pos)
-    {
-        for (int i = floating_loot.Count - 1; i > -1; i--)
-        {
-            if (Vector3.Distance(_pos, floating_loot[i].transform.position) > clear_distance)
-            {
-                Destroy(floating_loot[i], 0.5f);
-                floating_loot.RemoveAt(i);
-            }
-
-            else if(floating_loot[i].transform.parent != null)
-            {
-                floating_loot.RemoveAt(i);
-            }
-        }
+        loot_counter        += Time.deltaTime;
+        wildlife_counter    += Time.deltaTime;
+        civ_counter         += Time.deltaTime;
+        refugee_counter     += Time.deltaTime;
+        cargo_counter       += Time.deltaTime;
+        large_cargo_counter += Time.deltaTime;
+        navy_counter        += Time.deltaTime;
+        large_navy_counter  += Time.deltaTime;
+        update_counter      += Time.deltaTime;
     }
 
 
@@ -169,6 +143,19 @@ public class ShipLootSpawnManager : MonoBehaviour
             cargo_counter = 0;
         }
 
+        // Spawn new CARGO boat
+        if (cargo_counter >= cargo_spawn_timer && cargo_ships.Count < max_cargo_pop)
+        {
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnItem(pos, cargo_ships_prefabs);
+            }
+
+            cargo_counter = 0;
+        }
+
         // Spawn new NAVY boat
         if (navy_counter >= navy_spawn_timer && navy_ships.Count < max_navy_pop)
         {
@@ -182,7 +169,7 @@ public class ShipLootSpawnManager : MonoBehaviour
             navy_counter = 0;
         }
 
-        // Spawn Cargo
+        // Spawn Loot
         if (loot_counter >= loot_spawn_timer && floating_loot.Count < max_loot_pop)
         {
             Vector3 pos = GeneratePos();
@@ -193,6 +180,96 @@ public class ShipLootSpawnManager : MonoBehaviour
             }
 
             loot_counter = 0;
+        }
+
+        //Spawn Wildlife
+        if (wildlife_counter >= wildlife_spawn_timer && wildlife.Count < max_wildlife_pop)
+        {
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnItem(pos, wildlife_prefabs);
+            }
+
+            wildlife_counter = 0;
+        }
+
+        //Spawn Refugees
+        if (refugee_counter >= refugee_spawn_timer && refugee_ships.Count < max_refugee_pop)
+        {
+            Vector3 pos = GeneratePos();
+
+            if (ValidatePos(pos))
+            {
+                SpawnItem(pos, refugee_prefabs);
+            }
+
+            refugee_counter = 0;
+        }
+    }
+
+
+    void StatusUpdate()
+    {
+        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
+        GameManager.scene.camera_manager.target_pos.z);
+
+        if (update_counter >= update_timer)
+        {
+            ClearShips(civilian_ships, pos);
+
+            ClearShips(cargo_ships, pos);
+
+            ClearShips(navy_ships, pos);
+
+            ClearShips(wildlife, pos);
+
+            ClearGameObjects(floating_loot, pos);
+
+            ClearGameObjects(refugee_ships, pos);
+
+
+            // Reset Timer
+            update_counter = 0;
+        }
+    }
+
+
+    // Clear Inactive or Distant ships
+    void ClearShips(List<AICaptain> _ships, Vector3 _pos)
+    {
+        // Remove Disabled Ships
+        _ships.RemoveAll(item => item == null);
+
+        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
+            GameManager.scene.camera_manager.target_pos.z);
+
+        for (int i = _ships.Count - 1; i > -1; i--)
+        {
+            if(Vector3.Distance(_pos, _ships[i].transform.position) > clear_distance)
+            {
+                Destroy(_ships[i].gameObject, 0.5f);
+                _ships.RemoveAt(i);
+            }
+        }
+    }
+
+    
+    void ClearGameObjects(List<GameObject> _items, Vector3 _pos)
+    {
+        for (int i = _items.Count - 1; i > -1; i--)
+        {
+            if (Vector3.Distance(_pos, _items[i].transform.position) > clear_distance)
+            {
+                Destroy(_items[i], 0.5f);
+                _items.RemoveAt(i);
+            }
+
+            else if(_items[i].transform.parent != null)
+            {
+                _items.RemoveAt(i);
+            }
         }
     }
 
@@ -294,6 +371,16 @@ public class ShipLootSpawnManager : MonoBehaviour
         if (object_type == loot_prefabs)
         {
             floating_loot.Add(game_obj.gameObject);
+        }
+
+        if (object_type == refugee_prefabs)
+        {
+            refugee_ships.Add(game_obj.gameObject);
+        }
+
+        if (object_type == wildlife_prefabs)
+        {
+            wildlife.Add(game_obj.GetComponent<AICaptain>());
         }
     }
 

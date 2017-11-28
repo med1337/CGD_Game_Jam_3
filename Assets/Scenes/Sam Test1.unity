@@ -1875,25 +1875,39 @@ MonoBehaviour:
   boat_layer:
     serializedVersion: 2
     m_Bits: 8192
-  spawn_distance: 100
-  clear_distance: 300
-  max_loot_pop: 10
-  max_civilian_pop: 8
-  max_cargo_pop: 8
-  max_navy_pop: 2
-  loot_spawn_timer: 4
-  civ_spawn_timer: 4
-  cargo_spawn_timer: 4
-  navy_spawn_timer: 8
-  update_timer: 10
+  spawn_distance: 50
+  clear_distance: 80
+  max_loot_pop: 0
+  max_wildlife_pop: 0
+  max_civilian_pop: 0
+  max_refugee_pop: 10
+  max_cargo_pop: 0
+  max_large_cargo_pop: 0
+  max_navy_pop: 0
+  max_large_navy_pop: 0
+  loot_spawn_timer: 5
+  wildlife_spawn_timer: 5
+  civ_spawn_timer: 5
+  refugee_spawn_timer: 2
+  cargo_spawn_timer: 5
+  large_cargo_spawn_timer: 5
+  navy_spawn_timer: 5
+  large_navy_timer: 5
+  update_timer: 6
   loot_prefabs:
   - {fileID: 1982851056821702, guid: b90737d453a9a9747bef334f0835c4c2, type: 2}
+  wildlife_prefabs:
+  - {fileID: 1340312617503532, guid: b013198e8f9a35e479bc5f09e0a988e9, type: 2}
   civilian_ships_prefabs:
   - {fileID: 1509601857791898, guid: 28df21bdc626f4f40bf8814c6a203a6b, type: 2}
+  refugee_prefabs:
+  - {fileID: 1982851056821702, guid: 8302155e429275344a4263535eeecdc3, type: 2}
   cargo_ships_prefabs:
   - {fileID: 1373188482427538, guid: 81746f673487e3645a0090050079f045, type: 2}
+  large_cargo_ships_prefabs: []
   navy_ships_prefabs:
   - {fileID: 1919811853381234, guid: 0157b231436fda64dae6fcc3ba8a72b9, type: 2}
+  large_navy_ships_prefabs: []
 --- !u!4 &405148426
 Transform:
   m_ObjectHideFlags: 0
@@ -3872,6 +3886,10 @@ Prefab:
     - target: {fileID: 1000010242649756, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001903989842830, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a8a5bb6f2e71b143aff5818ec77dbcd, type: 2}
