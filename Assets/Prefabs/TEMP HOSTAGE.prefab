@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 136722033596079186}
   - component: {fileID: 54999069269075868}
   - component: {fileID: 114370954089773062}
+  - component: {fileID: 114928901235124258}
+  - component: {fileID: 114185300596411224}
   m_Layer: 9
   m_Name: TEMP HOSTAGE
   m_TagString: Untagged
@@ -158,6 +160,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114185300596411224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455393965941852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1556579f7fb0d2642b6a1ddcb686721a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min_value: 5
+  max_value: 25
 --- !u!114 &114247222048879244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +201,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlines:
   - {fileID: 114247222048879244}
+--- !u!114 &114928901235124258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455393965941852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96f7414d1cf8d7044a73d3274c5dfe80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target_rigidbody: {fileID: 54999069269075868}
+  in_water: 0
 --- !u!136 &136722033596079186
 CapsuleCollider:
   m_ObjectHideFlags: 1
