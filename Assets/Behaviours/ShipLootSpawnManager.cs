@@ -275,6 +275,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     
     void ClearGameObjects(List<GameObject> _items, Vector3 _pos)
     {
+        _items.RemoveAll(o => o == null);
         for (int i = _items.Count - 1; i > -1; i--)
         {
             if (Vector3.Distance(_pos, _items[i].transform.position) > clear_distance)

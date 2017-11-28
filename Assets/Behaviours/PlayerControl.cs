@@ -407,49 +407,58 @@ public class PlayerControl : Controllable
 
             last_punch_timestamp = Time.time;
 
-            //set positions for raycast and punch particle effect
-            Vector3 ray_spawn_position = transform.position;
-            ray_spawn_position.y += 1;
-
-            Vector3 punch_spawn_pos = transform.position;
-            punch_spawn_pos.y += 0.8f;
-            punch_spawn_pos += transform.forward * 0.35f;            
-
-            Instantiate(punch_particle_prefab, punch_spawn_pos, transform.rotation);
+            Instantiate(punch_particle_prefab, carry_position.position, transform.rotation);
 
             //check in front of player
-            RaycastHit hit;
-            if (Physics.SphereCast(ray_spawn_position, 0.5f, transform.forward, out hit, 0.5f))
+            Collider[] hitColliders = Physics.OverlapSphere(carry_position.position, 1.0f);
+
+            List<Rigidbody> hit_rigidbodies = new List<Rigidbody>();            
+
+            int i = 0;
+            while (i < hitColliders.Length)
             {
-                if (hit.rigidbody)
+                Rigidbody hit_rigidbody = hitColliders[i].GetComponent<Rigidbody>();
+
+                if (!hit_rigidbody)
                 {
-                    if (hit.transform.name == "Player(Clone)")
+                    hit_rigidbody = hitColliders[i].GetComponentInParent<Rigidbody>();
+                }
+
+                if (hit_rigidbody == rigid_body)
+                {
+                    i++;
+                    continue;
+                }
+                    
+
+                if ((hit_rigidbody) && (!hit_rigidbodies.Contains(hit_rigidbody)))
+                {
+                    if (hitColliders[i].transform.name == "Player(Clone)")
                     {
-                        hit.transform.GetComponent<PlayerControl>().ThrowItem();
-                        hit.transform.GetComponent<PlayerControl>().LeaveStation();
+                        hitColliders[i].transform.GetComponent<PlayerControl>().ThrowItem();
+                        hitColliders[i].transform.GetComponent<PlayerControl>().LeaveStation();
                     }
 
                     //if on a deck, don't punch the deck's rigidbody
                     if (current_deck)
                     {
-                        if (current_deck.GetComponent<Rigidbody>() != hit.rigidbody)
-                        {                            
-                            AudioManager.PlayOneShot("slap");
-                            hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
-                            hit.rigidbody.AddForce(-transform.right * hit_force, ForceMode.VelocityChange);
-                            hit.rigidbody.AddForce(transform.up * hit_force * 2, ForceMode.VelocityChange);
+                        if (current_deck.GetComponent<Rigidbody>() == hit_rigidbody)
+                        {
+                            i++;
+                            continue;
                         }
                     }
 
                     //otherwise smack it 
-                    else
-                    {
-                        AudioManager.PlayOneShot("slap");
-                        hit.rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
-                        hit.rigidbody.AddForce(-transform.right * hit_force, ForceMode.VelocityChange);
-                        hit.rigidbody.AddForce(transform.up * hit_force * 2, ForceMode.VelocityChange);
-                    }
+                    AudioManager.PlayOneShot("slap");
+                    hit_rigidbody.AddForce(transform.forward * hit_force, ForceMode.VelocityChange);
+                    hit_rigidbody.AddForce(transform.up * hit_force * 2, ForceMode.VelocityChange);
+
+                    hit_rigidbodies.Add(hit_rigidbody);
+
                 }
+
+                i++;
             }
         }
     }
