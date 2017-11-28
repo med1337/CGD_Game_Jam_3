@@ -30,7 +30,17 @@ public class PlayerScore : MonoBehaviour
     private float collection_countdown;
 
 
-    string GetTimePlayedString()
+    public void InsertDoubloon()
+    {
+        current_cash = starting_cash;
+        collection_countdown = collection_delay;
+
+        cash_display.text = current_cash.ToString();
+        collection_amount_display.text = "$" + collection_amount.ToString();
+    }
+
+
+    public string GetTimePlayedString()
     {
         return time_display.text;
     }
@@ -49,11 +59,7 @@ public class PlayerScore : MonoBehaviour
 
     void Start()
     {
-        current_cash = starting_cash;
-        collection_countdown = collection_delay;
-
-        cash_display.text = current_cash.ToString();
-        collection_amount_display.text = "$" + collection_amount.ToString();
+        InsertDoubloon();
     }
 
 

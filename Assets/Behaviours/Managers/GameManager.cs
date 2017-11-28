@@ -42,17 +42,31 @@ public class GameManager : MonoBehaviour
         map_bound_radius = map_bounds_radius;
 
         if (Input.GetKeyDown(KeyCode.Escape))
-            Application.Quit();
+        {
+            int scene_index = SceneManager.GetActiveScene().buildIndex;
+
+            switch (scene_index)
+            {
+                case 0: Application.Quit(); break;
+                case 1: LoadScene(0); break;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            AudioManager.StopAllSFX();
-            SceneManager.LoadScene(0);
+            LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
 
-    private void OnDrawGizmos()
+    void LoadScene(int _index)
+    {
+        AudioManager.StopAllSFX();
+        SceneManager.LoadScene(_index);
+    }
+
+
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(Vector3.zero, map_bounds_radius);
