@@ -8,6 +8,7 @@ public class TurretShot : MonoBehaviour
     [SerializeField] float travel_speed;
     [SerializeField] GameObject ricochet_prefab;
     [SerializeField] int damage = 5;
+    [SerializeField] LayerMask hit_layers;
 
     
     void Start()
@@ -32,7 +33,7 @@ public class TurretShot : MonoBehaviour
     {
         Vector3 diff = (_current_pos - _prev_pos);
         RaycastHit hit;
-        Physics.Raycast(_prev_pos, diff.normalized, out hit, diff.magnitude);
+        Physics.Raycast(_prev_pos, diff.normalized, out hit, diff.magnitude, hit_layers);
 
         if (hit.collider == null)
             return;

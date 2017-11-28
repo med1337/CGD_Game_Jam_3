@@ -138,3 +138,6 @@ MonoBehaviour:
   ricochet_prefab: {fileID: 1697160659028514, guid: 95d8d250a9521f545bbde7f24c162dcf,
     type: 2}
   damage: 5
+  hit_layers:
+    serializedVersion: 2
+    m_Bits: 4294917083
