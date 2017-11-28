@@ -44,7 +44,7 @@ public class PlayerScore : MonoBehaviour
         collection_countdown = collection_delay;
 
         cash_display.text = current_cash.ToString();
-        collection_amount_display.text = collection_amount.ToString();
+        collection_amount_display.text = "$" + collection_amount.ToString();
     }
 
 
@@ -59,7 +59,7 @@ public class PlayerScore : MonoBehaviour
         if (collection_countdown <= 0)
         {
             collection_countdown = collection_delay;
-            collection_amount_display.text = collection_amount.ToString(); // in case we change the collection amount.
+            collection_amount_display.text = "$" + collection_amount.ToString(); // in case we change the collection amount.
 
             CollectPayment();
         }
