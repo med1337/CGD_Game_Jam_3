@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c295b9939d9880940bf2c72223e9ebe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is_player: 1
   outlines: []
 --- !u!114 &114291751135227922
 MonoBehaviour:

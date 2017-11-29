@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    [SerializeField] bool is_player = false;
+
     public bool outline_enabled
     {
         get
@@ -26,6 +28,9 @@ public class Pickup : MonoBehaviour
     private Transform trajectory_end;
     private float hook_progress;
 
+    private const float CLEANUP_AFTER = 30;
+    private float cleanup_timer;
+
 
     public void SetInUse(bool _in_use)
     {
@@ -41,8 +46,37 @@ public class Pickup : MonoBehaviour
 
     void Update()
     {
+        if (!is_player)
+            HandleCleanUp();
+
         if (hooked)
             HookedUpdate();
+    }
+
+
+    void HandleCleanUp()
+    {
+        CameraManager cam = GameManager.scene.camera_manager;
+        Vector3 cam_target_pos = cam.target_pos;
+        float sqr_mag = Vector3.SqrMagnitude(transform.position - cam_target_pos);
+
+        float cam_y_sqr = cam.transform.position.y * cam.transform.position.y;
+        if (sqr_mag <= cam_y_sqr)
+        {
+            cleanup_timer = 0;
+            return;
+        }
+
+        float prev_timer = cleanup_timer;
+        cleanup_timer += Time.deltaTime;
+
+        if (prev_timer < CLEANUP_AFTER && cleanup_timer >= CLEANUP_AFTER)
+        {
+            outline_enabled = false;
+
+            Destroy(GetComponent<Collider>());
+            Destroy(this.gameObject, 5);
+        }
     }
 
 
@@ -68,6 +102,7 @@ public class Pickup : MonoBehaviour
     {
         if (_other.CompareTag("Deck"))
         {
+            cleanup_timer = 0;
             transform.SetParent(_other.transform);
         }
     }

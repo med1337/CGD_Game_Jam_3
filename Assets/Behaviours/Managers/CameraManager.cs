@@ -113,17 +113,15 @@ public class CameraManager : MonoBehaviour
             return spawn_point.position;
         }
 
-        
-
         return avg_pos;
     }
 
 
     void UpdatePosition()
     {
-        target_pos += offset;
+        Vector3 final_target = target_pos + offset;
 
-        transform.position = Vector3.Lerp(transform.position, target_pos,
+        transform.position = Vector3.Lerp(transform.position, final_target,
             lerp_speed * GetCurrentDelta());
     }
 

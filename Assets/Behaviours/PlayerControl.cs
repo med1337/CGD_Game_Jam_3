@@ -372,14 +372,12 @@ public class PlayerControl : Controllable
         {
             AudioManager.PlayOneShot("drop_box");
             current_pickup.GetComponent<Rigidbody>().AddForce(transform.forward + transform.up);
-            Debug.Log("Placing Object");
         }
         // if the player is moving throw the object.
         else
         {
             AudioManager.PlayOneShot("throwing");
             current_pickup.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up) * throw_power);
-            Debug.Log("Throwing object");
         }
 
         // If the player is currently parented to a boat ect
