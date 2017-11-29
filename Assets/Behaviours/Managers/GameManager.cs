@@ -44,11 +44,15 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             int scene_index = SceneManager.GetActiveScene().buildIndex;
-
-            switch (scene_index)
+            if (scene_index == 0)
             {
-                case 0: Application.Quit(); break;
-                case 1: LoadScene(0); break;
+                // In menu .. Quit.
+                Application.Quit();
+            }
+            else
+            {
+                // Return to menu.
+                LoadScene(0);
             }
         }
 

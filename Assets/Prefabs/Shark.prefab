@@ -696,7 +696,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340312617503532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.57431, y: 2.3, z: 165.49536}
+  m_LocalPosition: {x: 97.998566, y: 0.36486658, z: -123.268875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4156485953808192}
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   particle_prefab: {fileID: 1824834035103590, guid: 6e68a1189873a6e4db0aecce6ad87345,
     type: 2}
   semi_auto: 0
-  shot_sound: {fileID: 0}
+  shot_sound: {fileID: 8300000, guid: 75c581a779096494b99306804019fc24, type: 3}
   turret: {fileID: 1198160653726104}
   shoot_point: {fileID: 4932210313512276}
   ejection_point: {fileID: 4232974518962208}
