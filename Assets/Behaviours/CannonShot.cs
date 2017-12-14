@@ -32,6 +32,8 @@ public class CannonShot : MonoBehaviour
     private int water_layer;
     private List<LifeForce> affected_entities = new List<LifeForce>();
 
+    [SerializeField] bool ignore_water;
+
 
     void Start()
     {
@@ -41,7 +43,7 @@ public class CannonShot : MonoBehaviour
 
     void Update()
     {
-        if (boy.in_water)
+        if (boy.in_water && !ignore_water)
         {
             if (sploosh_prefab != null)
                 Instantiate(sploosh_prefab, transform.position, Quaternion.identity);
