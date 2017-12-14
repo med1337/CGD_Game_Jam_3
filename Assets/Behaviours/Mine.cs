@@ -8,13 +8,14 @@ public class Mine : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.CompareTag("Mine") && other.name != "Water With Buoyency" && other.name != "Terrain")
+        if (other.gameObject.CompareTag("Deck"))
         {
-            Debug.Log(other.gameObject);
-            this.gameObject.GetComponent<SphereCollider>().enabled = false;
             Vector3 pos = GetComponentInParent<Transform>().position;
-            Instantiate(explosion, pos, explosion.transform.rotation);
-            Destroy(this.transform.parent.gameObject, 0.2f);
+
+            GameObject clone = Instantiate(explosion, pos, Quaternion.identity);
+            clone.GetComponent<CannonShot>().ManualDetonation();
+
+            Destroy(this.transform.parent.gameObject);
         }
     }
 }

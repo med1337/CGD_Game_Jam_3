@@ -23,7 +23,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     [SerializeField] int max_large_cargo_pop;
     [SerializeField] int max_navy_pop; // 
     [SerializeField] int difficulty_max_navy_pop; // 
-    [SerializeField] int max_large_navy_pop;
+    [SerializeField] int max_mine_pop;
 
     [Space]
     [Header("Time Between Spawning")]
@@ -35,7 +35,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     [SerializeField] int cargo_spawn_timer;
     [SerializeField] int large_cargo_spawn_timer;
     [SerializeField] int navy_spawn_timer;
-    [SerializeField] int large_navy_spawn_timer;
+    [SerializeField] int mine_spawn_timer;
 
     [Space]
     [Header("How Often Ships Are Cleared")]
@@ -52,7 +52,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     [SerializeField] List<GameObject> cargo_ships_prefabs;
     [SerializeField] List<GameObject> large_cargo_ships_prefabs;
     [SerializeField] List<GameObject> navy_ships_prefabs;
-    [SerializeField] List<GameObject> large_navy_ships_prefabs;
+    [SerializeField] List<GameObject> mines;
 
     // Handles to ships in scene
     private List<GameObject> floating_loot;
@@ -62,7 +62,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     private List<AICaptain> cargo_ships;
     private List<AICaptain> large_cargo_ships;
     private List<AICaptain> navy_ships;
-    private List<AICaptain> large_navy_ships;
+    private List<GameObject> floating_mines;
 
     private float loot_counter;
     private float wildlife_counter;
@@ -71,7 +71,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     private float cargo_counter;
     private float large_cargo_counter;
     private float navy_counter;
-    private float large_navy_counter;
+    private float mines_counter;
     private float update_counter;
 
     //How many times to check for a spawn pos
@@ -86,7 +86,7 @@ public class ShipLootSpawnManager : MonoBehaviour
         cargo_ships       = new List<AICaptain>();
         large_cargo_ships = new List<AICaptain>();
         navy_ships        = new List<AICaptain>();
-        large_navy_ships  = new List<AICaptain>();
+        floating_mines    = new List<GameObject>();
 
         loot_counter              = 0;
         wildlife_counter          = 0;
@@ -95,7 +95,7 @@ public class ShipLootSpawnManager : MonoBehaviour
         cargo_counter             = 0;
         large_cargo_counter       = 0;
         navy_counter              = 0;
-        large_navy_counter        = 0;
+        mines_counter             = 0;
         update_counter            = 0;
 
         difficulty_counter = 0;
@@ -115,7 +115,7 @@ public class ShipLootSpawnManager : MonoBehaviour
         cargo_counter       += Time.deltaTime;
         large_cargo_counter += Time.deltaTime;
         navy_counter        += Time.deltaTime;
-        large_navy_counter  += Time.deltaTime;
+        mines_counter       += Time.deltaTime;
         update_counter      += Time.deltaTime;
 
 
@@ -184,16 +184,16 @@ public class ShipLootSpawnManager : MonoBehaviour
         }
 
         // Spawn new LARGE NAVY boat
-        if (large_navy_counter >= large_navy_spawn_timer && large_navy_ships.Count < max_large_navy_pop)
+        if (mines_counter >= mine_spawn_timer && floating_mines.Count < max_mine_pop)
         {
             Vector3 pos = GeneratePos();
 
             if (ValidatePos(pos))
             {
-                SpawnItem(pos, large_navy_ships_prefabs);
+                SpawnItem(pos, mines);
             }
 
-            large_navy_counter = 0;
+            mines_counter = 0;
         }
 
         // Spawn Loot
@@ -252,7 +252,7 @@ public class ShipLootSpawnManager : MonoBehaviour
 
             ClearShips(navy_ships, pos);
 
-            ClearShips(large_navy_ships, pos);
+            ClearGameObjects(mines, pos);
 
             ClearShips(wildlife, pos);
 
@@ -405,14 +405,15 @@ public class ShipLootSpawnManager : MonoBehaviour
             navy_ships.Add(game_obj.GetComponent<AICaptain>());
         }
 
-        if (object_type == large_navy_ships_prefabs)
+        if (object_type == mines)
         {
-            large_navy_ships.Add(game_obj.GetComponent<AICaptain>());
+            game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 6.0f), game_obj.transform.position.z);
+            floating_mines.Add(game_obj.gameObject);
         }
 
         if (object_type == loot_prefabs)
         {
-            game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 6.0f), game_obj.transform.position.z);
+            //game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 6.0f), game_obj.transform.position.z);
             floating_loot.Add(game_obj.gameObject);
         }
 

@@ -58,15 +58,7 @@ public class CannonShot : MonoBehaviour
 
     void OnCollisionEnter(Collision _other)
     {
-        if (explosion_prefab != null)
-            Instantiate(explosion_prefab, transform.position, Quaternion.identity);
-
-        CameraShake.Shake(hit_shake_strength, hit_shake_duration);
-        AudioManager.PlayOneShot(hit_sound);
-
-        DamageAllInSphere();
-
-        Destroy(this.gameObject);
+        ManualDetonation();
     }
 
 
@@ -87,6 +79,20 @@ public class CannonShot : MonoBehaviour
             life.Damage(damage);
             affected_entities.Add(life);
         }
+    }
+
+    
+    public void ManualDetonation()
+    {
+        if (explosion_prefab != null)
+            Instantiate(explosion_prefab, transform.position, Quaternion.identity);
+
+        CameraShake.Shake(hit_shake_strength, hit_shake_duration);
+        AudioManager.PlayOneShot(hit_sound);
+
+        DamageAllInSphere();
+
+        Destroy(this.gameObject);
     }
 
 
