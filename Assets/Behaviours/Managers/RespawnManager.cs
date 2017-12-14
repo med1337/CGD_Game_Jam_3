@@ -55,15 +55,9 @@ public class RespawnManager : MonoBehaviour
     {
         // Create the player.
         PlayerControl player = Instantiate(player_prefab).GetComponent<PlayerControl>();
+        player.transform.position = respawn_point.position;
 
-        Vector3 ray_pos = GameManager.scene.camera_manager.target_pos;
-        ray_pos.y = 1000;
-
-        RaycastHit hit;
-        Physics.Raycast(ray_pos, -Vector3.up, out hit, Mathf.Infinity);
-
-        Vector3 respawn_pos = hit.point + (Vector3.up * 5);
-        player.transform.position = respawn_pos;
+        player.relative_point = GameObject.Find("CameraMount").transform;
 
         // Add player to alive list.
         alive_players.Add(player);

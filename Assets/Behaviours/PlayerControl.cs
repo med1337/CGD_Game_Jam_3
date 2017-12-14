@@ -6,6 +6,7 @@ using Rewired;
 public class PlayerControl : Controllable
 {
     public Player input;
+    public Transform relative_point;
 
     [Header("Parameters")]
     [SerializeField] float move_speed;
@@ -57,16 +58,16 @@ public class PlayerControl : Controllable
 
     public override void Move(Vector3 _dir)
     {
+        move_dir = (relative_point.forward * _dir.z) + (relative_point.right * _dir.x);
+
         if (IsUsingStation())
         {
-            current_station.controllable.Move(_dir);
+            current_station.controllable.Move(move_dir);
         }
         else
         {
-            if (_dir != Vector3.zero)
-                transform.rotation = Quaternion.LookRotation(_dir);
-
-            move_dir = _dir;
+            if (move_dir != Vector3.zero)
+                transform.rotation = Quaternion.LookRotation(move_dir);
         }
     }
 
@@ -125,10 +126,10 @@ public class PlayerControl : Controllable
         if (input.GetButtonDown("Interact"))
             Interact();
 
+        Move(new Vector3(horizontal, 0, vertical));
+
         if (!IsUsingStation())
         {
-            Move(new Vector3(horizontal, 0, vertical));
-
             if (input.GetButtonDown("Attack"))
                 Attack();
 
@@ -151,7 +152,6 @@ public class PlayerControl : Controllable
             //transform.position = current_station.transform.position;
             //transform.rotation = current_station.transform.rotation;
 
-            current_station.controllable.Move(new Vector3(horizontal, 0, vertical));
             current_station.controllable.Accelerate(new Vector2(acceleration, decceleration));
 
             if (input.GetButton("Attack"))

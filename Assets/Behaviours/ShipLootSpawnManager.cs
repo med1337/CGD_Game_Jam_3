@@ -239,8 +239,8 @@ public class ShipLootSpawnManager : MonoBehaviour
 
     void StatusUpdate()
     {
-        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
-        GameManager.scene.camera_manager.target_pos.z);
+        Vector3 pos = new Vector3(GameManager.scene.camera_manager.transform.position.x, 0.0f,
+            GameManager.scene.camera_manager.transform.position.z);
 
         if (update_counter >= update_timer)
         {
