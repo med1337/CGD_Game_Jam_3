@@ -117,6 +117,13 @@ public class LeoControl : Controllable
     }
 
 
+    private void LateUpdate()
+    {
+        if (GoSelf)
+            transform.eulerAngles = new Vector3(0, transform.rotation.eulerAngles.y,
+                transform.rotation.eulerAngles.z);
+    }
+
     float Remap(float currentValue, float minimumOne, float maximumOne, float minimumTwo, float maximumTwo)
     {
         return ((currentValue - minimumOne) / (maximumOne - minimumOne) * (maximumTwo - minimumTwo)) + minimumTwo;
