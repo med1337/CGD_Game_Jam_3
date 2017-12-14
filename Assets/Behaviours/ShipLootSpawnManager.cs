@@ -41,6 +41,7 @@ public class ShipLootSpawnManager : MonoBehaviour
     [Header("How Often Ships Are Cleared")]
     [SerializeField] int update_timer;
     [SerializeField] float difficulty_timer;
+    [SerializeField] Transform spawn_pos;
     private float difficulty_counter;
 
     [Space]
@@ -239,8 +240,8 @@ public class ShipLootSpawnManager : MonoBehaviour
 
     void StatusUpdate()
     {
-        Vector3 pos = new Vector3(GameManager.scene.camera_manager.transform.position.x, 0.0f,
-            GameManager.scene.camera_manager.transform.position.z);
+        Vector3 pos = new Vector3(spawn_pos.position.x, 0.0f,
+            spawn_pos.position.z);
 
         if (update_counter >= update_timer)
         {
@@ -252,7 +253,7 @@ public class ShipLootSpawnManager : MonoBehaviour
 
             ClearShips(navy_ships, pos);
 
-            ClearGameObjects(mines, pos);
+            ClearGameObjects(floating_mines, pos);
 
             ClearShips(wildlife, pos);
 
@@ -273,8 +274,8 @@ public class ShipLootSpawnManager : MonoBehaviour
         // Remove Disabled Ships
         _ships.RemoveAll(item => item == null);
 
-        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
-            GameManager.scene.camera_manager.target_pos.z);
+        Vector3 pos = new Vector3(spawn_pos.position.x, 0.0f,
+            spawn_pos.position.z);
 
         for (int i = _ships.Count - 1; i > -1; i--)
         {
@@ -329,10 +330,10 @@ public class ShipLootSpawnManager : MonoBehaviour
             float angle = Random.Range(0, 360);
 
             // Take Cameras X & Z position
-            Vector3 position = new Vector3 (GameManager.scene.camera_manager.target_pos.x, 0.0f,
-                GameManager.scene.camera_manager.target_pos.z);
+            Vector3 position = new Vector3(spawn_pos.position.x, 0.0f,
+                spawn_pos.position.z);
 
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
 
             Vector3 dist_to_target = rotation * transform.forward * Random.Range(min_spawn_distance, max_spawn_distance);
 
@@ -344,7 +345,7 @@ public class ShipLootSpawnManager : MonoBehaviour
             {
                 RaycastHit hit;
                 if (Physics.Raycast(new Vector3(potential_pos_valid.x, 100.0f, potential_pos_valid.z),
-                    Vector3.down, out hit, 100.0f, check_layers))
+                        Vector3.down, out hit, 100.0f, check_layers))
                 {
                     Debug.DrawRay(position, dist_to_target, Color.red, 3);
 
@@ -373,7 +374,7 @@ public class ShipLootSpawnManager : MonoBehaviour
             return _desired_waypoint;
 
         NavMesh.FindClosestEdge(_desired_waypoint, out hit, NavMesh.AllAreas);
-        return hit.position;
+            return hit.position;
     }
 
 
@@ -407,13 +408,13 @@ public class ShipLootSpawnManager : MonoBehaviour
 
         if (object_type == mines)
         {
-            game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 6.0f), game_obj.transform.position.z);
+            game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 5.0f), game_obj.transform.position.z);
             floating_mines.Add(game_obj.gameObject);
         }
 
         if (object_type == loot_prefabs)
         {
-            //game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 6.0f), game_obj.transform.position.z);
+            game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 5.0f), game_obj.transform.position.z);
             floating_loot.Add(game_obj.gameObject);
         }
 
@@ -440,8 +441,8 @@ public class ShipLootSpawnManager : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Vector3 pos = new Vector3(GameManager.scene.camera_manager.target_pos.x, 0.0f,
-            GameManager.scene.camera_manager.target_pos.z);
+        Vector3 pos = new Vector3(spawn_pos.position.x, 0.0f,
+            spawn_pos.position.z);
 
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(pos, clear_distance);
