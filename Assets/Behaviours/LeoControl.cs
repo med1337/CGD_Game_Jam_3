@@ -12,6 +12,10 @@ public class LeoControl : Controllable
     [SerializeField] float decceleration_multiplier = 1;
     [SerializeField] Vector3 centre_of_mass = Vector3.up;
 
+    public bool GoSelf = false;
+    public bool SpawnCargo = false;
+    public GameObject cargo;
+    public float angle;
     public GameObject hull;
     public List<WheelCollider> colliders;
 
@@ -68,6 +72,13 @@ public class LeoControl : Controllable
     // Update is called once per frame
     void Update()
     {
+        if (SpawnCargo)
+        {
+            var SpawnPos = new Vector3(0,8,0);
+            SpawnPos += transform.position;
+            GameObject.Instantiate(cargo, SpawnPos, Quaternion.identity);
+            SpawnCargo = false;
+        }
         if (engine_audio_source == null)
             return;
 
@@ -77,6 +88,12 @@ public class LeoControl : Controllable
 
     private void FixedUpdate()
     {
+        if(GoSelf)
+        {
+            angle = Vector3.Angle(transform.right, Vector3.up) - 90;
+            move_dir.x = angle;
+            acceleration = 1;
+        }
         for (int i = 0; i < colliders.Count; ++i)
         {
             if (i < 2)
