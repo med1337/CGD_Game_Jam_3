@@ -8,7 +8,7 @@ public class Mine : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!other.gameObject.CompareTag("Mine") && other.name != "Water With Buoyency")
+        if(!other.gameObject.CompareTag("Mine") && other.name != "Water With Buoyency" && other.name != "Terrain")
         {
             Debug.Log(other.gameObject);
             this.gameObject.GetComponent<SphereCollider>().enabled = false;
