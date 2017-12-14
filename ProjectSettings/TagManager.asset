@@ -9,6 +9,7 @@ TagManager:
   - Spawn
   - Water
   - Roof
+  - Mine
   layers:
   - Default
   - TransparentFX

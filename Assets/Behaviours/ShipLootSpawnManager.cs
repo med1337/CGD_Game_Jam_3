@@ -412,6 +412,7 @@ public class ShipLootSpawnManager : MonoBehaviour
 
         if (object_type == loot_prefabs)
         {
+            game_obj.transform.position = new Vector3(game_obj.transform.position.x, (game_obj.transform.position.y - 6.0f), game_obj.transform.position.z);
             floating_loot.Add(game_obj.gameObject);
         }
 
