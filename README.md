@@ -1,5 +1,5 @@
 ![front](https://tomturnerblog.files.wordpress.com/2018/03/sos_front_image1.png)
-# SavioursOfTheSea
+# Saviours of the Sea
 Cooperative sea faring combat game. Devloped for Commercial Games Development module taught at BSc Games Technology at University of the West of England
 
 **Gameplay video:** https://www.youtube.com/watch?v=sbF0BEep8rw
